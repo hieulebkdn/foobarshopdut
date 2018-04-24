@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 9.99
+  weight: 1.5
+  image: MyString
+  stock: 1
+  detail: MyText
+  description: MyText
+  warranty: MyString
+  rating: 1
+  cpu: MyString
+  ram: MyString
+  memory: MyString
+  display: MyString
+
+two:
+  name: MyString
+  price: 9.99
+  weight: 1.5
+  image: MyString
+  stock: 1
+  detail: MyText
+  description: MyText
+  warranty: MyString
+  rating: 1
+  cpu: MyString
+  ram: MyString
+  memory: MyString
+  display: MyString

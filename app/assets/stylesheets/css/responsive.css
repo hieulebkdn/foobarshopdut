@@ -1,0 +1,14 @@
+﻿@media only screen and (max-width: 1120px) {
+h3 { font-size: 16px; }
+.btn-mobile-menu { display: block; }
+.nav-user-mobile { display: block; }
+.container { width: 100%; padding: 0 !important; margin: 0 !important; }
+.profile-sidebar { display: none; }
+.content-info { padding: 4px; }
+.content-info .info-item { width: 100%; }
+.address-popup { width: 100%; }
+.address-popup .btn-close {right: 0px;top: -30px;}
+.hide-mobile {display: none;}
+.info-item .info-item-title  {width: 30%;}
+.info-item .info-item-content {width: 70% !important;}
+}
