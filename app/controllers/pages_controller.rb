@@ -13,4 +13,7 @@ class PagesController < ApplicationController
 	def shop
 		@products = Product.all.limit(5)
 	end
+
+	def single_product
+	end
 end

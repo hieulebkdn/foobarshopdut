@@ -138,7 +138,9 @@ Rails.application.routes.draw do
   get '/admin_users', to: 'admin_users#index'
 
   get 'pages/test_function' 
-  get 'pages/shop'   
+  get 'pages/shop' 
+  get 'pages/single_product'   
+
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
