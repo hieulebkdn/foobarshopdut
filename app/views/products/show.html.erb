@@ -117,39 +117,21 @@
         </div>
 
         <div class="single-sidebar">
-          <h2 class="sidebar-title">Products</h2>
+          <h2 class="sidebar-title">Trending Product</h2>
+
+          <% @trendingProduct.each do |product| %>
           <div class="thubmnail-recent">
-            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-            <h2><a href="">Sony Smart TV - 2015</a></h2>
+            <%= image_tag product.image.url(:medium), class: "recent-thumb" %>
+            <h2><%= link_to product.name, controller: "products", action: "show", id: product.id %></h2>
             <div class="product-sidebar-price">
-              <ins>$700.00</ins> <del>$100.00</del>
+              <ins> $  <%= product.price%> </ins> <del>$ <%= format("%.2f", product.price * 1.2 ) %></del>
             </div>                             
           </div>
-          <div class="thubmnail-recent">
-            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-            <h2><a href="">Sony Smart TV - 2015</a></h2>
-            <div class="product-sidebar-price">
-              <ins>$700.00</ins> <del>$100.00</del>
-            </div>                             
-          </div>
-          <div class="thubmnail-recent">
-            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-            <h2><a href="">Sony Smart TV - 2015</a></h2>
-            <div class="product-sidebar-price">
-              <ins>$700.00</ins> <del>$100.00</del>
-            </div>                             
-          </div>
-          <div class="thubmnail-recent">
-            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-            <h2><a href="">Sony Smart TV - 2015</a></h2>
-            <div class="product-sidebar-price">
-              <ins>$700.00</ins> <del>$100.00</del>
-            </div>                             
-          </div>
+          <% end %>    
         </div>
 
         <div class="single-sidebar">
-          <h2 class="sidebar-title">Recent Posts</h2>
+          <h2 class="sidebar-title">Recently View</h2>
           <ul>
             <li><a href="">Sony Smart TV - 2015</a></li>
             <li><a href="">Sony Smart TV - 2015</a></li>
@@ -228,20 +210,22 @@
 
                 <div role="tabpanel">
                   <ul class="product-tab" role="tablist">
+
                     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Detail</a></li>
                     <li role="presentation"><a href="#description" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
                     <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+
                   </ul>
                   <div class="tab-content">
 
                     <div role="tabpanel" class="tab-pane fade in active" id="home">
                       <h2>Product Detail</h2>  
-                      <p><%= @product.detail %> </p>
+                      <p><%= @product.detail %></p>
                     </div>
 
                     <div role="tabpanel" class="tab-pane fade in active" id="description">
                       <h2>Product Description</h2>  
-                      <p><%= @product.description %> </p>
+                      <p><%= @product.description %></p>
                     </div>
 
                     <div role="tabpanel" class="tab-pane fade" id="profile">

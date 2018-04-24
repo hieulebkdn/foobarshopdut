@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @trendingProduct = Product.all.order(view: :desc).limit(5)
   end
 
   # GET /products/new
