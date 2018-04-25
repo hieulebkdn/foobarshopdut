@@ -30,6 +30,7 @@ class AdminsController < ApplicationController
 
     respond_to do |format|
       if @admin.save
+        admin_log_in @admin
         format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
         format.json { render :show, status: :created, location: @admin }
       else
@@ -64,7 +65,7 @@ class AdminsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
       params.require(:admin).permit(:name, :password, :email, :phone, :company, :address, :image)

@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @trendingProduct = Product.all.order(view: :desc).limit(5)
+    @trendingProduct = Product.all
   end
 
   # GET /products/new
@@ -27,7 +27,6 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -63,6 +62,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def import
+    Product.import_file params[:file]
+    redirect_to products_url, notice: "Data imported"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -82,4 +86,5 @@ class ProductsController < ApplicationController
         redirect_to login_url
       end
     end
+
 end
