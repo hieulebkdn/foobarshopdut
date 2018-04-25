@@ -3,6 +3,7 @@ class Product < ApplicationRecord
 	# has_many :reviews
 	# has_many :order_details
 	# belongs_to :Admin
+	belongs_to :category
 	# belongs_to :Brand, :Category, :Admin
 	has_many :line_items
 	validates :price, presence: true

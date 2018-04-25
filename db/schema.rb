@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424074057) do
+ActiveRecord::Schema.define(version: 20180425020119) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(version: 20180424074057) do
     t.date "shipday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "orders_id"
-    t.integer "products_id"
-    t.index ["orders_id"], name: "index_order_details_on_orders_id"
-    t.index ["products_id"], name: "index_order_details_on_products_id"
+    t.integer "order_id"
+    t.integer "product_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
+    t.index ["product_id"], name: "index_order_details_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -97,18 +97,18 @@ ActiveRecord::Schema.define(version: 20180424074057) do
     t.string "display"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "brands_id"
-    t.integer "categories_id"
-    t.integer "admins_id"
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.string "gpu"
     t.integer "view", default: 0
-    t.index ["admins_id"], name: "index_products_on_admins_id"
-    t.index ["brands_id"], name: "index_products_on_brands_id"
-    t.index ["categories_id"], name: "index_products_on_categories_id"
+    t.integer "brand_id"
+    t.integer "category_id"
+    t.integer "admin_id"
+    t.index ["admin_id"], name: "index_products_on_admin_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -117,8 +117,8 @@ ActiveRecord::Schema.define(version: 20180424074057) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "products_id"
-    t.index ["products_id"], name: "index_reviews_on_products_id"
+    t.integer "product_id"
+    t.index ["product_id"], name: "index_reviews_on_product_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 

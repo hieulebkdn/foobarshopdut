@@ -88,7 +88,7 @@ end
 
 product_list.each do |categoryID, brandID, n, pr, w, s, det, des, chip, r, memo, dis, gpu | 
 	unless existing_nameProduct.include?(n)
-		Product.create(categories_id: categoryID, brands_id: brandID, name: n, price: pr , weight: w, stock: s, detail: det, description: des, cpu: chip, ram: r, memory: memo, display: dis, gpu: gpu, view: rand(1..10000))
+		Product.create(category_id: categoryID, brand_id: brandID, name: n, price: pr , weight: w, stock: s, detail: det, description: des, cpu: chip, ram: r, memory: memo, display: dis, gpu: gpu, view: rand(1..10000))
 	end
 end
 

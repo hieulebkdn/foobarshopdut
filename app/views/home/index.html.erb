@@ -181,7 +181,7 @@
                 <%= image_tag product.image.url(:medium), class: "image-product-size" %>
                 <div class="product-hover">
                   <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                  <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                  <a href="products/<%= product.id %>" class="view-details-link"><i class="fa fa-link"></i> See details</a>
               </div>
           </div>
           <h2><%= link_to product.name, controller: "products", action: "show", id: product.id %></h2>
