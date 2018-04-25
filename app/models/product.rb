@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 
-	# has_many :reviews
+	has_many :reviews
 	# has_many :order_details
 	# belongs_to :Admin
 	belongs_to :category

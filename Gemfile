@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'faker'
+
+
 gem "paperclip"
 gem 'aws-sdk', '~>2'
 gem 'sqlite3', group: :development # Added development group.

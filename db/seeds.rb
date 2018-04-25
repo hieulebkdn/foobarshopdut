@@ -35,6 +35,14 @@ category_list = [
 	["Phone", 1]#13
 ]
 
+50.times do |n|
+	content = Faker::Lorem.sentence(5)
+	rating = rand(2..4)
+	product_id = rand(1..7)
+	reviewer_name = Faker::Name.name
+	Review.create(content: content, rating: rating, product_id: product_id, reviewer_name: reviewer_name)
+end
+
 product_list = [
 	#GAMING
 	[2,11,"GIGABYTE Aero", 2299, 4, 100, "15X v8-BK4 15.6' Thin Bezel 144 Hz Intel Core i7 8th Gen 8750H (2.20 GHz) NVIDIA GeForce GTX 1070 16 GB DDR4-2666 Memory 512 GB SSD Windows 10 Home 64-Bit Gaming Laptop 94.24Wh Huge Battery Capacity X-Rite Pantone Certified", "Sieu dep","Intel® Core™ i7-8750H", "16GB DDR4-2666 Memory", "1TB HDD + 256GB SSD","14.0 (W) x 9.8(D) x 0.78(H) inch", "NVIDIA® GeForce® GTX 1070 Max-Q Design GDDR5 6GB"],

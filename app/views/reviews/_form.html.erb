@@ -1,27 +1,35 @@
 <%= form_with(model: review, local: true) do |form| %>
-  <% if review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<% if review.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
 
-      <ul>
-      <% review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% review.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: :review_content %>
-  </div>
+<div class="field">
+  <%= form.label :reviewer_name %>
+  <%= form.text_area :reviewer_name, id: :review_reviewer_name %>
+</div>
 
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating, id: :review_rating %>
-  </div>
+<div class="field">
+  <%= form.label :content %>
+  <%= form.text_area :content, id: :review_content %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="field">
+  <%= form.label :rating %>
+  <%= form.number_field :rating, id: :review_rating %>
+</div>
+
+<%= form.hidden_field :product_id, id: :product_id, :value => 1 %>
+
+
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>
