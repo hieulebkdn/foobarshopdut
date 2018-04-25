@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
 
-  def new 
+  def new
+    if logged_in? || admin_logged_in?
+      # flash.now[:warning] = 'Logged in'
+      redirect_to root_url
+    end 
   end
   
   def create
@@ -22,22 +26,13 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  	log_out if logged_in?
-    redirect_to root_url
+    if admin_logged_in?
+      admin_log_out
+      redirect_to root_url
+    else
+      log_out if logged_in?
+      redirect_to root_url
+    end
   end
+end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-  			#successfull update
-  			flash[:success] = "Profile Updated"
-  			redirect_to @user
-  		else
-  			render 'edit'
-  		end
-  	end
-  end
