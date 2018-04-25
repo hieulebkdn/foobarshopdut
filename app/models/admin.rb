@@ -3,11 +3,6 @@ class Admin < ApplicationRecord
 	# has_many :Product, dependent: :destroy
 
 	validates :name, presence: true, length: { maximum: 80 }
-
-
-	validates :password, confirmation: { case_sensitive: false }, allow_nil: true
-	validates :password_confirmation, presence: true, allow_nil: true
-
 	VALID_PHONE_REGEX = /\A[0]{1}[19]{1}[0-9]{8,9}\z/
 	validates :phone, presence: true, length: { maximum: 15 }, format: { with: VALID_PHONE_REGEX }, uniqueness: { case_sensitive: false }
 

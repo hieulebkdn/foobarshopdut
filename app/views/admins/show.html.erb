@@ -4,11 +4,10 @@
           <div class="col-md-8">
             <div class="user-menu">
               <ul>
-                <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                <li><a href="/carts"><i class="fa fa-user"></i> My Cart</a></li>
-                <li><a href="/checkouts"><i class="fa fa-user"></i> Checkout</a></li>
-                <li><a href="/login"><i class="fa fa-user"></i> SignIn</a></li>
+                <i class="fa fa-user"></i>
+                <li><%= link_to "My Account", current_admin %></li>
+                <i class="fa fa-user"></i>
+                <li><%= link_to "Log out", logout_path, method: :delete %></li>
               </ul>
             </div>
           </div>
@@ -90,7 +89,7 @@
         <div class="col-md-3">
           <div class="profile-sidebar">
             <div class="profile-userpic">
-              <img id="imgLeftProfileMemberAvatar" src="apple.png" class="img-responsive" alt="">
+              <%= image_tag @admin.image.url(:thumb) %>
             </div>
             <div class="profile-usertitle">
               <div class="profile-usertitle-name">
@@ -100,41 +99,27 @@
 
             <div class="profile-usermenu">
               <ul class="nav">
-                <li class="active" id="proInfo">                 
-                  <i class="fa fa-pencil-square-o ">
-                    <%= link_to "Profile", @admin %>
-                  </i>
+
+                <li class="active" id="proInfo">                                  
+                  <%= link_to "Profile", current_admin %>                   
                 </li>
 
-                <li id="proChangePass">                  
-                  <i class="fa fa-user">
-                    <%= link_to "Manage Users", users_url %> 
-                  </i>
+                <li id="proChangePass">                                    
+                  <%= link_to "Manage Users", users_url %>                   
                 </li>
 
-                <li id="proChangePass">                  
-                  <i class="fa fa-user">
-                    <%= link_to "Manage Products", products_url %> 
-                  </i>
+                <li id="proChangePass">                                   
+                  <%= link_to "Manage Products", products_url %>                 
                 </li>
 
               <% if current_admin?(@admin) %>
-                <li id="proChangePass"> 
-                  <i class="fa fa-user">
-                    <%= link_to "Edit", edit_admin_path(@admin) %>
-                  </i>
+                
+                <li id="proChangePass">                   
+                  <%= link_to "Edit", edit_admin_path(current_admin) %>                  
                 </li>
 
-                <li id="proChangePass">                  
-                  <i class="fa fa-user">
-                    <%= link_to "Change Password", edit_admin_path(@admin) %>
-                  </i>
-                </li>
-
-                <li>                  
-                  <i class="fa fa-sign-out">
-                    <%= link_to "Log Out", logout_path, method: :delete %>
-                  </i>
+                <li>                                    
+                  <%= link_to "Log Out", logout_path, method: :delete %>                  
                 </li>
               <% end %>
 

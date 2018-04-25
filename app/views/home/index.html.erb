@@ -4,11 +4,19 @@
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="/login"><i class="fa fa-user"></i> My Account</a></li>
+                            <% if admin_logged_in? %>
+                            <i class="fa fa-user"></i>                                                           
+                                <li><%= link_to "My Account", current_admin %></li>                               
+                            <% elsif logged_in? %>
+                            <i class="fa fa-user"></i>
+                                <li><%= link_to "My Account", current_user %></li>
+                            <% else %>
+                            <i class="fa fa-user"></i>
+                                <li><%= link_to "Log in", login_path %></li> 
+                            <% end %>                             
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                             <li><a href="/carts"><i class="fa fa-user"></i> My Cart</a></li>
                             <li><a href="/checkouts"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="/login"><i class="fa fa-user"></i> Login</a></li>
                         </ul>
                     </div>
                 </div>
