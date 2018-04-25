@@ -1,4 +1,4 @@
-    <div class="header-area">
+<div class="header-area">
       <div class="container">
         <div class="row">
           <div class="col-md-8">
@@ -85,6 +85,7 @@
     </div>
     <!-- End mainmenu area -->
     
+<% @admins.each do |admin| %>
     <div class="container">
       <div class="row profile">
         <div class="col-md-3">
@@ -94,10 +95,10 @@
             </div>
             <div class="profile-usertitle">
               <div class="profile-usertitle-name">
-                Quan Truong
+                <%= admin.name %>
               </div>
             </div>
-
+          
             <div class="profile-usermenu">
               <ul class="nav">
                 <li class="active" id="proInfo">
@@ -106,30 +107,35 @@
                     Profile
                   </a>
                 </li>
+              <% if current_admin?(admin) %>
                 <li id="proChangePass">
                   <a href="../update/update.html">
                     <i class="fa fa-user"></i>
                     Edit
                   </a>
                 </li>
+
                 <li id="proChangePass">
                   <a href="../product/product.html">
                     <i class="fa fa-user"></i>
                     History cart
                   </a>
                 </li>
+
                 <li id="proChangePass">
                   <a href="../changepassword/changepassword.html">
                     <i class="fa fa-user"></i>
                     Change Password
                   </a>
                 </li>
+
                 <li>
                   <a href="https://id.foody.vn/dang-xuat">
                     <i class="fa fa-sign-out"></i>
                     Sign out
                   </a>
                 </li>
+              <% end %>
               </ul>
             </div>
           </div>
@@ -150,53 +156,40 @@
                   </div>
                 </div>
                 <input name="__RequestVerificationToken" type="hidden" value="VCI9ivTcI57abGPtru1YIto15j-chLG8tjF-n2GiACtUzRZIscZx8f6HKzDVzKB8uzhpz4GKGJ1vsXzLHSbaXvPmeEPl0jXJfW2_-IfTktI1">    <div class="form-group">
-                  <label class="control-label col-md-4">LastName</label>
+                  <label class="control-label col-md-4">Name</label>
                   <div class="col-md-8" style="padding-top: 7px;">
-                    Quan
+                    <%= admin.name %>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="control-label col-md-4">FirstName</label>
-                  <div class="col-md-8" style="padding-top: 7px;">
-                    Truong
-                  </div>
-                </div>
+
                 <div class="form-group">
                   <label class="control-label col-md-4">Email</label>
                   <div class="col-md-8" style="padding-top: 7px;">
-                    kubim298@gmail.com
+                    <%= admin.email %>
                   </div>
                 </div>
+
                 <div class="form-group">
-                  <label class="control-label col-md-4">Sex</label>
+                  <label class="control-label col-md-4">Phone</label>
                   <div class="col-md-8" style="padding-top: 7px;">
-                    Male
+                    <%= admin.phone %>
                   </div>
                 </div>
+
                 <div class="form-group">
-                  <label class="control-label col-md-4">Birthday</label>
+                  <label class="control-label col-md-4">Company</label>
                   <div class="col-md-8" style="padding-top: 7px;">
-                    29/08/1997
+                    <%= admin.company %>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="control-label col-md-4">Phone Number</label>
-                  <div class="col-md-8" style="padding-top: 7px;">
-                    0937114538
-                  </div>
-                </div>
+
                 <div class="form-group">
                   <label class="control-label col-md-4">Address</label>
                   <div class="col-md-8" style="padding-top: 7px;">
-                    Da Nang
+                    <%= admin.address %>
                   </div>
                 </div>
-                <div class="form-group">
-                  <label class="control-label col-md-4">Description</label>
-                  <div class="col-md-8" style="padding-top: 7px;">
-                    Zero9
-                  </div>
-                </div>
+
               </form>
             </div>
           </div>
@@ -204,3 +197,4 @@
       </div>
     </div>
   </div>
+  <% end %>

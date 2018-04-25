@@ -57,7 +57,7 @@
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
+    User.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
@@ -66,7 +66,12 @@
 
   private
     # Use callbacks to share common setup or constraints between actions.
-     def user_params
+    # def set_user
+    #   @user = User.find(params[:id])
+    # end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params
       params.require(:user).permit(:name, :password, :password_confirmation, :avatar, :email, :phone, :city, :address, :gender, :dob)
     end
 
@@ -91,7 +96,4 @@
         redirect_to login_url
       end
     end
-
-
-
 end
