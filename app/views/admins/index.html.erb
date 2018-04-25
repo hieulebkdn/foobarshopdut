@@ -4,11 +4,10 @@
           <div class="col-md-8">
             <div class="user-menu">
               <ul>
-                <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                <li><a href="/carts"><i class="fa fa-user"></i> My Cart</a></li>
-                <li><a href="/checkouts"><i class="fa fa-user"></i> Checkout</a></li>
-                <li><a href="/login"><i class="fa fa-user"></i> SignIn</a></li>
+                <i class="fa fa-user"></i>
+                <li><%= link_to "My Account", current_admin %></li>
+                <i class="fa fa-user"></i>
+                <li><%= link_to "Log out", logout_path, method: :delete %></li>
               </ul>
             </div>
           </div>
@@ -101,40 +100,25 @@
           
             <div class="profile-usermenu">
               <ul class="nav">
-                <li class="active" id="proInfo">
-                  <a href="https://id.foody.vn/tai-khoan">
-                    <i class="fa fa-pencil-square-o "></i>
-                    Profile
+                <li class="active" id="proInfo">                  
+                    <i class="fa fa-pencil-square-o ">
+                    <%= link_to "View Profile", admin %>
+                    </i>
                   </a>
                 </li>
               <% if current_admin?(admin) %>
                 <li id="proChangePass">
-                  <a href="../update/update.html">
-                    <i class="fa fa-user"></i>
-                    Edit
-                  </a>
+                    <i class="fa fa-user">
+                    <%= link_to "Edit", edit_admin_path(admin) %>
+                    </i>
                 </li>
 
-                <li id="proChangePass">
-                  <a href="../product/product.html">
-                    <i class="fa fa-user"></i>
-                    History cart
-                  </a>
+                <li>                 
+                  <i class="fa fa-sign-out">
+                    <%= link_to "Log out", logout_path, method: :delete %>
+                  </i>
                 </li>
 
-                <li id="proChangePass">
-                  <a href="../changepassword/changepassword.html">
-                    <i class="fa fa-user"></i>
-                    Change Password
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://id.foody.vn/dang-xuat">
-                    <i class="fa fa-sign-out"></i>
-                    Sign out
-                  </a>
-                </li>
               <% end %>
               </ul>
             </div>
