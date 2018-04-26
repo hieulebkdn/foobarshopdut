@@ -1,3 +1,4 @@
+<% provide(:title, "Edit Admin") %>
 <%= form_with(model: @admin, local: true) do |form| %>
   <% if @admin.errors.any? %>
     <div id="error_explanation">
@@ -8,102 +9,16 @@
       <% end %>
       </ul>
     </div>
-  <% end %>    
-
-    <div class="header-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="user-menu">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="signin/signin.html"><i class="fa fa-user"></i> SignIn</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="header-right">
-                        <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">INR</a></li>
-                                    <li><a href="#">GBP</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End header area -->
-    
-    <div class="site-branding-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="logo">
-                        <h1><a href="index.html"><img src="../img/logo.png"></a></h1>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End site branding area -->
-    
-    <div class="mainmenu-area">
-        <div class="container">
-            <div class="row">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div> 
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop page</a></li>
-                        <li><a href="single-product.html">Single product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="#">Category</a></li>
-                        <li><a href="#">Others</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>  
-            </div>
-        </div>
-    </div>
-	<!-- End mainmenu area -->
+  <% end %>       
+   
+   <%= render 'admin_form' %>
 	
 	<div class="container">
 	<div class="row profile">
 		<div class="col-md-3">
 			<div class="profile-sidebar">
 				<div class="profile-userpic">
-					<img id="imgLeftProfileMemberAvatar" src="apple.png" class="img-responsive" alt="">
+					<%= image_tag @admin.image.url(:thumb) %>
 					</div>
 					<div class="profile-usertitle">
 						<div class="profile-usertitle-name">
@@ -117,21 +32,14 @@
 								<%= link_to "Profile", @admin %>								
 							</li>
 
-							<li class="active" id="proChangePass">																	<%= link_to "Edit", edit_admin_path(@admin) %>
+							<li class="active" id="proChangePass">																	<%= link_to "Edit Profile", edit_admin_path(@admin) %>
 							</li>
-
-							<li>								
-								<%= link_to "Log out", logout_path, method: :delete %>
-							</li>
-
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-9">
 				<div class="profile-content">
-
-
 					<div class="row">
 						<div class="col-md-2"></div>
 						<div class="col-md-8">
@@ -146,63 +54,63 @@
 								<div class="form-group">
 										<label class="control-label col-md-4">Name</label>
 										<div class="col-md-8">
-											<%= form.text_field :name, id: :admin_name %>
+											<%= form.text_field :name, id: :admin_name, class: "input100-s" %>
 										</div>
 										</div>
 
 											<div class="form-group">
 												<label class="control-label col-md-4">Email</label>
 												<div class="col-md-8">
-													<%= form.text_field :email, id: :admin_email %>
+												<%= form.text_field :email, id: :admin_email, class: "input100-s" %>
 												</div>
 											</div>
 
 											<div class="form-group">
 												<label class="control-label col-md-4">Password</label>
 												<div class="col-md-8">
-													<%= form.password_field :password, id: :admin_password %>
+												<%= form.password_field :password, id: :admin_password, class: "input100-s" %>
 												</div>
 											</div>
 
 										<div class="form-group">
 											<label class="control-label col-md-4">Confirmation</label>
 											<div class="col-md-8">
-											<%= form.password_field :password_confirmation, id: :admin_phonepassword_confirmation %>
+											<%= form.password_field :password_confirmation, id: :admin_phonepassword_confirmation, class: "input100-s" %>
 											</div>
 											</div>
 
 											<div class="form-group">
 												<label class="control-label col-md-4">Phone</label>
 												<div class="col-md-8">
-													<%= form.text_field :phone, id: :admin_phone %>
+													<%= form.text_field :phone, id: :admin_phone, class: "input100-s" %>
 												</div>
 											</div>
 
 											<div class="form-group">
 												<label class="control-label col-md-4">Company</label>
 												<div class="col-md-8">
-													<%= form.text_field :company, id: :admin_company %>
+													<%= form.text_field :company, id: :admin_company, class: "input100-s" %>
 												</div>
 											</div>
 
 											<div class="form-group">
 												<label class="control-label col-md-4">Address</label>
 												<div class="col-md-8">
-													<%= form.text_field :address, id: :admin_address %>
+													<%= form.text_field :address, id: :admin_address, class: "input100-s" %>
 												</div>
 											</div>
 											
 											<div class="form-group">
 												<label class="control-label col-md-4">Avatar</label>
 												<div class="col-md-8">
-													<%= form.file_field :image, id: :admin_image %>
+													<%= form.file_field :image, id: :admin_image, class: "radio" %>
 												</div>
 											</div>
 											
 										<div class="form-group">
 											<label class="control-label col-md-4"></label>
 											<div class="col-md-8">
-												<input type="submit" value="Save" id="bt_submit" class="btn btn-primary" style="width: 200px;">
+												<input type="submit" value="Save Changes" id="bt_submit" class="btn btn-primary" style="width: 200px;">
 											</div>
 										</div>
 								</form>

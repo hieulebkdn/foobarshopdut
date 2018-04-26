@@ -1,11 +1,94 @@
-<% provide(:title, 'All users') %>
-<h1>All users</h1>
+<% provide(:title, 'All Users') %>
+<%= render 'user_form' %>
+    
+<% @users.each do |user| %>
+    <div class="container">
+      <div class="row profile">
+        <div class="col-md-3">
+          <div class="profile-sidebar">
+            <div class="profile-userpic">
+              <%= image_tag user.avatar.url(:thumb) %>
+            </div>
+            <div class="profile-usertitle">
+              <div class="profile-usertitle-name">
+                <%= user.name %>
+              </div>
+            </div>
+          
+            <div class="profile-usermenu">
+              <ul class="nav">
+                <li class="active" id="proInfo">                  
+                    <%= link_to "View Profile", user %>
+                </li>
 
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
-    </li>
+              <% if current_user?(user) %>
+                <li id="proChangePass">
+                    <%= link_to "Edit Profile", edit_user_path(user) %>
+                </li>
+
+                <li id="proChangePass"> 
+                    <%= link_to "Change Password", edit_password_change_path(current_user) %>
+                </li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="profile-content">
+
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+
+
+                <form id="signupform" action="https://id.foody.vn/tai-khoan" class="form-horizontal ng-pristine ng-valid" method="post" role="form" novalidate="novalidate">        <div class="form-group">
+                  <label class="control-label col-md-4"></label>
+                  <div class="col-md-8">
+                    <h3 style="margin:0">Account Profile</h3>
+                  </div>	
+                </div>
+                <input name="__RequestVerificationToken" type="hidden" value="VCI9ivTcI57abGPtru1YIto15j-chLG8tjF-n2GiACtUzRZIscZx8f6HKzDVzKB8uzhpz4GKGJ1vsXzLHSbaXvPmeEPl0jXJfW2_-IfTktI1">    <div class="form-group">
+                  <label class="control-label col-md-4">Name</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= user.name %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-4">Email</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= user.email %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-4">Phone</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= user.phone %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-4">City</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= user.city %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-4">Address</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= user.address %>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
-</ul>

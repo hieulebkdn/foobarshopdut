@@ -1,3 +1,4 @@
+<% provide(:title, 'All Admins') %>
 <div class="header-area">
       <div class="container">
         <div class="row">
@@ -101,24 +102,12 @@
             <div class="profile-usermenu">
               <ul class="nav">
                 <li class="active" id="proInfo">                  
-                    <i class="fa fa-pencil-square-o ">
-                    <%= link_to "View Profile", admin %>
-                    </i>
-                  </a>
+                  <%= link_to "View Profile", admin %>
                 </li>
               <% if current_admin?(admin) %>
                 <li id="proChangePass">
-                    <i class="fa fa-user">
-                    <%= link_to "Edit", edit_admin_path(admin) %>
-                    </i>
+                  <%= link_to "Edit Profile", edit_admin_path(admin) %>
                 </li>
-
-                <li>                 
-                  <i class="fa fa-sign-out">
-                    <%= link_to "Log out", logout_path, method: :delete %>
-                  </i>
-                </li>
-
               <% end %>
               </ul>
             </div>
