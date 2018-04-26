@@ -17,7 +17,12 @@
 
   # GET /users/new
   def new
+    if logged_in?
+      flash[:danger] = "Please log out before sign up !!!"
+      redirect_to current_user
+    else
     @user = User.new
+    end
   end
 
   # GET /users/1/edit
@@ -78,7 +83,7 @@
     def logged_in_user_admin
       unless (logged_in? || admin_logged_in?)
         store_location
-        flash[:danger] = "Please Log in."
+        flash[:danger] = "Please log in !!!"
         redirect_to login_url
       end        
     end
@@ -92,7 +97,7 @@
     def admin
       unless  current_admin.present?
         store_location
-        flash[:danger] = "Please Log in."
+        flash[:danger] = "Please log in by Adminstrator !!!"
         redirect_to login_url
       end
     end

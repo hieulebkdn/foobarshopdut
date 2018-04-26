@@ -74,7 +74,7 @@ class AdminsController < ApplicationController
     def logged_in_admin
       unless admin_logged_in?
         store_location
-        flash[:danger] = "Please Log in."
+        flash[:danger] = "Please log in by Adminstrator !!!"
         redirect_to login_url
       end        
     end
