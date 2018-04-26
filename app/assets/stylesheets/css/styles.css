@@ -195,7 +195,8 @@ input.input-validation-error, input.input-validation-error[type="text"], input.i
 
 .profile-usermenu {
     margin-top: 30px;
-    min-height: 190px;
+    margin-bottom: -24px;
+    min-height: 147px;
 }
 
 .profile-usermenu ul li {
@@ -235,7 +236,7 @@ input.input-validation-error, input.input-validation-error[type="text"], input.i
 .profile-content {
     padding: 20px;
     background: #fbfbfb;
-    min-height: 435px;
+    min-height: 354px;
     border: 1px solid #ddd;
 }
 /*profile page*/

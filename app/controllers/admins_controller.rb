@@ -31,7 +31,8 @@ class AdminsController < ApplicationController
     respond_to do |format|
       if @admin.save
         admin_log_in @admin
-        format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
+        flash[:success] = "Admin was successfully created !!!"
+        format.html { redirect_to @admin}
         format.json { render :show, status: :created, location: @admin }
       else
         format.html { render :new }
@@ -45,7 +46,8 @@ class AdminsController < ApplicationController
   def update
     respond_to do |format|
       if @admin.update(admin_params)
-        format.html { redirect_to @admin, notice: 'Admin was successfully updated.' }
+        flash[:success] = 'Your Profile has been updated !!!' 
+        format.html { redirect_to @admin}
         format.json { render :show, status: :ok, location: @admin }
       else
         format.html { render :edit }
@@ -59,7 +61,7 @@ class AdminsController < ApplicationController
   def destroy
     @admin.destroy
     respond_to do |format|
-      format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
+      format.html { redirect_to admins_url, notice: 'Admin was successfully deleted !!!' }
       format.json { head :no_content }
     end
   end

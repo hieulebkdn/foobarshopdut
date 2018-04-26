@@ -1,52 +1,94 @@
-<%= form_with(model: admin, local: true) do |form| %>
-  <% if admin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
+<div>
+  <%= form_with(model: admin, html: { multipart: true, :class=>'login100-form validate-form flex-sb flex-w' }, local: true) do |form| %>
+         <% if admin.errors.any? %>
+         <div id="error_explanation">
+           <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% admin.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+           <ul>
+             <% admin.errors.full_messages.each do |message| %>
+             <li><%= message %></li>
+             <% end %>
+           </ul>
+         </div>
+         <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :admin_name %>
-  </div>
+          <span class="login100-form-title p-b-20">
+            New Admin
+          </span>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password, id: :admin_password %>
-  </div>
+          <label class="label">
+            Name
+          </label>
+          <div class="wrap-input100 validate-input m-b-16" >
+            <%= form.text_field :name, id: :admin_name,class: "input100-s" %>
+          </div>
+          
+          <label class="label">
+            Email
+          </label>
+          <div class="wrap-input100 validate-input m-b-16" >
+            <%= form.email_field :email, id: :admin_email, class: "input100-s" %>
+          </div>
+          
+          <label class="label">
+            Password
+          </label>
+          <div class="wrap-input100 validate-input m-b-16" >
+            <%= form.password_field :password, id: :admin_password, class: "input100-s" %>
+          </div>
+          
+          <label class="label">
+            Confirm Password
+          </label>
+          <div class="wrap-input100 validate-input m-b-16" >
+            <%= form.password_field :password_confirmation, id: :admin_password_confirmation,class: "input100-s" %>
+          </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :admin_email %>
-  </div>
+          <label class="label">
+            Avatar
+          </label>
+          <div class="wrap-input100 validate-input m-b-16" >
+            <%= form.file_field :image, id: :admin_image, class: "radio"%>
+          </div>
+          
+          <label class="label">
+            Phone
+          </label>
+          <div class="wrap-input100 validate-input m-b-16" >
+            <%= form.text_field :phone, id: :admin_phone, class: "input100-s" %>
+          </div>
+          
+          <label class="label">
+            Company
+          </label>
+          <div class="wrap-input100 validate-input m-b-16" >
+            <%= form.text_field :company, id: :admin_company, class: "input100-s" %>
+          </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, id: :admin_phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :company %>
-    <%= form.text_field :company, id: :admin_company %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :admin_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating, id: :admin_rating %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+          <label class="label">
+            Address
+          </label>
+          <div class="wrap-input100 validate-input m-b-16" >
+            <%= form.text_field :address, id: :admin_address, class: "input100-s" %>
+          </div>
+          
+          <div class="flex-sb-m w-full p-t-3">
+            <div class="contact100-form-checkbox">
+              <%= form.check_box :accept, class: "input-checkbox100", id:"ckb1"%>
+              <label class="label-checkbox100" for="ckb1">
+                I accept
+              </label>
+            </div>
+          </div>
+          <div class="not-member">
+              <a href="#" class="txt1">
+                See term and condition!
+              </a>
+          </div>
+          
+          
+          <div class="container-login100-form-btn m-t-17">
+            <%= form.submit 'Signup', :class => "login100-form-btn" %>
+          </div>
+         <% end %>
+</div>
