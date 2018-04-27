@@ -10,5 +10,17 @@
   <%= @review.rating %>
 </p>
 
+
+<p>
+  <strong>Name:</strong>
+  <%= @review.reviewer_name %>
+</p>
+
+<p>
+  <strong>Product ID :</strong>
+  <%= @review.product_id %>
+</p>
+
+
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>

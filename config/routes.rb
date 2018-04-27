@@ -129,7 +129,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   
 
-  
+  post 'reviews/new'
   get '/admin', to: 'admin#index' #profile
   get '/admin/edit', to: 'admin#edit' #
   get '/admin_products', to: 'admin_products#index'

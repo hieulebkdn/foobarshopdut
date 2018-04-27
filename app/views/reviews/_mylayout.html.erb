@@ -1,0 +1,36 @@
+<div class="product-gallery">
+  <p>
+    <strong>Weight:</strong>
+    <%= @product.weight %>
+  </p>
+
+  <p>
+    <strong>Cpu:</strong>
+    <%= @product.cpu %>
+  </p>
+
+  <p>
+    <strong>Ram:</strong>
+    <%= @product.ram %>
+  </p>
+
+  <p>
+    <strong>Memory:</strong>
+    <%= @product.memory %>
+  </p>
+
+  <p>
+    <strong>Display:</strong>
+    <%= @product.display %>
+    <p>&emsp;</p> 
+  </p>
+
+  <h4>
+    <strong>All review</strong>
+  </h4>
+
+  <% @product.reviews.each do |r| %>
+  <p><%=r.created_at.to_date %>&emsp;&emsp;<strong> <%= r.reviewer_name %> </strong></p>
+  <p> <%= r.content %></strong></p>
+  <% end %>
+</div>
