@@ -1,5 +1,5 @@
 <% provide(:title, 'All Users') %>
-<%= render 'user_form' %>
+<%= render 'layouts/header1' %>
     
 <% @users.each do |user| %>
     <div class="container">
@@ -17,7 +17,7 @@
           
             <div class="profile-usermenu">
               <ul class="nav">
-                <li class="active" id="proInfo">                  
+                <li id="proInfo">                  
                     <%= link_to "View Profile", user %>
                 </li>
 
@@ -28,6 +28,12 @@
 
                 <li id="proChangePass"> 
                     <%= link_to "Change Password", edit_password_change_path(current_user) %>
+                </li>
+              <% end %>
+
+              <% if admin_logged_in? %>
+                <li id="proChangePass"> 
+                    <%= link_to 'Delete User',user, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </li>
               <% end %>
               </ul>

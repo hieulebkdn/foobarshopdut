@@ -36,8 +36,8 @@
     respond_to do |format|
       if @user.save
         log_in @user
-        flash[:success] = "Welcome to EzBuy !"
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        flash[:success] = "Welcome to FooBarShop !!!"
+        format.html { redirect_to @user, notice: 'User was successfully created !!!' }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -50,7 +50,8 @@
   def update
     respond_to do |format|
       if @user.update_attributes(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        flash[:success] = "Your Profile has been updated !!!"
+        format.html { redirect_to @user}
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -64,16 +65,13 @@
   def destroy
     User.find(params[:id]).destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      flash[:success] = "User was successfully deleted !!!"
+      format.html { redirect_to users_url}
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    # def set_user
-    #   @user = User.find(params[:id])
-    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params

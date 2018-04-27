@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-  <%= render 'user_form' %>
+  <%= render 'layouts/header1' %>
    
     <div class="container">
       <div class="row profile">
@@ -25,8 +25,14 @@
                     <%= link_to "Edit Profile", edit_user_path(current_user) %>
                 </li>
 
-                <li id="proChangePass"> 
+                <li id="proChangesPass"> 
                     <%= link_to "Change Password", edit_password_change_path(current_user) %>
+                </li> 
+              <% end %>
+
+              <% if admin_logged_in? %>
+                <li id="proChangePass"> 
+                    <%= link_to 'Delete User',@user, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </li>
               <% end %>
 
@@ -49,10 +55,12 @@
                     <h3 style="margin:0">Account Profile</h3>
                   </div>
                 </div>
-                <input name="__RequestVerificationToken" type="hidden" value="VCI9ivTcI57abGPtru1YIto15j-chLG8tjF-n2GiACtUzRZIscZx8f6HKzDVzKB8uzhpz4GKGJ1vsXzLHSbaXvPmeEPl0jXJfW2_-IfTktI1">    <div class="form-group">
+                <input name="__RequestVerificationToken" type="hidden" value="VCI9ivTcI57abGPtru1YIto15j-chLG8tjF-n2GiACtUzRZIscZx8f6HKzDVzKB8uzhpz4GKGJ1vsXzLHSbaXvPmeEPl0jXJfW2_-IfTktI1">
+                <div class="chau">
+                    <div class="form-group">
                   <label class="control-label col-md-4">Name</label>
                   <div class="col-md-8" style="padding-top: 7px;">
-                    <%= @user.name %>
+                    <%= @user.name%>
                   </div>
                 </div>
 
@@ -83,7 +91,7 @@
                     <%= @user.address %>
                   </div>
                 </div>                
-
+                </div>
               </form>
             </div>
           </div>

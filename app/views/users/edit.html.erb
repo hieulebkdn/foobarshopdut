@@ -1,7 +1,7 @@
 <% provide(:title, "Edit User") %>
 
 <%= form_for(@user) do |f| %>
-<%= render 'user_form' %>
+<%= render 'layouts/header1' %>
 
 <div class="container">
   <div class="row profile">
@@ -18,8 +18,8 @@
           <div class="profile-usermenu">
             <ul class="nav">
               <li id="proInfo"><%= link_to "Profile", current_user %></li>
-              <li class="active" id="proChangePass"><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
-              <li id="proChangePass"> <%= link_to "Change Password", edit_password_change_path(current_user) %></li>
+              <li class="active"  id="proChangePass"><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+              <li id="proChangePass"><%= link_to "Change Password", edit_password_change_path(current_user) %></li>
             </ul>
           </div>
         </div>
