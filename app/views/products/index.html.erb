@@ -1,61 +1,136 @@
 <% provide(:title, "All Products") %>
-<p id="notice"><%= notice %></p>
-<h1>Products</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Weight</th>
-      <th>Image</th>
-      <th>Stock</th>
-      <th>Detail</th>
-      <th>Description</th>
-      <th>Rating</th>
-      <th>Cpu</th>
-      <th>Ram</th>
-      <th>Memory</th>
-      <th>Display</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= product.weight %></td>
-        <td><%= product.image %></td>
-        <td><%= product.stock %></td>
-        <td><%= product.detail %></td>
-        <td><%= product.description %></td>
-        <td><%= product.rating %></td>
-        <td><%= product.cpu %></td>
-        <td><%= product.ram %></td>
-        <td><%= product.memory %></td>
-        <td><%= product.display %></td>
-        <td><%= link_to 'Details', product %></td>
-        <% if admin_logged_in? %>
-          <td><%= link_to 'Edit', edit_product_path(product) %></td>
-          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<%= render 'layouts/header1' %>
 
 <% if admin_logged_in? %>
-  <div>
-    <h4>Import data</h4>
-      <%= form_tag import_products_path, multipart: true do %>
-      <%= file_field_tag :file %>
-      <%= submit_tag "Import" %>
-    <% end %>
+  <div class=" header-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="user-menu">
+          <div class="form-group">
+            <ul>
+              <label class="control-label col-md-4">Import Data</label>
+                <%= form_tag import_products_path, multipart: true do %>
+                <%= file_field_tag :file %>
+                <%= submit_tag "Import" %>
+                <%= link_to 'New Product', new_product_path %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+<% end %>
 
-  <%= link_to 'New Product', new_product_path %>
-<% end %> 
+<% @products.each do |product| %>
+    <div class="container">
+      <div class="row profile">
+        <div class="col-md-3">
+          <div class="profile-sidebar">
+            <div class="profile">
+              <%= image_tag product.image.url(:thumb) %>
+            </div>
+            <div class="profile-usertitle">
+              <div class="profile-usertitle-name">
+                <%= product.name %>
+              </div>
+            </div>
+          
+            <div class="profile-usermenu">
+              <ul class="nav">
+                <li id="proInfo">                  
+                  <%= link_to "Details", product %>
+                </li>
+              <% if admin_logged_in? %>
+                <li id="proChangePass">
+                  <%= link_to "Edit Product", edit_product_path(product) %>
+                </li>
+                <li id="proChangePass">
+                  <%= link_to 'Delete Product', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="profile-content">
+
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8">
+
+
+                <form id="signupform" action="https://id.foody.vn/tai-khoan" class="form-horizontal ng-pristine ng-valid" method="post" role="form" novalidate="novalidate">        <div class="form-group">
+                  <label class="control-label col-md-4"></label>
+                  <div class="col-md-8">
+                    <h3 style="margin:0"><%= product.name %></h3>
+                  </div>
+                </div>
+                <input name="__RequestVerificationToken" type="hidden" value="VCI9ivTcI57abGPtru1YIto15j-chLG8tjF-n2GiACtUzRZIscZx8f6HKzDVzKB8uzhpz4GKGJ1vsXzLHSbaXvPmeEPl0jXJfW2_-IfTktI1">    <div class="form-group">
+                  <label class="control-label col-md-4">Name</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= product.name %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-4">Price</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= product.price %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-4">Weight</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= product.weight %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-4">CPU</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= product.cpu %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-4">RAM</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= product.ram %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-4">Memory</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= product.memory %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-4">Display</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= product.display %>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="control-label col-md-4">Category</label>
+                  <div class="col-md-8" style="padding-top: 7px;">
+                    <%= product.category_id %>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
