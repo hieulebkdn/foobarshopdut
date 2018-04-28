@@ -4,12 +4,16 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @carts = []
+        if cookies.signed[:cart_id] != nil
+            @carts << Cart.find_by_id(cookies.signed[:cart_id])
+        end
   end
 
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @cart = current_cart
   end
 
   # GET /carts/new
@@ -19,6 +23,7 @@ class CartsController < ApplicationController
 
   # GET /carts/1/edit
   def edit
+    @cart = current_cart
   end
 
   # POST /carts
@@ -54,7 +59,9 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
+    @cart = current_cart
     @cart.destroy
+    cookies.delete :cart_id
     respond_to do |format|
       format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
       format.json { head :no_content }
@@ -69,6 +76,6 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params.require(:cart).permit(:quantity)
+      params.fetch(:cart, {})
     end
 end
