@@ -158,7 +158,7 @@
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="woocommerce">
-                            <form method="post" action="#">
+                            
                                 <table cellspacing="0" class="shop_table cart">
                                     <thead>
                                         <tr>
@@ -180,12 +180,14 @@
                                                     <input type="submit" value="Apply Coupon" name="apply_coupon" class="button">
                                                 </div>
                                                 <input type="submit" value="Update Cart" name="update_cart" class="button">
-                                                <input type="submit" value="Checkout" name="proceed" class="checkout-button button alt wc-forward">
+                                                <%= button_to 'Checkout', 
+                                                new_order_path, 
+                                                :method => :get %> 
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                            </form>
+                            
 
                             <div class="cart-collaterals">
 
