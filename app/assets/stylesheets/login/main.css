@@ -95,10 +95,13 @@ textarea:-moz-placeholder { color: #8f8fa1;}
 textarea::-moz-placeholder { color: #8f8fa1;}
 textarea:-ms-input-placeholder { color: #8f8fa1;}
 
-label {
+
+/*------Loi Filter--------*/
+/*label {
   display: block;
   margin: 0;
-}
+}*/
+
 
 /*---------------------------------------------*/
 button {

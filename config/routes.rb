@@ -50,16 +50,6 @@ Rails.application.routes.draw do
 
   get 'admin_products/destroy'
 
-  get 'signin/index'
-
-  get 'signin/new'
-
-  get 'signin/create'
-
-  get 'signin/show'
-
-  get 'signin/destroy'
-
   get 'product/index'
 
   get 'product/new'
