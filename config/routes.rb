@@ -123,7 +123,6 @@ Rails.application.routes.draw do
   get '/shops', to: 'shops#index'
   get '/carts', to: 'carts#index' #gio hang
   get '/checkouts', to: 'checkout#index' #dat mua sp
-  get '/product', to: 'product#index' #detail 1 sp
   get '/orders_history', to: 'orders_history#index' #nhung sp da mua
 
   get 'sessions/new'
