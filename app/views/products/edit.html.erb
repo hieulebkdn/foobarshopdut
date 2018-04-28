@@ -1,7 +1,172 @@
 <% provide(:title, "Edit Product") %>
-<h1>Editing Product</h1>
+<%= form_with(model: @product, html: { multipart: true }, local: true) do |form| %>
+<% if @product.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+  <ul>
+    <% @product.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%= render 'layouts/header1' %>
 
-<%= render 'form', product: @product %>
+<div class="container">
+	<div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<div class="profile">
+					<%= image_tag @product.image.url(:thumb) %>
+					</div>
+					<div class="profile-usertitle">
+						<div class="profile-usertitle-name">
+							<%= @product.name %>
+						</div>
+					</div>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+					<div class="profile-usermenu">
+						<ul class="nav">
+							<li id="proInfo">																
+								<%= link_to "Details", @product %>								
+							</li>
+
+							<li class="active" id="proChangePass">																	<%= link_to "Edit Product", edit_product_path(@product) %>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="profile-content">
+					<div class="row">
+						<div class="col-md-2"></div>
+						<div class="col-md-8">
+							<form id="signupform" action="https://id.foody.vn/tai-khoan" class="form-horizontal ng-pristine ng-valid" method="post" role="form" novalidate="novalidate">        
+							<div class="form-group">
+									<label class="control-label col-md-4"></label>
+									<div class="col-md-8">
+										<h3 style="margin:0">Edit Product</h3>
+									</div>
+								</div>
+								<input name="__RequestVerificationToken" type="hidden" value="VCI9ivTcI57abGPtru1YIto15j-chLG8tjF-n2GiACtUzRZIscZx8f6HKzDVzKB8uzhpz4GKGJ1vsXzLHSbaXvPmeEPl0jXJfW2_-IfTktI1">
+											<div class="form-group">
+												<label class="control-label col-md-4">Name</label>
+												<div class="col-md-8">
+													<%= form.text_field :name, id: :product_name, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">Price</label>
+												<div class="col-md-8">
+													<%= form.text_field :price, id: :product_price, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">Weight</label>
+												<div class="col-md-8">
+													<%= form.text_field :weight, id: :product_weight, class: "input100-s" %>
+												</div>
+											</div>
+
+
+											<div class="form-group">
+												<label class="control-label col-md-4">Stock</label>
+												<div class="col-md-8">
+													<%= form.text_field :stock, id: :product_stock, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">Details</label>
+												<div class="col-md-8">
+													<%= form.text_field :detail, id: :product_detail, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">Description</label>
+												<div class="col-md-8">
+													<%= form.text_field :description, id: :product_description, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">Rating</label>
+												<div class="col-md-8">
+													<%= form.text_field :rating, id: :product_rating, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">CPU</label>
+												<div class="col-md-8">
+													<%= form.text_field :cpu, id: :product_cpu, class: "input100-s" %>
+												</div>
+											</div>
+											
+											<div class="form-group">
+												<label class="control-label col-md-4">RAM</label>
+												<div class="col-md-8">
+													<%= form.text_field :ram, id: :product_ram, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">Memory</label>
+												<div class="col-md-8">
+													<%= form.text_field :memory, id: :product_memory, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">Display</label>
+												<div class="col-md-8">
+													<%= form.text_field :display, id: :product_display, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">GPU</label>
+												<div class="col-md-8">
+													<%= form.text_field :gpu, id: :product_gpu, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">Brand</label>
+												<div class="col-md-8">
+													<%= form.text_field :brand_id, id: :product_brand_id, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">Category</label>
+												<div class="col-md-8">
+													<%= form.text_field :category_id, id: :product_category_id, class: "input100-s" %>
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label class="control-label col-md-4">Avatar</label>
+												<div class="col-md-8">
+													<%= form.file_field :image, id: :product_image, class: "radio" %>
+												</div>
+											</div>
+											
+										<div class="form-group">
+											<label class="control-label col-md-4"></label>
+											<div class="col-md-8">
+												<input type="submit" value="Save Changes" id="bt_submit" class="btn btn-primary" style="width: 200px;">
+											</div>
+										</div>
+								</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
