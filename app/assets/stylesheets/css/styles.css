@@ -135,8 +135,9 @@ input.input-validation-error, input.input-validation-error[type="text"], input.i
 
 
 /* Profile container */
-.profile {
-    margin: 20px 0;
+.profile img {
+    display: block; margin-left: auto; margin-right: auto;
+    
 }
 
 /* Profile sidebar */

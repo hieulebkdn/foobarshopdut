@@ -50,16 +50,6 @@ Rails.application.routes.draw do
 
   get 'admin_products/destroy'
 
-  get 'signin/index'
-
-  get 'signin/new'
-
-  get 'signin/create'
-
-  get 'signin/show'
-
-  get 'signin/destroy'
-
   get 'product/index'
 
   get 'product/new'
@@ -123,7 +113,6 @@ Rails.application.routes.draw do
   get '/shops', to: 'shops#index'
   get '/carts', to: 'carts#index' #gio hang
   get '/checkouts', to: 'checkout#index' #dat mua sp
-  get '/product', to: 'product#index' #detail 1 sp
   get '/orders_history', to: 'orders_history#index' #nhung sp da mua
 
   get 'sessions/new'

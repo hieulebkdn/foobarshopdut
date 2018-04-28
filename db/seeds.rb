@@ -44,7 +44,6 @@ category_list = [
 end
 
 product_list = [
-	#GAMING
 	[2,11,"GIGABYTE Aero", 2299, 4, 100, "15X v8-BK4 15.6' Thin Bezel 144 Hz Intel Core i7 8th Gen 8750H (2.20 GHz) NVIDIA GeForce GTX 1070 16 GB DDR4-2666 Memory 512 GB SSD Windows 10 Home 64-Bit Gaming Laptop 94.24Wh Huge Battery Capacity X-Rite Pantone Certified", "Sieu dep","Intel® Core™ i7-8750H", "16GB DDR4-2666 Memory", "1TB HDD + 256GB SSD","14.0 (W) x 9.8(D) x 0.78(H) inch", "NVIDIA® GeForce® GTX 1070 Max-Q Design GDDR5 6GB"],
 	[5,11,"GIGABYTE P56Xv7-KL4K3", 1890, 4.5, 200,"15.6' 4K/UHD Intel Core i7 7th Gen 7700HQ (2.80 GHz) NVIDIA GeForce GTX 1070 16 GB Memory 256 GB SSD 1 TB HDD Windows 10 Home 64-Bit Gaming Laptop", "Good for gaming","Intel Core i7 7th Gen 7700HQ (2.80 GHz)", "16 GB", "Memory 1 TB HDD 256 GB SSD", "15.6' 4K/UHD 3840 x 2160 Wide viewing angle anti-glare display LCD", "GeForce GTX 1070 8 GB GDDR5" ],
 	[2,10,"MSI GF62 7RE-2025", 1098, 5, 50, "15.6' FHD Intel Core i7-7700HQ 16 GB DDR4 SDRAM 1 TB HDD NVIDIA GeForce GTX 1050 Ti Windows 10 Gaming Laptop", "Gaming dang cap", "Intel Core i7-7700HQ 2.80 GHz", 	"16 GB", "Memory 1 TB HDD", "15.6' FHD (1920 x 1080) Display w/ True Color Tech" , "NVIDIA GeForce GTX 1050Ti"],
@@ -53,6 +52,7 @@ product_list = [
 	[4,1,"DELL Laptop XPS XPS9370-7040SLV", 1999, 1, 25, "Intel Core i7 8th Gen 8550U (1.80 GHz) 16 GB Memory 1 TB PCIe SSD Intel UHD Graphics 620 13.3' Touchscreen Windows 10 Home 64-Bit", "So 1 the gioi", "Intel Core i7 8th Gen 8550U (1.80 GHz)", "16GB", "Memory 1 TB PCIe SSD", "3840 x 2160 Touchscreen", "Intel UHD Graphics 620"],
 	[4,6,"HP Laptop ProBook 450 G5", 758, 2.3, 10, "Intel Core i5 8th Gen 8250U (1.60 GHz) 8 GB Memory 256 GB SSD Intel UHD Graphics 620 15.6' Windows 10 Pro 64-Bit", "HP probook do may pa", "Intel Core i5 8th Gen 8250U (1.60 GHz)", "8GB", "Memory 256 GB SSD", "1920 x 1080", "Intel UHD Graphics 620"],
 	[5,2,"ASUS VivoBook S510", 865, 2, 15, "15.6' Full HD Thin and Portable Laptop, Intel Core i7-8550U 1.8 GHz Processor, NVIDIA GeForce MX150 2 GB, 8 GB DDR4 RAM, 256 GB M.2 SSD + 1 TB HDD, Windows 10 Signature Edition, ASUS NanoEdge Display", "Vivu vivu hihi", "Intel Core i7-8550U 1.8 GHz (Turbo up to 4.0 GHz) Processor", "8GB DDR4", "256 GB M.2 SSD + 1 TB HDD combo", "15.6' Full HD WideView color rich display with up to 178 degree viewing angle optimized for entertainment", "NVIDIA GeForce MX150 graphics" ]
+
 ]
 
 user_list = [
