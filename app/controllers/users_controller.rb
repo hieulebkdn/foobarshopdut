@@ -37,7 +37,7 @@
       if @user.save
         log_in @user
         flash[:success] = "Welcome to FooBarShop !!!"
-        format.html { redirect_to @user, notice: 'User was successfully created !!!' }
+        format.html { redirect_to @user}
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
