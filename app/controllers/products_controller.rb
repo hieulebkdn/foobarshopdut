@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
   def show
     @trendingProduct = Product.all
     @review = Review.new
+    @cart = current_cart
   end
 
   # GET /products/new

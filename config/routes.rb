@@ -90,6 +90,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  resources :line_items
+  post '/line_items/create', to: 'line_items#create'
   resources :users
   resources :reviews
   resources :products

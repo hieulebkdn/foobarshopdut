@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  before_action :login_to_order
   # GET /orders
   # GET /orders.json
   def index
@@ -14,6 +14,11 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    @cart = current_cart
+    if @cart.line_items.empty?
+      redirect_to '/', :notice => 'Your cart is empty'
+      return
+    end
     @order = Order.new
   end
 
@@ -25,6 +30,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @order.add_line_items_from_cart(current_cart)
 
     respond_to do |format|
       if @order.save
@@ -70,5 +76,13 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:shipname, :shipaddress, :phone, :city)
+    end
+
+    def login_to_order
+      unless logged_in? 
+        store_location
+        flash[:danger] = "Please Log in."
+        redirect_to login_url
+      end
     end
 end
