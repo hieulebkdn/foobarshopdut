@@ -36,6 +36,9 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        Cart.destroy(cookies.signed[:cart_id])
+        cookies.delete :cart_id
+        NotifierMailer.order_received(@order).deliver
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -52,6 +55,7 @@ class OrdersController < ApplicationController
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
+
       else
         format.html { render :edit }
         format.json { render json: @order.errors, status: :unprocessable_entity }
