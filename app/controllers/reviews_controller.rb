@@ -25,13 +25,13 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-
+    @product = Product.find(@review.product_id)
     respond_to do |format|
       if @review.save
-        flash = { success: "It worked!", danger: "It failed." }
+        flash[:success] = 'Review success !!!'
         format.html { redirect_to @product}
         #By not adding anything in the brackets here, you're telling rails to fetch a js view file that follows standard rails convention and so it should be named 'create.js.erb'
-        format.js{}
+        format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
         format.json { render json: @review.errors, status: :unprocessable_entity }
