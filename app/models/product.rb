@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
 
+
 	has_many :reviews
 	# has_many :order_details
 	# belongs_to :Admin
@@ -21,32 +22,31 @@ class Product < ApplicationRecord
 	validates :rating, numericality: { greater_than: 0, less_than: 6 }
 	
 	has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-  	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-  	has_many :line_items
-    before_destroy :check_if_has_line_item
+ validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+ has_many :line_items
+ before_destroy :check_if_has_line_item
 
-  class << self
-    def import_file file
-      spreadsheet = Roo::Spreadsheet.open file
-      header = spreadsheet.row(1)
-      rows = []
-      (2..spreadsheet.last_row).each do |i|
-        rows << spreadsheet.row(i)
-      end
-      import! header, rows
+ class << self
+  def import_file file
+    spreadsheet = Roo::Spreadsheet.open file
+    header = spreadsheet.row(1)
+    rows = []
+    (2..spreadsheet.last_row).each do |i|
+      rows << spreadsheet.row(i)
     end
+    import! header, rows
   end
-  
+end
 private
-  
-    def check_if_has_line_item
-        if line_items.empty?
-            return true
-        else
-            errors.add(:base, 'This product has a LineItem')
-            return false
-        end
-    end
+
+def check_if_has_line_item
+  if line_items.empty?
+    return true
+  else
+    errors.add(:base, 'This product has a LineItem')
+    return false
+  end
+end
 end
 
 

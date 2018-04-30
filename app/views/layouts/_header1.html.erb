@@ -7,7 +7,7 @@
                             <% if admin_logged_in? %>
                             <i class="fa fa-user"></i>                                                                          <li><%= link_to "My Account", current_admin %></li>
                             <i class="fa fa-pencil-square-o"></i>
-                            <li id="proChangePass"><%= link_to "Manage Users", users_url %></li>
+                            <li id="proChangePass"><%= link_to "Managee Users", users_url %></li>
                             <i class="fa fa-pencil-square-o"></i>
                             <li id="proChangePass"><%= link_to "Manage Products", products_url %></li>
                             <i class="fa fa-sign-out"></i>
@@ -93,43 +93,42 @@
           <li class="active"><%= link_to "Home", root_path %></li>
           <!---------HIEU1-------->
           <li id="category">
-            <a href="#">Category</a>
+            <a href="#">All category</a>
             <ul class="cate-sub">
-                <li>
+
+                <li id="category2">
                     <a href="#">Laptop</a>
                     <ul class="cate-sub-sub">
-                        <li><a href="#">Game</a></li>
-                        <li><a href="#">Bussiness</a></li>
-                        <li><a href="#">Work</a></li>
+                        <li id="category3"><a href="#">Gaming Laptop</a></li>
+                        <li id="category4"><a href="#">Bussiness Laptop</a></li>
+                        <li id="category5"><a href="#">Workstation Laptop</a></li>
                     </ul>
                 </li>
-                <li>
+
+                <li id="category6">
                     <a href="#">Desktop</a>
                     <ul class="cate-sub-sub">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Company</a></li>
-                        <li><a href="#">Internet</a></li>
+                        <li id="category7"><a href="#">All-in-one Desktop</a></li>
+                        <li id="category8"><a href="#">Gaming Desktop</a></li>
                     </ul>
                 </li>
-                <li>
+
+                <li id="category9">
                     <a href="#">Tablet</a>
                     <ul class="cate-sub-sub">
-                        <li><a href="#">Samsung</a></li>
-                        <li><a href="#">Ipad</a></li>
-                        <li><a href="#">Huawei</a></li>
+                        <li id="category10"><a href="#">Ipad</a></li>
+                        <li id="category11"><a href="#">Android Tablet</a></li>
+                        <li id="category12"><a href="#">Other Tablet</a></li>
                     </ul>
                 </li>
-                <li>
+
+                <li id="category13">
                     <a href="#">Phone</a>
-                    <ul class="cate-sub-sub">
-                        <li><a href="#">Iphone</a></li>
-                        <li><a href="#">SamSung</a></li>
-                        <li><a href="#">OPPO</a></li>
-                    </ul>
                 </li>
+
             </ul>
         </li>
-        <!---------HIEU1-------->
+
         <li><a href="/shops">Shop page</a></li>
         <li><a href="/carts">Cart</a></li>
         <li><a href="/checkouts">Checkout</a></li>

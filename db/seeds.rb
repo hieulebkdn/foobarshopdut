@@ -26,12 +26,12 @@ category_list = [
 	["Business Laptop", 2],#4
 	["Workstation Laptop", 2],#5
 	["Desktop", 1],#6
-	["All-in-one Computer", 6],#7
-	["Desktop Computer", 6],#8
+	["All-in-one Desktop", 6],#7
+	["Gaming Desktop", 6],#8
 	["Tablets", 1],#9
-	["Android Tablets", 9],#10
-	["Window Tablets", 9],#11
-	["Ipads", 9],#12
+	["Ipad", 9],#10
+	["Android Tablets", 9],#11
+	["Other Tablets", 9],#12
 	["Phone", 1]#13
 ]
 
