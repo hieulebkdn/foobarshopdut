@@ -12,18 +12,6 @@ Rails.application.routes.draw do
 
   get 'orders_history/destroy'
 
-  get 'change_password/index'
-
-  get 'change_password/new'
-
-  get 'change_password/show'
-
-  get 'change_password/create'
-
-  get 'change_password/edit'
-
-  get 'change_password/destroy'
-
   get'admin/index'
 
   get 'admin_users/index'

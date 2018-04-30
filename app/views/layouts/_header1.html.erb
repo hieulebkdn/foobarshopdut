@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="logo">
-                        <h1><a href="/"><img src="/img/logo.png"></a></h1>
+                        <h1><a href="/"><img src="/img/mylogo.jpg"></a></h1>
                     </div>
                 </div>                
                 <div class="col-sm-6">
@@ -85,20 +85,58 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-            </button>
-          </div> 
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><%= link_to "Home", root_path %></li>
-              <li><a href="#">Category</a></li>
-              <li><a href="/shops">Shop page</a></li>
-              <li><a href="/carts">Cart</a></li>
-              <li><a href="/checkouts">Checkout</a></li>
-              <li><a href="#">Others</a></li>
-              <li><a href="#">Contact</a></li>
+          </button>
+      </div> 
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><%= link_to "Home", root_path %></li>
+          <!---------HIEU1-------->
+          <li id="category">
+            <a href="#">Category</a>
+            <ul class="cate-sub">
+                <li>
+                    <a href="#">Laptop</a>
+                    <ul class="cate-sub-sub">
+                        <li><a href="#">Game</a></li>
+                        <li><a href="#">Bussiness</a></li>
+                        <li><a href="#">Work</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Desktop</a>
+                    <ul class="cate-sub-sub">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Internet</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Tablet</a>
+                    <ul class="cate-sub-sub">
+                        <li><a href="#">Samsung</a></li>
+                        <li><a href="#">Ipad</a></li>
+                        <li><a href="#">Huawei</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Phone</a>
+                    <ul class="cate-sub-sub">
+                        <li><a href="#">Iphone</a></li>
+                        <li><a href="#">SamSung</a></li>
+                        <li><a href="#">OPPO</a></li>
+                    </ul>
+                </li>
             </ul>
-          </div>  
-        </div>
-      </div>
-    </div>
+        </li>
+        <!---------HIEU1-------->
+        <li><a href="/shops">Shop page</a></li>
+        <li><a href="/carts">Cart</a></li>
+        <li><a href="/checkouts">Checkout</a></li>
+        <li><a href="#">Others</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</div>  
+</div>
+</div>
+</div>
     <!-- End mainmenu area -->
