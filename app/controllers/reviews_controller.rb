@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         flash = { success: "It worked!", danger: "It failed." }
-        format.html { redirect_to :back }
+        format.html { redirect_to @product}
         #By not adding anything in the brackets here, you're telling rails to fetch a js view file that follows standard rails convention and so it should be named 'create.js.erb'
         format.js{}
       else

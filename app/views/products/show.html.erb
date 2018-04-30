@@ -1,17 +1,17 @@
 <% provide(:title, @product.name) %>
 <%= render 'layouts/header1' %>
-  
-  <div class="product-big-title-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="product-bit-title text-center">
-            <h2>Shop</h2>
-          </div>
+
+<div class="product-big-title-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-bit-title text-center">
+          <h2>Shop</h2>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 
@@ -97,15 +97,10 @@
                     <%= @product.display %>
                     <p>&emsp;</p> 
                   </p>
+                  <div id="div-create">
+                    <%= render 'reviews/comments'  %>
+                  </div>
 
-                  <h4>
-                    <strong>All review</strong>
-                  </h4>
-
-                  <% @product.reviews.each do |r| %>
-                  <p><%=r.created_at.to_date %>&emsp;&emsp;<strong> <%= r.reviewer_name %> </strong></p>
-                  <p> <%= r.content %></strong></p>
-                  <% end %>
                 </div>
               </div>
             </div>
@@ -156,9 +151,11 @@
                     <div role="tabpanel" class="tab-pane fade" id="profile">
                       <h2>Reviews</h2>
 
-                      <%= render 'reviews/form', review: @review %>
-                    </div>
+                      <div class="ajax-form-create">
+                        <%= render 'reviews/comment_form'%>
+                      </div>
 
+                    </div>
                   </div>
                 </div>
               </div>
