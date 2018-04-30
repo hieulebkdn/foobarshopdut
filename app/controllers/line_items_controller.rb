@@ -24,9 +24,9 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @cart = current_cart
+    @cart = find_cart(params[:card_id])
     product = Product.find(params[:product_id])
-    @line_item = @cart.add_product(product.id)
+    @line_item = @cart.add_product(product.id,params[:quantity])
     
     respond_to do |format|    
       if @line_item.save
@@ -56,9 +56,10 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
+    cart = @line_item.cart
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to line_items_url, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to cart, notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -71,6 +72,13 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:product_id, :cart_id)
+      params.require(:line_item).permit(:product_id, :cart_id, :quantity)
+    end
+    def find_cart(cart_id)
+      Cart.find(cart_id)
+      rescue ActiveRecord::RecordNotFound
+        cart = Cart.create
+        cookies.permanent.signed[:cart_id] = cart.id
+        cart
     end
 end

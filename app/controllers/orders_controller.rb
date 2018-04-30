@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  before_action :login_to_order
   # GET /orders
   # GET /orders.json
   def index
@@ -14,6 +14,11 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    @cart = current_cart
+    if @cart.line_items.empty?
+      redirect_to '/', :notice => 'Your cart is empty'
+      return
+    end
     @order = Order.new
   end
 
@@ -24,10 +29,16 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
+    @user = current_user
     @order = Order.new(order_params)
+    @order.user_id = @user.id
+    @order.add_line_items_from_cart(current_cart)
 
     respond_to do |format|
       if @order.save
+        Cart.destroy(cookies.signed[:cart_id])
+        cookies.delete :cart_id
+        NotifierMailer.order_received(@order).deliver
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -44,6 +55,7 @@ class OrdersController < ApplicationController
       if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
+
       else
         format.html { render :edit }
         format.json { render json: @order.errors, status: :unprocessable_entity }
@@ -70,5 +82,13 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:shipname, :shipaddress, :phone, :city)
+    end
+
+    def login_to_order
+      unless logged_in? 
+        store_location
+        flash[:danger] = "Please Log in."
+        redirect_to login_url
+      end
     end
 end
