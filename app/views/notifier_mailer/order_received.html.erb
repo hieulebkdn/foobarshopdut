@@ -1,0 +1,22 @@
+<h3>Foo Bar Shop</h3>
+<p>
+    Dear <b><%= @order.user.name %></b>,
+</p>
+ 
+<p>
+    Thank you for your order, your items:
+</p>
+<table>
+<% @order.line_items.each do |item| %>
+        <tr>
+            <td><%= item.quantity %> x </td>
+            <td><%= item.product.name %></td>    
+        </tr>
+        <tr>
+                <th>Total: </th>
+                <td>£<%= @order.total_price%></td> 
+        </tr>
+    <% end %>  
+</table>
+ 
+<p>Thanks for shopping with <b>Foo Bar Shop</b> and best regards.</p>

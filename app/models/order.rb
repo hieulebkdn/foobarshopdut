@@ -4,7 +4,7 @@ class Order < ApplicationRecord
 	has_many :line_items, :dependent => :destroy
 	# VALID_PHONE_REGEX = /\A0(1\d{9}|9\d{8})\z/
 	validates :phone, presence: true
-
+	belongs_to :user
 	# validates_format_of :phone,
  #      :with => /[0-9]{3}-[0-9]{3}-[0-9]{4}/,
  #      :message => "- Phone numbers must be in xxx-xxx-xxxx format."
@@ -17,6 +17,9 @@ class Order < ApplicationRecord
             line_items << item
         end
     end	
+    def total_price 
+        line_items.to_a.sum { |item| item.total_price }
+    end
 end
 
 # class CreateOrders < ActiveRecord::Migration[5.1]

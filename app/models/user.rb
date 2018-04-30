@@ -1,7 +1,7 @@
 	class User < ApplicationRecord
 		attr_accessor :remember_token
 
-		has_many :orders
+		has_many :orders, :dependent => :destroy
 
 		validates :name, presence: true, length: { maximum: 80 }
 
