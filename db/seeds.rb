@@ -35,7 +35,7 @@ category_list = [
 	["Phone", 1]#13
 ]
 
-50.times do |n|
+20.times do |n|
 	content = Faker::Lorem.sentence(5)
 	rating = rand(2..4)
 	product_id = rand(1..7)
