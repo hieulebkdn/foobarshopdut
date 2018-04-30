@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @trendingProduct = Product.all
-    @review = Review.new
+    @review = Review.create
     @cart = current_cart
   end
 

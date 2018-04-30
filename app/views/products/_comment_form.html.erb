@@ -1,0 +1,24 @@
+<%= form_with(model: @review, remote: true) do |form| %>
+
+<div class="field">
+  <%= form.label :Your_Name %>
+  <%= form.text_area :reviewer_name, id: :review_reviewer_name %>
+</div>
+
+<div class="field">
+  <%= form.label :Content %>
+  <%= form.text_area :content, id: :review_content %>
+</div>
+
+<div class="field">
+  <%= form.label :Your_Rating %>
+  <%= form.number_field :rating, id: :review_rating %>
+</div>
+
+<%= form.hidden_field :product_id, id: :product_id, :value => @product.id%>
+
+<div class="actions">
+  <%= form.submit "Submit"%>
+</div>
+
+<% end %>

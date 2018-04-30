@@ -1,0 +1,7 @@
+<h4>
+	<strong>All review</strong>
+</h4>
+<% @product.reviews.each do |r| %>
+<p><%=r.created_at.to_date %>&emsp;&emsp;<strong> <%= r.reviewer_name %> </strong></p>
+<p> <%= r.content %></strong></p>
+<% end %>
