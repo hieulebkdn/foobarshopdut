@@ -14,7 +14,8 @@ gem 'pg', group: :production # Added postgres and made it production only.
 gem 'rails_12factor'
 gem "bcrypt", "3.1.11"
 gem "bootstrap-sass", "3.3.6"
-gem "will_paginate", "~> 3.0.4", :require => nil
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
