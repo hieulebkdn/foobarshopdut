@@ -131,9 +131,17 @@
                 <div role="tabpanel">
                   <ul class="product-tab" role="tablist">
 
+                  <% if admin_logged_in? %>
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Detail</a></li>
+
+                    <li role="presentation">
+                    <%= link_to "Edit Product", edit_product_path(@product) %>
+                    </li>
+                  <% else %>
                     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Detail</a></li>
                     <li role="presentation"><a href="#description" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
                     <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+                  <% end %>
 
                   </ul>
                   <div class="tab-content">

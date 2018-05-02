@@ -6,7 +6,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="single-shop-product">
                             <div class="product-upper">
-                                <%= image_tag product.image.url(:medium), class: "image-product-size" %>
+                                <%= link_to (image_tag product.image.url(:medium)),controller: "products", action: "show", id: product.id, class: "image-product-size"%>
                             </div>
                             <h2><%= link_to product.name, controller: "products", action: "show", id: product.id %> </h2>
                             <div class="product-carousel-price">

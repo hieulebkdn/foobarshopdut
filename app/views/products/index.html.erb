@@ -31,7 +31,7 @@
         <div class="col-md-3">
           <div class="profile-sidebar">
             <div class="profile">
-              <%= image_tag product.image.url(:thumb) %>
+              <%= link_to (image_tag product.image.url(:medium)),controller: "products", action: "show", id: product.id, class: "image-product-size"%>
             </div>
             <div class="profile-usertitle">
               <div class="profile-usertitle-name">
