@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   get 'orders_history/index'
 
   get 'orders_history/new'
@@ -91,6 +91,7 @@ Rails.application.routes.draw do
   resources :admins
   resources :password_changes
   resources :change_password
+  resources :shops 
   get 'home/index'
 
   get '/signup', to: 'users#new'
@@ -118,9 +119,9 @@ Rails.application.routes.draw do
 
   get 'pages/test_function' 
   get 'pages/shop' 
-  get 'pages/single_product' 
-
-
+  get 'pages/single_product'
+  post 'shops/search'
+  
   resources :products do
     collection {post :import}
   end

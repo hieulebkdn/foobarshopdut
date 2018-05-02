@@ -3,7 +3,10 @@ class ShopsController < ApplicationController
     @products = Product.all
   end
 
-  def search(querryName)
+  def search
+    @q = "%#{params[:query]}%"
+    @products = Product.where('name like ?', @q)
+    render 'index'
   end
 
   def new
@@ -17,4 +20,5 @@ class ShopsController < ApplicationController
 
   def destroy
   end
+  
 end
