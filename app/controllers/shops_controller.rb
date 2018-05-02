@@ -5,7 +5,9 @@ class ShopsController < ApplicationController
 
   def search
     @q = "%#{params[:query]}%"
-    @products = Product.where('name like ?', @q)
+    @products = Product.where('name like ?', @q).paginate(page: params[:page], :per_page => 8).order('created_at asc')
+    searchName = params[:query].to_s 
+    flash[:success] = "Search result for #{searchName}"
     render 'index'
   end
 
