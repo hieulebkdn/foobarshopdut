@@ -17,9 +17,16 @@
           </div>
           <div class="profile-usermenu">
             <ul class="nav">
-              <li id="proInfo"><%= link_to "Profile", current_user %></li>
-              <li class="active"  id="proChangePass"><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
-              <li id="proChangePass"><%= link_to "Change Password", edit_password_change_path(current_user) %></li>
+              <li id="proInfo"><%= link_to "View Profile", @user %></li>
+              <li class="active"  id="proChangePass"><%= link_to "Edit Profile", edit_user_path(@user) %></li>
+              <% if current_user?(@user) %>
+                <li id="proChangePass"><%= link_to "Change Password", edit_password_change_path(@user) %></li>
+              <% end %>
+              <% if admin_logged_in? %>
+                <li id="proChangePass"> 
+                    <%= link_to 'Delete User',@user, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </li>
+              <% end %>
             </ul>
           </div>
         </div>
