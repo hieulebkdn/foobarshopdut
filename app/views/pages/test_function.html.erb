@@ -1,68 +1,7 @@
-<div class="maincontent-area">
-  <div class="zigzag-bottom"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="latest-product">
-
-          <h2 class="section-title">Trending Product</h2>
-          <div class="product-carousel">
-
-
-            <% @trendingProduct.each do |product| %>
-            <div class="single-product">
-              <div class="product-f-image">
-                <%= image_tag product.image.url(:medium), class: "image-product-size" %>
-                <div class="product-hover">
-                  <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                  <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                </div>
-              </div>
-              <h2><a href="single-product.html"><%= product.name %> </a></h2>
-              <div class="product-carousel-price">
-                <ins> $  <%= product.price%> </ins> <del>$ <%= format("%.2f", product.price * 1.2 ) %></del>
-              </div> 
-            </div>
-
-            <% end %>    
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> <!-- End main content area -->
-
-
-
-<div class="maincontent-area">
-  <div class="zigzag-bottom"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="latest-product">
-          <h2 class="section-title">Newest Product</h2>
-          <div class="product-carousel">
-
-
-            <% @newestProduct.each do |product| %>
-            <div class="single-product">
-              <div class="product-f-image">
-                <%= image_tag product.image.url(:medium), class: "image-product-size" %>
-                <div class="product-hover">
-                  <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                  <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-                </div>
-              </div>
-              <h2><a href="single-product.html"><%= product.name %> </a></h2>
-              <div class="product-carousel-price">
-                <ins> $  <%= product.price%> </ins> <del>$ <%= format("%.2f", product.price * 1.2 ) %></del>
-              </div> 
-            </div>
-
-            <% end %>    
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> <!-- End main content area -->
+<%= form_tag products_path, :method => 'get', :id => "products_search" do %>
+<p>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", :name => nil %>
+</p>
+<div id="products"><%= render 'products' %></div>
+<% end %>

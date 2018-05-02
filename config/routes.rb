@@ -118,7 +118,8 @@ Rails.application.routes.draw do
 
   get 'pages/test_function' 
   get 'pages/shop' 
-  get 'pages/single_product'   
+  get 'pages/single_product' 
+
 
   resources :products do
     collection {post :import}

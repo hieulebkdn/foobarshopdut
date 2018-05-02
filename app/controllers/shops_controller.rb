@@ -3,6 +3,9 @@ class ShopsController < ApplicationController
     @products = Product.all
   end
 
+  def search(querryName)
+  end
+
   def new
   end
 

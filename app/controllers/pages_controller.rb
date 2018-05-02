@@ -3,11 +3,7 @@ class PagesController < ApplicationController
 	end
 
 	def test_function
-		@trendingProduct = Product.all.order(view: :desc).limit(5)
-		@newestProduct = Product.all.order(created_at: :desc)
-		@products = Product.all.limit(5)
-		@brandLogos = Brand.all.limit(4)
-
+		@products = Product.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
 	end
 
 	def shop
