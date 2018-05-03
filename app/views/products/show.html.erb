@@ -98,13 +98,13 @@
                   <ins>$<%= @product.price%> </ins> <del>$<%= format("%.2f", @product.price * 1.2 ) %></del>
                 </div>    
 
-                <form action="/line_items/create" method="post">
+                <form action="/line_items/create" method="post" class="button_to", data-remote="true" >
                   <div class="quantity">
                     <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1" />
                   </div>
                   <input name="product_id" type="hidden" value=<%=@product.id%>  />
                   <input name="card_id" type="hidden" value=<%=@cart.id%>  />
-                  <button class="add-button" type="submit">Add to Cart!</button>
+                  <input value="Add to Cart!" type="submit" data-disable-with='Adding...'/>
                 </form>
 
                 <div class="product-inner-category">

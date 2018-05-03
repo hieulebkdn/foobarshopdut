@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery prepend: true
 	include SessionsHelper
 
-    helper_method [:recent_products]
+    helper_method [:recent_products, :current_cart]
 
     def recent_products
       @recent_products ||= RecentProducts.new cookies

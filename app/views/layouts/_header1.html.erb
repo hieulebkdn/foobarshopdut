@@ -16,7 +16,7 @@
                             <i class="fa fa-user"></i>
                             <li><%= link_to "My Account", current_user %></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
+                            <li><a href="/carts/<%=current_cart.id%>"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
                             <li><a href="checkout.html"><i class="fa fa-pencil-square-o"></i> Checkout</a></li>
                             <i class="fa fa-sign-out"></i>
                             <li id="proChangePass"><%= link_to "Log out", logout_path, method: :delete %></li>                      
@@ -26,7 +26,7 @@
                             <i class="fa fa-user"></i>
                             <li><%= link_to "Sign up", signup_path %></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
+                            <li><a href="/carts/<%=current_cart.id%>"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
                             <li><a href="checkout.html"><i class="fa fa-pencil-square-o"></i> Checkout</a></li>
                             <% end %>                            
                         </ul>
@@ -70,7 +70,7 @@
                 </div>                
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="/carts/<%=current_cart.id%>">Cart - <span class="cart-amunt">$<%= current_cart.total_price%></span> <i class="fa fa-shopping-cart"></i> <span class="product-count"><%= current_cart.total_item%></span></a>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@
         </li>
 
         <li><a href="/shops">Shop page</a></li>
-        <li><a href="/carts">Cart</a></li>
+        <li><a href="/carts/<%=current_cart.id%>">Cart</a></li>
         <li><a href="/checkouts">Checkout</a></li>
         <li><a href="#">Others</a></li>
         <li><a href="#">Contact</a></li>
