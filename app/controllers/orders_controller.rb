@@ -30,7 +30,8 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @user = current_user
-    @order = Order.new(order_params)
+    @order = Order.new(:shipname => params[:shipname], :shipaddress => params[:shipaddress],
+      :city => params[:city], :phone => params[:phone])
     @order.user_id = @user.id
     @order.add_line_items_from_cart(current_cart)
 
