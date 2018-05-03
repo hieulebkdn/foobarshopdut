@@ -33,6 +33,10 @@
 
 							<li class="active" id="proChangePass">																	<%= link_to "Edit Product", edit_product_path(@product) %>
 							</li>
+
+							<li id="proChangePass">
+                  				<%= link_to 'Delete Product', @product, method: :delete, data: { confirm: 'Are you sure?' } %>
+                			</li>
 						</ul>
 					</div>
 				</div>
