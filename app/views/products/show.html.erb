@@ -164,6 +164,7 @@
               <div class="single-product">
 
                 <% @recently_viewed.each do |product| %>
+                <% if product != @product %>
                 <%= image_tag product.image.url(:medium), class: "image-size" %>
                 <h2><a href=""><%=product.name%></a></h2>
                 <div class="product-carousel-price">
@@ -176,6 +177,7 @@
                   
                   
                 </div>
+                <% end %>
                 <% end %>
               </div>
             </div>
