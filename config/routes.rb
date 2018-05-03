@@ -121,6 +121,8 @@ Rails.application.routes.draw do
   get 'pages/shop' 
   get 'pages/single_product'
   post 'shops/search'
+  post 'shops/filter'
+
 
   
   resources :products do

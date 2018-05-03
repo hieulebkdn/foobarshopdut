@@ -1,9 +1,31 @@
 class Product < ApplicationRecord
 	# scope :today, where(:transfer_date => Date.today...Date.tomorrow)
-	scope :price_max, lambda{|max| where(['price <= ?', max])}
-	
+	scope :above_rating, ->(rate){where "rating > ?", rate}
+
+	scope :belong_to_brand, (lambda do |b_id| 
+		if b_id != "0"
+			where "brand_id == ?", b_id
+		else
+			all
+		end
+	end)
+
+	scope :price_range, (lambda do |price_option| 
+		if price_option == "1"
+			where "price BETWEEN '0' AND '1000'"
+		elsif price_option == "2"
+			where "price BETWEEN '1000' AND '2000'"
+		elsif price_option == "3"
+			where "price BETWEEN '2000' AND '3000'"
+		else
+			all
+		end
+	end)
+
 	has_many :reviews
 	belongs_to :category
+	belongs_to :brand
+
 	has_many :line_items
 	validates :price, presence: true
 
