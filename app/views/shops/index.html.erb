@@ -12,57 +12,30 @@
         <% end %>
     </div>
 
+    <%= form_tag :controller => 'shops', :action => 'filter', :method => 'post' do %>
     <div style="float:right;list-style-type:none;padding-top:20px">
         <form>
             <div style="width:200px;float:right;padding-left:20px">
-             <input type="submit" value="Filter">
-            </div>
-            <div style="width:200px;float:right;padding-left:20px">
-                <h3 style="color:#5a88ca">Price</h3>
-                <input type="radio" name="price" value="low">
-                <label>0-1000$</label></br>
-                <input type="radio" name="price" value="medium">
-                <label>1000-2000$</label></br>
-                <input type="radio" name="price" value="high">
-                <label>2000-3000$</label></br>
-            </div>
-            <div style="width:200px;float:right;padding-left:20px">
-                <h3 style="color:#5a88ca">Rating</h3>
-                <input type="radio" name="rate" value="3">
-                <label>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </label></br>
-                <input type="radio" name="rate" value="4">
-                <label>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </label></br>
-                <input type="radio" name="rate" value="5">
-                <label>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </label></br>
-            </div>
-            <div style="width:200px;float:right;padding-left:20px;padding-bottom:20px;">
-             <h3 style="color:#5a88ca">Brand</h3>
-             <input type="radio" name="brand" value="dell">
-             <label>Dell</label></br>
-             <input type="radio" name="brand" value="asus">
-             <label>MSI</label></br>
-             <input type="radio" name="brand" value="msi">               
-             <label>Asus</label></br>
-             <input type="radio" name="brand" value="apple">
-             <label>Apple</label></br>
-         </div>
-    </form>
+               <input type="submit" value="Filter">
+           </div>
+           <div style="width:200px;float:right;padding-left:20px">
+            <h3 style="color:#5a88ca">Price</h3>
+            <%= select_tag(:price_option, options_for_select([["All price",0],["0-1000$",1],["1000-2000$",2],["2000-3000$",3]], params[:price_option] ), class:"select") %>
+        </div>
+        <div style="width:200px;float:right;padding-left:20px">
+            <h3 style="color:#5a88ca">Rating</h3>
+            <%= select_tag(:rating_option, options_for_select([["All rating",0],["Above 1 stars",1],["Above 2 stars",2],["Above 3 stars",3],["Above 4 stars",4]], params[:rating_option] ), class:"select") %>
+        </div>
+
+        <div style="width:200px;float:right;padding-left:20px;padding-bottom:20px;">
+           <h3 style="color:#5a88ca">Brand</h3>
+           <%= select_tag(:brand_option, options_for_select(@listBrand, params[:brand_option] ), class:"select") %>
+       </div>
+
+   </form>
 </div>
+<% end %>
+
 </div>  
 
 <%= render 'productView' %>
