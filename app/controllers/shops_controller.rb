@@ -1,13 +1,22 @@
 class ShopsController < ApplicationController
   def index
+    @options = ["A-Z","Price: Low to High", "Price: High to Low"]
     @products = Product.paginate(page: params[:page], :per_page => 8).order('created_at asc')
   end
 
   def search
     @q = "%#{params[:query]}%"
-    @products = Product.where('name like ?', @q).paginate(page: params[:page], :per_page => 8).order('created_at asc')
-    searchName = params[:query].to_s 
-    flash[:success] = "Search result for #{searchName}"
+    searchBy = params[:option].to_s
+
+    if searchBy == "1"
+      @products = Product.where('name like ?', @q).paginate(page: params[:page], :per_page => 8).order('name asc')
+    elsif searchBy == "2"
+      @products = Product.where('name like ?', @q).paginate(page: params[:page], :per_page => 8).order('price asc')
+    else 
+      @products = Product.where('name like ?', @q).paginate(page: params[:page], :per_page => 8).order('price desc')
+    end
+
+    # queryName = params[:query].to_s 
     render 'index'
   end
 
@@ -22,5 +31,5 @@ class ShopsController < ApplicationController
 
   def destroy
   end
-  
+
 end

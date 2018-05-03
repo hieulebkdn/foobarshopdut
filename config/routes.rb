@@ -121,6 +121,7 @@ Rails.application.routes.draw do
   get 'pages/shop' 
   get 'pages/single_product'
   post 'shops/search'
+
   
   resources :products do
     collection {post :import}
