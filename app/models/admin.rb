@@ -1,5 +1,5 @@
 class Admin < ApplicationRecord
-	attr_accessor :admin_token
+	attr_accessor :remember_token
 	# has_many :Product, dependent: :destroy
 
 	validates :name, presence: true, length: { maximum: 80 }
@@ -37,16 +37,16 @@ class Admin < ApplicationRecord
 	# Remembers a user in the database for use in persistent sessions.
 	def remember
 		self.remember_token = Admin.new_token
-		update_attribute(:admin_digest, Admin.digest(admin_token))
+		update_attribute(:remember_digest, Admin.digest(remember_token))
 	end
 	# Returns true if the given token matches the digest.
-	def authenticated?(admin_token)
+	def authenticated?(remember_token)
 		return false if remember_digest.nil?
-		BCrypt::Password.new(admin_digest).is_password?(admin_token)
+		BCrypt::Password.new(remember_digest).is_password?(remember_token)
 	end
 
 	def forget
-		update_attribute(:admin_token, nil)
+		update_attribute(:remember_digest, nil)
 	end
 
 end
