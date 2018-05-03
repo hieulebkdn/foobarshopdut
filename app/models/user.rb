@@ -50,6 +50,7 @@
 	end
 
 	def forget
-		update_attribute(:remember_digest, nil)end
+		update_attribute(:remember_digest, nil)
+	end
 
 	end
