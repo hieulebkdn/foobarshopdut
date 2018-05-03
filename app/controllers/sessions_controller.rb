@@ -12,13 +12,15 @@ class SessionsController < ApplicationController
     admin = Admin.find_by email: params[:session][:email].downcase
     if admin && admin.authenticate(params[:session][:password])
       admin_log_in admin
-      flash[:success] = "Welcome to FooBarShop !!!"
+      admin_name = admin.name
+      flash[:success] = "Welcome to FooBarShop #{admin_name} !!!"
       params[:session][:remember_me] == '1' ? remember(admin) : forget(admin)
       redirect_to root_url     
     elsif user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
       log_in user
-      flash[:success] = "Welcome to FooBarShop !!!"
+      user_name = user.name
+      flash[:success] = "Welcome to FooBarShop #{user_name} !!!"
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_back_or user
     else

@@ -36,7 +36,8 @@
     respond_to do |format|
       if @user.save
         log_in @user
-        flash[:success] = "Welcome to FooBarShop !!!"
+        username = @user.name
+        flash[:success] = "Welcome to FooBarShop #{username}!!!"
         format.html { redirect_to @user}
       else
         format.html { render :new }
@@ -50,7 +51,8 @@
   def update
     respond_to do |format|
       if @user.update_attributes(user_params)
-        flash[:success] = "Your Profile has been updated !!!"
+        user_name = @user.name
+        flash[:success] = "#{user_name}'s Profile has been updated !!!"
         format.html { redirect_to @user}
         format.json { render :show, status: :ok, location: @user }
       else
