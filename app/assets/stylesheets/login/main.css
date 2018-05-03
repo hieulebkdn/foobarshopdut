@@ -71,17 +71,14 @@ ul, li {
 
 
 /*---------------------------------------------*/
-input {
-	outline: none;
-	border: none;
-}
-
 textarea {
   outline: none;
-  border: none;
 }
 
-textarea:focus, input:focus {
+textarea:focus{
+  border-color: #666666;
+}
+input:focus{
   border-color: transparent !important;
 }
 

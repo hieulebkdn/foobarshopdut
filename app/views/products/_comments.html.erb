@@ -2,6 +2,11 @@
 	<strong>All review</strong>
 </h4>
 <% @product.reviews.each do |r| %>
-<p><%=r.created_at.to_date %>&emsp;&emsp;<strong> <%= r.reviewer_name %> </strong></p>
-<p> <%= r.content %></strong></p>
+<p><%=r.created_at.to_date %>&emsp;&emsp;
+	<strong> <%= r.reviewer_name %> </strong>
+	<%r.rating.times do%>
+		<i class="fa fa-star" style="float:right;color:yellow"></i>
+	<%end%>
+</p>
+<p> <%= r.content %></p>
 <% end %>

@@ -1,10 +1,9 @@
 class Product < ApplicationRecord
-
+	# scope :today, where(:transfer_date => Date.today...Date.tomorrow)
+	scope :price_max, lambda{|max| where(['price <= ?', max])}
+	
 	has_many :reviews
-	# has_many :order_details
-	# belongs_to :Admin
 	belongs_to :category
-	# belongs_to :Brand, :Category, :Admin
 	has_many :line_items
 	validates :price, presence: true
 
@@ -49,10 +48,10 @@ class Product < ApplicationRecord
 end
 
 def self.search(search)
-  if search
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-  else
-    find(:all)
-  end
+	if search
+		find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+	else
+		find(:all)
+	end
 end
 

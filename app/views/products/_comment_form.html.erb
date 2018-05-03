@@ -1,24 +1,38 @@
-<%= form_with(model: @review, remote: true) do |form| %>
+<div class="submit-review">
+    <%= form_with(model: @review, remote: true) do |form| %>
+    <p>
+        <label for="name">Your Name</label>
+        <%= form.text_area :reviewer_name, id: :review_reviewer_name %>
+    </p>
+     <p>
+        <label for="review">Your review</label>
+        <%= form.text_area :content, id: :review_content %>
+    </p>
+    <div class="rating-chooser">
+        <p>Your rating</p>
+        <div class="rating-wrap-post">
+            <i id="1" class="fa fa-star" onclick="set('1')"></i>
+            <i id="2" class="fa fa-star" onclick="set('2')" ></i>
+            <i id="3" class="fa fa-star" onclick="set('3')"></i>
+            <i id="4" class="fa fa-star" onclick="set('4')" ></i>
+            <i id="5" class="fa fa-star" onclick="set('5')"></i>
+             <%= form.number_field :rating, id: :review_rating,style:'display:none',id:'star'%>
 
-<div class="field">
-  <%= form.label :Your_Name %>
-  <%= form.text_area :reviewer_name, id: :review_reviewer_name %>
+        </div>
+        <script language="javascript">
+            function set(id)
+            {   
+             for(var i=1;i<=5;i++)
+                 document.getElementById(i).style.color = '#333';
+             for(var i=1;i<=id;i++)
+                 document.getElementById(i).style.color = 'yellow';
+             document.getElementById('star').value = id;
+         }
+     </script>
+ </div>
+ <%= form.hidden_field :product_id, id: :product_id, :value => @product.id%>
+ <p>
+    <%= form.submit "Submit"%>
+</p>
+    <% end %>
 </div>
-
-<div class="field">
-  <%= form.label :Content %>
-  <%= form.text_area :content, id: :review_content %>
-</div>
-
-<div class="field">
-  <%= form.label :Your_Rating %>
-  <%= form.number_field :rating, id: :review_rating %>
-</div>
-
-<%= form.hidden_field :product_id, id: :product_id, :value => @product.id%>
-
-<div class="actions">
-  <%= form.submit "Submit"%>
-</div>
-
-<% end %>

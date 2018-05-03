@@ -1135,9 +1135,10 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 }
 .cate-sub{
   display:none;
-  width:101px;
+  cursor: pointer;
+  width:145px;
   list-style-type: none;
-  background-color: #FBFBFB;
+  background-color: #CCCCCC;
   z-index:1;
   position:relative;
   position:absolute;
@@ -1162,11 +1163,11 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 }
 .cate-sub-sub{
   display:none;
+  cursor: pointer;
   background-color:white;
   color:black;
   border: 1px solid;
   position:absolute;
-  left:100px;
   top:-1px;
   z-index:2;
 }
@@ -1175,4 +1176,8 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 }
 .cate-sub li:hover .cate-sub-sub{
   display:block;
+  left: 145px;
+}
+i{
+  cursor: pointer;
 }

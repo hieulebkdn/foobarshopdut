@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :admin, only: [:edit, :destroy, :import]
+  has_scope :price_min
+  has_scope :price_max
 
   # GET /products
   # GET /products.json
@@ -19,7 +21,7 @@ class ProductsController < ApplicationController
     @recently_viewed = []
     @ids = recent_products
     @ids.each do |id|
-    @recently_viewed << Product.find_by_id(id)
+      @recently_viewed << Product.find_by_id(id)
     end
   end
 

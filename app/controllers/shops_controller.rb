@@ -20,6 +20,10 @@ class ShopsController < ApplicationController
     render 'index'
   end
 
+  def filter
+    
+  end
+
   def new
   end
 
