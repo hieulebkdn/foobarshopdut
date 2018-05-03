@@ -26,7 +26,11 @@ class LineItemsController < ApplicationController
   def create
     @cart = find_cart(params[:card_id])
     product = Product.find(params[:product_id])
-    @line_item = @cart.add_product(product.id,params[:quantity])
+    quantity = params[:quantity]
+    if quantity == nil
+      quantity = 1
+    end
+    @line_item = @cart.add_product(product.id,quantity)
     
     respond_to do |format|    
       if @line_item.save
