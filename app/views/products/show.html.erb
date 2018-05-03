@@ -1,20 +1,6 @@
 <% provide(:title, @product.name) %>
 <%= render 'layouts/header1' %>
 
-<div class="product-big-title-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="product-bit-title text-center">
-          <h2>Shop</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-
 <div class="single-product-area">
   <div class="zigzag-bottom"></div>
   <div class="container">
@@ -178,6 +164,7 @@
               <div class="single-product">
 
                 <% @recently_viewed.each do |product| %>
+                <% if product != @product %>
                 <%= image_tag product.image.url(:medium), class: "image-size" %>
                 <h2><a href=""><%=product.name%></a></h2>
                 <div class="product-carousel-price">
@@ -190,6 +177,7 @@
                   
                   
                 </div>
+                <% end %>
                 <% end %>
               </div>
             </div>

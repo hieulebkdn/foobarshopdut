@@ -3,14 +3,10 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery prepend: true
 	include SessionsHelper
 
-    helper_method [:recent_products, :last_viewed_product]
+    helper_method [:recent_products]
 
     def recent_products
       @recent_products ||= RecentProducts.new cookies
-    end
-
-    def last_viewed_product
-      recent_products.reverse.second
     end
 
 	private 

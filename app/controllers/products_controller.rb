@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.paginate(page: params[:page], :per_page => 5).order('created_at desc')
+    @products = Product.all
   end
 
   # GET /products/1
@@ -17,12 +17,11 @@ class ProductsController < ApplicationController
     @review = Review.create
     @cart = current_cart
 
-    recent_products.push @product
-    @recently_viewed = []
-    @ids = recent_products
-    @ids.each do |id|
-      @recently_viewed << Product.find_by_id(id)
+
+    if recent_products
+      @recently_viewed = recent_products.reverse
     end
+    recent_products.push @product
   end
 
   # GET /products/new
