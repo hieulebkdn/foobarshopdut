@@ -35,23 +35,6 @@ category_list = [
 	["Phone", 1]#13
 ]
 
-20.times do |n|
-	content = Faker::Lorem.sentence(5)
-	rating = rand(2..4)
-	product_id = rand(1..7)
-	reviewer_name = Faker::Name.name
-	Review.create(content: content, rating: rating, product_id: product_id, reviewer_name: reviewer_name)
-end
-
-30.times do |n|
-	id = n
-	product_id = rand(1..14)
-	quantity = rand(1..10)
-	order_id = 1
-	LineItem.create(id: id, product_id: product_id, quantity: quantity, order_id: order_id)
-
-end
-
 product_list = [
 	[2,11,"GIGABYTE Aero", 2299, 4, 100, "15X v8-BK4 15.6' Thin Bezel 144 Hz Intel Core i7 8th Gen 8750H (2.20 GHz) NVIDIA GeForce GTX 1070 16 GB DDR4-2666 Memory 512 GB SSD Windows 10 Home 64-Bit Gaming Laptop 94.24Wh Huge Battery Capacity X-Rite Pantone Certified", "Sieu dep","Intel® Core™ i7-8750H", "16GB DDR4-2666 Memory", "1TB HDD + 256GB SSD","14.0 (W) x 9.8(D) x 0.78(H) inch", "NVIDIA® GeForce® GTX 1070 Max-Q Design GDDR5 6GB"],
 	[5,11,"GIGABYTE P56Xv7-KL4K3", 1890, 4.5, 200,"15.6' 4K/UHD Intel Core i7 7th Gen 7700HQ (2.80 GHz) NVIDIA GeForce GTX 1070 16 GB Memory 256 GB SSD 1 TB HDD Windows 10 Home 64-Bit Gaming Laptop", "Good for gaming","Intel Core i7 7th Gen 7700HQ (2.80 GHz)", "16 GB", "Memory 1 TB HDD 256 GB SSD", "15.6' 4K/UHD 3840 x 2160 Wide viewing angle anti-glare display LCD", "GeForce GTX 1070 8 GB GDDR5" ],
@@ -114,12 +97,18 @@ existing_nameProduct = Product.all.map {|p| p.name}
 existing_nameUser = User.all.map {|u| u.name}
 existing_nameAdmin = Admin.all.map {|a| a.name}
 
-# def seed_product_image(file_name)
-# 	File.open(File.join(Rails.root, "/AllECMImage/Product/#{file_name}.jpg"))
-# end
+def seed_product_image(file_name)
+	File.open(File.join(Rails.root, "/AllECMImage/Product/#{file_name}.jpg"))
+end
 
 def seed_brand_image(file_name)
 	File.open(File.join(Rails.root, "/AllECMImage/Brand/#{file_name}.jpg"))
+end
+
+category_list.each do |n, co|
+	unless existing_nameCategory.include?(n)
+		Category.create(name: n, childof: co)
+	end
 end
 
 admin_list.each do |n, e, ph, c, a, pass|
@@ -143,8 +132,9 @@ end
 listProduct = Product.all
 listProduct.each do |p|
 	p.update(image: seed_product_image(p.id.to_s))
+	if p.id == 9 then break
+	end
 end
-
 
 brand_list.each do |n, d|
 	unless existing_nameBrand.include?(n)
@@ -157,9 +147,18 @@ listBrand.each do |b|
 	b.update(image: seed_brand_image(b.id.to_s))
 end
 
+20.times do |n|
+	content = Faker::Lorem.sentence(5)
+	rating = rand(2..4)
+	product_id = rand(1..7)
+	reviewer_name = Faker::Name.name
+	Review.create(content: content, rating: rating, product_id: product_id, reviewer_name: reviewer_name)
+end
 
-category_list.each do |n, co|
-	unless existing_nameCategory.include?(n)
-		Category.create(name: n, childof: co)
-	end
+30.times do |n|
+	id = n
+	product_id = rand(1..14)
+	quantity = rand(1..10)
+	order_id = 1
+	LineItem.create(id: id, product_id: product_id, quantity: quantity, order_id: order_id)
 end

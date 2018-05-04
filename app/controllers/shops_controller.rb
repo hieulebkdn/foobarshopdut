@@ -19,15 +19,14 @@ class ShopsController < ApplicationController
     @options = ["A-Z","Price: Low to High", "Price: High to Low"]
 
     if searchBy == "1"
-      @products = Product.where('name like ?', @q).paginate(page: params[:page], :per_page => 8).order('name asc')
+      @products = Product.where('name like ?', @q).order('name asc')
     elsif searchBy == "2"
-      @products = Product.where('name like ?', @q).paginate(page: params[:page], :per_page => 8).order('price asc')
+      @products = Product.where('name like ?', @q).order('price asc')
     else 
-      @products = Product.where('name like ?', @q).paginate(page: params[:page], :per_page => 8).order('price desc')
+      @products = Product.where('name like ?', @q).order('price desc')
     end
 
-    # queryName = params[:query].to_s 
-    render 'index'
+    render 'result'
   end
 
   def filter
@@ -40,8 +39,8 @@ class ShopsController < ApplicationController
     byBrand = params[:brand_option].to_s
     byRating = params[:rating_option].to_s
     byPrice = params[:price_option].to_s
-    @products = Product.above_rating(byRating).belong_to_brand(byBrand).price_range(byPrice).paginate(page: params[:page], :per_page => 8)
-    render 'index'
+    @products = Product.above_rating(byRating).belong_to_brand(byBrand).price_range(byPrice)
+    render 'result'
   end
 
   def classify
@@ -51,17 +50,17 @@ class ShopsController < ApplicationController
     end
     @options = ["A-Z","Price: Low to High", "Price: High to Low"]
 
-    # cate_id = prams[:cateid].to_i
-    @listCate_id = [2]
+    cate_id = params[:cateid].to_i
+    @listCate_id = [cate_id]
 
     Category.all.each do |c|
-      if c.childof == 2
+      if c.childof == cate_id
         @listCate_id.push(c.id)
       end
     end
 
-    @products = Product.belong_to_cate(@listCate_id).paginate(page: params[:page], :per_page => 8)
-    render 'index'
+    @products = Product.belong_to_cate(@listCate_id)
+    render 'result'
   end
 
   def new

@@ -1,13 +1,7 @@
 <%= provide(:title, "Shop Pages") %>
 <%= render 'layouts/header1' %>           
-</div>
-</div>
-<div class="product-widget-area">
-  <!-- chua cho cho dep thoi -->
-</div> <!-- End product widget area -->
 
-
-<div style="margin-left:20px; padding-bottom:200px; margin-right:50px;">
+<div style="margin:20px 50px 50px 20px">
   <div style="width:300px;float: left">
     <%= form_tag :controller => 'shops', :action => 'search', :method => 'post' do %>
     <%= text_field_tag :query, params[:query] %>
@@ -17,7 +11,7 @@
   </div>
 
   <%= form_tag :controller => 'shops', :action => 'filter', :method => 'post' do %>
-  <div style="float:right;list-style-type:none;padding-top:20px">
+  <div style="float:right;list-style-type:none>
     <form>
       <div style="width:200px;float:right;padding-left:20px">
        <input type="submit" value="Filter">
@@ -39,11 +33,6 @@
  </form>
 </div>
 <% end %>
-
-<%= form_tag :controller => 'shops', :action => 'classify', :method => 'post' do %>
-<input type="submit" value="Classify">
-<% end %>
-
 
 </div>  
 

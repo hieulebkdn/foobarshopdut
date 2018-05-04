@@ -77,7 +77,7 @@
         </div>
     </div> <!-- End site branding area -->
 
-   <div class="mainmenu-area">
+    <div class="mainmenu-area">
       <div class="container">
         <div class="row">
           <div class="navbar-header">
@@ -93,48 +93,46 @@
           <li><%= link_to "Home", root_path %></li>
           <!---------HIEU1-------->
           <li id="category">
-            <a href="#">All category</a>
+            <%= link_to "All category","http://localhost:3000/shops/index" %>
             <ul class="cate-sub">
 
                 <li id="category2">
-                    <a href="#">Laptop</a>
+                    <%= link_to "Laptop","http://localhost:3000/shops/classify?cateid=2&method=post",:method => 'post' %>
                     <ul class="cate-sub-sub">
-                        <li id="category3"><a href="#">Gaming Laptop</a></li>
-                        <li id="category4"><a href="#">Bussiness Laptop</a></li>
-                        <li id="category5"><a href="#">Workstation Laptop</a></li>
-                    </ul>
-                </li>
+                     <li><a href="http://localhost:3000/shops/classify?cateid=3&method=post" data-method="post">Gaming Laptop</a></li>
+                     <li><a href="http://localhost:3000/shops/classify?cateid=4&method=post" data-method="post">Bussiness Laptop</a></li>
+                     <li><a href="http://localhost:3000/shops/classify?cateid=5&method=post" data-method="post">Workstation Laptop</a></li>
+                 </ul>
+             </li>
 
-                <li id="category6">
-                    <a href="#">Desktop</a>
-                    <ul class="cate-sub-sub">
-                        <li id="category7"><a href="#">All-in-one Desktop</a></li>
-                        <li id="category8"><a href="#">Gaming Desktop</a></li>
-                    </ul>
-                </li>
+             <li id="category6">
+                <%= link_to "Desktop","http://localhost:3000/shops/classify?cateid=6&method=post",:method => 'post' %>
+                <ul class="cate-sub-sub">
+                    <li> <a href="http://localhost:3000/shops/classify?cateid=7&method=post" data-method="post">All-in-one Desktop</a></li>
+                    <li> <a href="http://localhost:3000/shops/classify?cateid=8&method=post" data-method="post">Gaming Desktop</a></li>
+                </ul>
+            </li>
 
-                <li id="category9">
-                    <a href="#">Tablet</a>
-                    <ul class="cate-sub-sub">
-                        <li id="category10"><a href="#">Ipad</a></li>
-                        <li id="category11"><a href="#">Android Tablet</a></li>
-                        <li id="category12"><a href="#">Other Tablet</a></li>
-                    </ul>
-                </li>
-
-                <li id="category13">
-                    <a href="#">Phone</a>
-                </li>
-
-            </ul>
+            <li id="category9">
+                <%= link_to "Tablet","http://localhost:3000/shops/classify?cateid=9&method=post",:method => 'post' %>
+                <ul class="cate-sub-sub">
+                 <li> <a href="http://localhost:3000/shops/classify?cateid=10&method=post" data-method="post">Ipad</a></li>
+                 <li> <a href="http://localhost:3000/shops/classify?cateid=11&method=post" data-method="post">Android Tablet</a></li>
+                 <li> <a href="http://localhost:3000/shops/classify?cateid=12&method=post" data-method="post">Other Tablet</a></li>
+             </ul>
+         </li>
+         <li id="category13">
+            <%= link_to "Phone","http://localhost:3000/shops/classify?cateid=13&method=post",:method => 'post' %>
         </li>
-
-        <li class="active"><a href="/shops">Shop page</a></li>
-        <li><a href="/carts/<%=current_cart.id%>">Cart</a></li>
-        <li><a href="/checkouts">Checkout</a></li>
-        <li><a href="#">Others</a></li>
-        <li><a href="#">Contact</a></li>
     </ul>
+</li>
+
+<li class="active"><a href="/shops">Shop page</a></li>
+<li><a href="/carts/<%=current_cart.id%>">Cart</a></li>
+<li><a href="/checkouts">Checkout</a></li>
+<li><a href="#">Others</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
 </div>  
 </div>
 </div>
