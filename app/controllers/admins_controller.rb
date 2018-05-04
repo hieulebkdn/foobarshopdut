@@ -59,11 +59,17 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.json
   def destroy
+    @admin = Admin.find(params[:id])
+    if @admin.super_admin?
+      flash[:danger] = "Do not delete Super Admin !!!"
+      redirect_to root_url
+    else
     @admin = Admin.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to admins_url, notice: 'Admin was successfully deleted !!!' }
       format.json { head :no_content }
     end
+  end
   end
 
   private
