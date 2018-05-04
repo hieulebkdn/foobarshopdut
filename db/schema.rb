@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503133433) do
+ActiveRecord::Schema.define(version: 20180504164249) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20180503133433) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.boolean "is_checked", default: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 

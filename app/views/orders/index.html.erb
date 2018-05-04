@@ -2,7 +2,7 @@
 <%if @orders != []%>
     <% @orders.each do |order| %>
     <form method="post" action="#" style="width:700px;margin:auto auto">
-    <h1>Order ID : <%=order.id%> </h1>
+    <a href="/orders/<%=order.id%>"> <h1>Order ID : <%=order.id%> </h1></a>
     <h>Created at: <%=order.created_at%></h>
       <table cellspacing="0" class="shop_table cart">
         <tbody>

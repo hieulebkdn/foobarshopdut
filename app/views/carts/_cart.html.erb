@@ -1,7 +1,7 @@
 <% cart.line_items.each do |line_item| %>
 <tr class="cart_item">
     <td class="product-remove">
-        <%= link_to 'Delete', line_item, method: :delete, data: { confirm: 'Hieu deo cho xoa dau' } %>
+        <%= link_to 'Delete', line_item, method: :delete, data: { confirm: 'Are you sure?' } %>
     </td>
 
     <td class="product-thumbnail">

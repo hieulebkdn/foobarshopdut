@@ -1,13 +1,7 @@
 <%= provide(:title, "Shop Pages") %>
-<%= render 'shop_header' %>           
-</div>
-</div>
-<div class="product-widget-area">
-  <!-- chua cho cho dep thoi -->
-</div> <!-- End product widget area -->
+<%= render 'shop_header' %>
 
-
-<div style="margin-left:20px; padding-bottom:200px; margin-right:50px;">
+<div style="margin:20px 50px 50px 20px">
   <div style="width:300px;float: left">
   
     <%= form_tag :controller => 'shops', :action => 'search', :method => 'post' do %>
@@ -18,7 +12,7 @@
   </div>
 
   <%= form_tag :controller => 'shops', :action => 'filter', :method => 'post' do %>
-  <div style="float:right;list-style-type:none;padding-top:20px">
+  <div style="float:right;list-style-type:none">
     <form>
       <div style="width:200px;float:right;padding-left:20px">
        <input type="submit" value="Filter">
@@ -32,7 +26,7 @@
       <%= select_tag(:rating_option, options_for_select([["All rating",0],["Above 1 stars",1],["Above 2 stars",2],["Above 3 stars",3],["Above 4 stars",4]], params[:rating_option] ), class:"select") %>
     </div>
 
-    <div style="width:200px;float:right;padding-left:20px;padding-bottom:20px;">
+    <div style="width:200px;float:right;padding-left:20px">
      <h3 style="color:#5a88ca">Brand</h3>
      <%= select_tag(:brand_option, options_for_select(@listBrand, params[:brand_option] ), class:"select") %>
    </div>
@@ -42,7 +36,7 @@
 <% end %>
 
 <%= form_tag :controller => 'shops', :action => 'classify', :method => 'post' do %>
-<input type="submit" value="Classify">
+  <input type="submit" value="Classify">
 <% end %>
 </div>  
 
