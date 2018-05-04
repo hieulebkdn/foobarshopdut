@@ -30,14 +30,23 @@ class LineItemsController < ApplicationController
     if quantity == nil
       quantity = 1
     end
-    @line_item = @cart.add_product(product.id,quantity)
+
+    if quantity.to_i > product.stock
+     @line_item = LineItem.new
+    else
+      new_stock = product.stock - quantity.to_i 
+      @line_item = @cart.add_product(product.id,quantity)
+      product.update_attribute(:stock, new_stock)
+      product.save
+    end
     
     respond_to do |format|    
       if @line_item.save
         format.html { redirect_to @cart }
         format.json { render :show, status: :created, location: @line_item }
       else
-        format.html { render :new }
+        flash[:danger] = 'Adding failed!'
+        format.html { redirect_to product }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
