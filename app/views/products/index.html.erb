@@ -18,7 +18,7 @@
       <div class="form-group" style="float: left">
           <label class="control-label">Import Data</label>
           <%= form_tag import_products_path, multipart: true do %>
-          <%= file_field_tag :file,style:"margin-bottom:4px" %>
+          <%= file_field_tag :file,style:"margin-bottom:10px" %>
           <%= submit_tag "Import" %>
           <% end %>
       </div>
