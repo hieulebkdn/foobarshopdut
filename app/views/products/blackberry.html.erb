@@ -1,0 +1,7 @@
+<% provide(:title, "Black Berry") %>
+<%= render 'layouts/header1' %>
+<% @products.each do |product| %>
+    <% if product.brand_id == 4 %>
+      <%= render 'index_form', product: product %>
+    <%end%>
+  <% end %>

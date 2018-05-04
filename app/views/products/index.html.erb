@@ -1,124 +1,26 @@
 <% provide(:title, "All Products") %>
 <%= render 'layouts/header1' %>
-
-<% if admin_logged_in? %>
-  <div class=" header-area">
+<div class="brands-area">
+    <div class="zigzag-bottom"></div>
     <div class="container">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="user-menu">
-          <div class="form-group">
-            <ul>
-              <label class="control-label col-md-4">Import Data</label>
-                <%= form_tag import_products_path, multipart: true do %>
-                <%= file_field_tag :file %>
-                <%= submit_tag "Import" %>
-                <%= link_to 'New Product', new_product_path %>
-              <% end %>
-            </ul>
-          </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="brand-wrapper">
+                    <div class="brand-list">
+                        <%= link_to (image_tag @brand_dell.image.url(:medium),class: "image-size"), controller: "products", action: "dell" %>
+                        <%= link_to (image_tag @brand_asus.image.url(:medium),class: "image-size"), controller: "products", action: "asus" %>
+                        <%= link_to (image_tag @brand_samsung.image.url(:medium), class: "image-size"), controller: "products", action: "samsung" %>
+                        <%= link_to (image_tag @brand_blackberry.image.url(:medium), class: "image-size"), controller: "products", action: "blackberry" %>
+                        <%= link_to (image_tag @brand_apple.image.url(:medium),class: "image-size"), controller: "products", action: "apple" %>
+                        <%= link_to (image_tag @brand_hp.image.url(:medium), class: "image-size"), controller: "products", action: "hp"  %>
+                        <%= link_to (image_tag @brand_sony.image.url(:medium),class: "image-size"), controller: "products", action: "sony"  %>
+                        <%= link_to (image_tag @brand_oppo.image.url(:medium),class: "image-size"), controller: "products", action: "oppo" %>
+                        <%= link_to (image_tag @brand_acer.image.url(:medium),class: "image-size" ), controller: "products", action: "acer" %>
+                        <%= link_to (image_tag @brand_msi.image.url(:medium),class: "image-size"), controller: "products", action: "msi" %>
+                        <%= link_to (image_tag @brand_gigabyte.image.url(:medium),class: "image-size"), controller: "products", action: "gigabyte" %>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
-<% end %>
-
-  <div>
-  <h2>DELL </h2>
-  <% @products.each do |product| %>
-    <% if product.brand_id == 1 %>
-      <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
-  </div>
-
-  <div>
-  <h2>ASUS</h2>
-  <% @products.each do |product| %>
-    <% if product.brand_id == 2 %>
-      <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
-  </div>
-
-  <div>
-  <h2>SAMSUNG</h2>
-  <% @products.each do |product| %>
-    <% if product.brand_id == 3 %>
-      <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
-  </div>
-
-  <div>
-  <h2>BlackBerry</h2>
-  <% @products.each do |product| %>
-    <% if product.brand_id == 4 %>
-      <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
-  </div>
-
-  <div>
-  <h2>APPLE</h2>
-  <% @products.each do |product| %>
-    <% if product.brand_id == 5 %>
-      <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
-  </div>
-
-  <div>
-  <h2>HP</h2>
-  <% @products.each do |product| %>
-    <% if product.brand_id == 6 %>
-      <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
-  </div>
-
-  <div>
-  <h2>SONY</h2>
-  <% @products.each do |product| %>
-    <% if product.brand_id == 7 %>
-      <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
-  </div>
-
-  <div>
-  <h2>OPPO</h2>
-  <% @products.each do |product| %>
-    <% if product.brand_id == 8 %>
-      <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
-  </div>
-
-  <div>
-  <h2>ACER</h2>
-  <% @products.each do |product| %>
-    <% if product.brand_id == 9 %>
-      <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
-  </div>
-
-  <div>
-  <h2>MSI</h2>
-  <% @products.each do |product| %>
-    <% if product.brand_id == 10 %>
-      <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
-  </div>
-
-  <div>
-  <h2>GIGABYTE</h2>
-  <% @products.each do |product| %>
-    <% if product.brand_id == 11 %>
-      <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
-  </div>

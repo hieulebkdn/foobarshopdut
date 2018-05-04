@@ -1,0 +1,7 @@
+<% provide(:title, "HP") %>
+<%= render 'layouts/header1' %>
+<% @products.each do |product| %>
+    <% if product.brand_id == 6 %>
+      <%= render 'index_form', product: product %>
+    <%end%>
+  <% end %>
