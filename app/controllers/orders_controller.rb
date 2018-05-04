@@ -1,7 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :login_to_order, only: [:new, :create]
-
   # GET /orders
   # GET /orders.json
   def index
@@ -58,8 +57,15 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
+    case params[:submit]
+       when "accept"
+            @order.is_checked = "accept"
+       when "reject"
+            @order.is_checked = "reject"
+    end
     respond_to do |format|
       if @order.update(order_params)
+        NotifierMailer.order_accepted(@order).deliver
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
 
@@ -80,17 +86,20 @@ class OrdersController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
       user = @order.user
-      redirect_to(root_url) unless  (current_user?(user))
+      redirect_to(root_url) unless  (current_user?(user) || admin_logged_in?)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:shipname, :shipaddress, :phone, :city)
+      params.fetch(:order, {}).permit(:shipname, :shipaddress, :phone, :city)
+      # params.fetch(:order, {})
     end
 
     def login_to_order

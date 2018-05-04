@@ -9,6 +9,16 @@ class NotifierMailer < ApplicationMailer
     @order = order
     # mail :to => "bengoctrong@gmail.com", :subject => "We've received your order"
     # mail :to => @order.email, :subject => "We've received your order"
-    mail :to => "bengoctrong@gmail.com", :subject => "We have new order" 
+    mail :to => "bengoctrong@gmail.com", :subject => "We have new order!" 
+  end
+
+  def order_accepted(order)
+    @order = order
+    mail :to => "bengoctrong@gmail.com", :subject => "Thank you for your order!" 
+  end
+
+  def order_rejected(order)
+    @order = order
+    mail :to => "bengoctrong@gmail.com", :subject => "Thank you for your order!" 
   end
 end
