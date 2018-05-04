@@ -150,8 +150,6 @@ end
 listProduct = Product.all
 listProduct.each do |p|
 	p.update(image: seed_product_image(p.id.to_s))
-	if p.id == 9 then break
-	end
 end
 
 brand_list.each do |n, d|
