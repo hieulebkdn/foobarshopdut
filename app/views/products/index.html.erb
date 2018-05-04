@@ -15,22 +15,17 @@
 
 <div class=" header-area">
     <div class="container">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="user-menu">
-          <div class="form-group">
-            <ul>
-              <label class="control-label col-md-4">Import Data</label>
-                <%= form_tag import_products_path, multipart: true do %>
-                <%= file_field_tag :file %>
-                <%= submit_tag "Import" %>
-                <%= link_to 'New Product', new_product_path %>
-              <% end %>
-            </ul>
-          </div>
-        </div>
+      <div class="form-group" style="float: left">
+          <label class="control-label">Import Data</label>
+          <%= form_tag import_products_path, multipart: true do %>
+          <%= file_field_tag :file,style:"margin-bottom:4px" %>
+          <%= submit_tag "Import" %>
+          <% end %>
       </div>
-    </div>
+      <div style="float:right; margin-right: 470px">
+          <label><%= "Create New Product?" %></label>
+          <%= link_to 'Click Here!', new_product_path,style:'font-size:15px' %>
+      </div>
   </div>
 </div>
 
