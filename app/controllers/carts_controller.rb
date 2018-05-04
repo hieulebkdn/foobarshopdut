@@ -64,6 +64,10 @@ class CartsController < ApplicationController
     # cookies.delete :cart_id
     @cart = current_cart
     @cart.line_items.each do |item|
+      product = item.product
+      new_stock = product.stock + item.quantity 
+      product.update_attribute(:stock, new_stock)
+      product.save
       item.destroy
     end
     respond_to do |format|

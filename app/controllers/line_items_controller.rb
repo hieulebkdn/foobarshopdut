@@ -71,6 +71,10 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1.json
   def destroy
     cart = @line_item.cart
+    product = @line_item.product
+    new_stock = product.stock + @line_item.quantity 
+    product.update_attribute(:stock, new_stock)
+    product.save
     @line_item.destroy
     respond_to do |format|
       format.html { redirect_to cart }
