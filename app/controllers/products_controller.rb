@@ -13,11 +13,10 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-    @trendingProduct = Product.all
+    @trendingProduct = Product.all.order(view: :desc).limit(5)
     @review = Review.create
     @cart = current_cart
-
-
+    @cateName = Category.where("id == ?", @product.category_id).pluck(:name)[0]
     if recent_products
       @recently_viewed = recent_products.reverse
     end

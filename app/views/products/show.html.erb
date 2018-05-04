@@ -27,27 +27,15 @@
           </div>
           <% end %>    
         </div>
-
-        <div class="single-sidebar">
-          <h2 class="sidebar-title">Recently View</h2>
-          <ul>
-            <li><a href="">Sony Smart TV - 2015</a></li>
-            <li><a href="">Sony Smart TV - 2015</a></li>
-            <li><a href="">Sony Smart TV - 2015</a></li>
-            <li><a href="">Sony Smart TV - 2015</a></li>
-            <li><a href="">Sony Smart TV - 2015</a></li>
-          </ul>
-        </div>
       </div>
 
       <div class="col-md-8">
         <div class="product-content-right">
           <div class="product-breadcroumb">
             <a href="">Home</a>
-            <a href="">Category Name</a>
-            <a href="">Sony Smart TV - 2015</a>
-            <%= @product.category.name %>
-            <%= @product.name %>
+            <a><%= @cateName%></a>
+            <a><%= @product.name %></a>
+
           </div>
 
           <div class="row">
@@ -58,14 +46,7 @@
                 </div>
 
                 <div class="product-gallery">
-                 <p>
-                  <strong>Product Rating:</strong>
-                  <%@product.rating.times do%>
-                  <i class="fa fa-star" style="color:yellow"></i>
-                  <%end%>
-                </p>
                 <p>
-
                   <strong>Weight:</strong>
                   <%= @product.weight %>
                 </p>
@@ -98,59 +79,26 @@
           </div>
 
 
-            <div class="col-sm-6">
-              <div class="product-inner">
-                <h2 class="product-name"><%= @product.name%></h2>
-                <div class="product-inner-price">
-                  <ins>$<%= @product.price%> </ins> <del>$<%= format("%.2f", @product.price * 1.2 ) %></del>
-                </div>    
+          <div class="col-sm-6">
+            <div class="product-inner">
+              <h2 class="product-name"><%= @product.name%></h2>
+              <div class="product-inner-price">
+                <ins>$<%= @product.price%> </ins> <del>$<%= format("%.2f", @product.price * 1.2 ) %></del>
+                <p>
+                  <strong>Product Rating:</strong>
+                  <%@product.rating.times do%>
+                  <i class="fa fa-star" style="color:yellow"></i>
+                  <%end%>
+                </p>
+              </div>    
 
-                <form action="/line_items/create" method="post" class="button_to", data-remote="true" >
-                  <div class="quantity">
-                    <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1" />
-                  </div>
-                  <input name="product_id" type="hidden" value=<%=@product.id%>  />
-                  <input name="card_id" type="hidden" value=<%=@cart.id%>  />
-                  <input value="Add to Cart!" type="submit" data-disable-with='Adding...'/>
-                </form>
-
-                <div class="product-inner-category">
-                  <p>
-                    <strong>Stock:</strong>
-                    <%= @product.stock %>
-                  </p>
-                </div> 
-
-                <div role="tabpanel">
-                  <ul class="product-tab" role="tablist">
-
-                    <% if admin_logged_in? %>
-                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Detail</a></li>
-
-                    <li role="presentation">
-                      <%= link_to "Edit Product", edit_product_path(@product) %>
-                    </li>
-                    <% else %>
-                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Detail</a></li>
-                    <li role="presentation"><a href="#description" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
-                    <% end %>
-
-                  </ul>
-                  <div class="tab-content">
-
-                    <div role="tabpanel" class="tab-pane fade in active" id="home">
-                      <h2>Product Detail</h2>  
-                      <p><%= @product.detail %></p>
-                    </div>
-
-              <form action="/line_items/create" method="post">
+              <form action="/line_items/create" method="post" class="button_to", data-remote="true" >
                 <div class="quantity">
                   <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1" />
                 </div>
                 <input name="product_id" type="hidden" value=<%=@product.id%>  />
                 <input name="card_id" type="hidden" value=<%=@cart.id%>  />
-                <button class="add-button" type="submit">Add to Cart!</button>
+                <input value="Add to Cart!" type="submit" data-disable-with='Adding...'/>
               </form>
 
               <div class="product-inner-category">
@@ -183,53 +131,93 @@
                     <p><%= @product.detail %></p>
                   </div>
 
-                  <div role="tabpanel" class="tab-pane fade" id="description">
-                    <h2>Product Description</h2>  
-                    <p><%= @product.description %></p>
-                  </div>
+                  <form action="/line_items/create" method="post">
+                    <div class="quantity">
+                      <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1" />
+                    </div>
+                    <input name="product_id" type="hidden" value=<%=@product.id%>  />
+                    <input name="card_id" type="hidden" value=<%=@cart.id%>  />
+                    <button class="add-button" type="submit">Add to Cart!</button>
+                  </form>
 
-                  <div role="tabpanel" class="tab-pane fade" id="profile">
-                    <h2>Your Review</h2>
+                  <div class="product-inner-category">
+                    <p>
+                      <strong>Stock:</strong>
+                      <%= @product.stock %>
+                    </p>
+                  </div> 
 
-                    <div>
-                      <div id="section-comment-form" >
-                        <%= render 'comment_form'%>
+                  <div role="tabpanel">
+                    <ul class="product-tab" role="tablist">
+
+                      <% if admin_logged_in? %>
+                      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Detail</a></li>
+
+                      <li role="presentation">
+                        <%= link_to "Edit Product", edit_product_path(@product) %>
+                      </li>
+                      <% else %>
+                      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Detail</a></li>
+                      <li role="presentation"><a href="#description" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
+                      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+                      <% end %>
+
+                    </ul>
+                    <div class="tab-content">
+
+                      <div role="tabpanel" class="tab-pane fade in active" id="home">
+                        <h2>Product Detail</h2>  
+                        <p><%= @product.detail %></p>
                       </div>
 
+                      <div role="tabpanel" class="tab-pane fade" id="description">
+                        <h2>Product Description</h2>  
+                        <p><%= @product.description %></p>
+                      </div>
+
+                      <div role="tabpanel" class="tab-pane fade" id="profile">
+                        <h2>Your Review</h2>
+
+                        <div>
+                          <div id="section-comment-form" >
+                            <%= render 'comment_form'%>
+                          </div>
+
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            
+
+            <div class="related-products-wrapper">
+              <h2 class="related-products-title">Recently Viewed</h2>
+              <div class="related-products-carousel">
+                <div class="single-product">
+
+                  <% @recently_viewed.each do |product| %>
+                  <% if product != @product %>
+                  <%= image_tag product.image.url(:medium), class: "image-size" %>
+                  <h2><a href=""><%=product.name%></a></h2>
+                  <div class="product-carousel-price">
+                    <ins>$<%= product.price%></ins> <del>$<%= format("%.2f", product.price * 1.2 ) %></del>
+                  </div> 
+                </div>
+
+                <div class="single-product">
+                  <div class="product-f-image">
+
+
+                  </div>
+                  <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>                    
           </div>
         </div>
-
-        <div class="related-products-wrapper">
-          <h2 class="related-products-title">Recently Viewed</h2>
-          <div class="related-products-carousel">
-            <div class="single-product">
-
-              <% @recently_viewed.each do |product| %>
-              <% if product != @product %>
-              <%= image_tag product.image.url(:medium), class: "image-size" %>
-              <h2><a href=""><%=product.name%></a></h2>
-              <div class="product-carousel-price">
-                <ins>$<%= product.price%></ins> <del>$<%= format("%.2f", product.price * 1.2 ) %></del>
-              </div> 
-            </div>
-
-            <div class="single-product">
-              <div class="product-f-image">
-
-
-              </div>
-              <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>                    
       </div>
     </div>
   </div>
-</div>
-</div>

@@ -61,7 +61,7 @@ class ShopsController < ApplicationController
     end
 
     @products = Product.belong_to_cate(@listCate_id).paginate(page: params[:page], :per_page => 8)
-    render 'result'
+    render 'index'
   end
 
   def new
