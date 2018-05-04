@@ -31,7 +31,7 @@
                             <li><%= link_to "My Account", current_user %></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                             <li><a href="/carts/<%=current_cart.id%>"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-pencil-square-o"></i> Checkout</a></li>
+                            <li><a href="/orders/new"><i class="fa fa-pencil-square-o"></i> Checkout</a></li>
                             <i class="fa fa-sign-out"></i>
                             <li id="proChangePass"><%= link_to "Log out", logout_path, method: :delete %></li>                      
                             <% else %>
@@ -41,7 +41,7 @@
                             <li><%= link_to "Sign up", signup_path %></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                             <li><a href="/carts/<%=current_cart.id%>"><i class="fa fa-shopping-cart"></i> My Cart</a></li>
-                            <li><a href="/checkouts"><i class="fa fa-pencil-square-o"></i> Checkout</a></li>
+                            <li><a href="/orders/new"><i class="fa fa-pencil-square-o"></i> Checkout</a></li>
                             <% end %>                            
                         </ul>
                     </div>

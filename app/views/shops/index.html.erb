@@ -1,8 +1,16 @@
 <%= provide(:title, "Shop Pages") %>
+<<<<<<< HEAD
+<%= render 'shop_header' %>
+
+<div style="margin:20px 50px 50px 20px">
+  <div style="width:300px;float: left">
+  
+=======
 <%= render 'shop_header' %>           
 
 <div class="tool">
   <div class="ss"> 
+>>>>>>> for_pull
     <%= form_tag :controller => 'shops', :action => 'search', :method => 'post' do %>
     <%= text_field_tag :query, params[:query] %>
     <%= select_tag(:option, options_for_select([["A-Z",1],["Price: Low to High",2],["Price: High to Low",3]], params[:option] ), class:"select") %>
@@ -11,8 +19,14 @@
   </div>
 
   <%= form_tag :controller => 'shops', :action => 'filter', :method => 'post' do %>
+<<<<<<< HEAD
+  <div style="float:right;list-style-type:none">
+    <form>
+      <div style="width:200px;float:right;padding-left:20px">
+=======
   <div class="filter">
       <div>
+>>>>>>> for_pull
        <input type="submit" value="Filter">
      </div>
      <div>
@@ -24,13 +38,29 @@
       <%= select_tag(:rating_option, options_for_select([["All rating",0],["Above 1 stars",1],["Above 2 stars",2],["Above 3 stars",3],["Above 4 stars",4]], params[:rating_option] ), class:"select") %>
     </div>
 
+<<<<<<< HEAD
+    <div style="width:200px;float:right;padding-left:20px">
+=======
     <div>
+>>>>>>> for_pull
      <h3 style="color:#5a88ca">Brand</h3>
      <%= select_tag(:brand_option, options_for_select(@listBrand, params[:brand_option] ), class:"select") %>
    </div>
 
 </div>
 <% end %>
+<<<<<<< HEAD
+
+<%= form_tag :controller => 'shops', :action => 'classify', :method => 'post' do %>
+  <input type="submit" value="Classify">
+<% end %>
+</div>  
+
+<%= render 'productView' %>
+</div>
+</div>
+=======
+>>>>>>> for_pull
 </div>
 <%= render 'productView' %>
 

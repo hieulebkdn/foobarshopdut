@@ -1,48 +1,54 @@
 <%=render "layouts/header1" %>
- <table class="shop_table" style="width: 500px;margin-left: auto;margin-right: auto; margin-top: 50px">
- 	<thead>
- 		<tr>
- 			<th class="product-name">Information</th>
- 			<th class="product-total">Details</th> 			
- 		</tr>
- 	</thead>
- 	<tbody>
- 		<tr class="cart_item">
- 			<td class="product-name">
- 				Shipname
- 			</td>
- 			<td class="product-total">
- 				<%= @order.shipname %>
- 			</td>
- 		</tr>
- 		<tr class="cart_item">
- 			<td class="product-name">
- 				Shipaddress
- 			</td>
- 			<td class="product-total">
- 				<%= @order.shipaddress %>
- 			</td>
- 		</tr>
- 		 		<tr class="cart_item">
- 			<td class="product-name">
- 				Phone
- 			</td>
- 			<td class="product-total">
- 				<%= @order.phone %>
- 			</td>
- 		</tr>
- 		 		<tr class="cart_item">
- 			<td class="product-name">
- 				City
- 			</td>
- 			<td class="product-total">
- 				 <%= @order.city %>
- 			</td>
- 		</tr>
- 	</tbody>
- </table>
+<% if admin_logged_in? %>
+<%= form_for @order, url: { action: 'update', controller: 'orders'},:html =>{:style => "margin-left:455px;margin-top: 10px"}, method: :put do |f| %>
+ <%= f.submit "Accept",name: "submit", value: "accept", class: "tiny button radius success" %>
+ <%= f.submit 'Reject', name: "submit",value: "reject", class: "tiny button radius " %>
+<% end %>
+<% end %>
+<table class="shop_table" style="width: 500px;margin-left: auto;margin-right: auto; margin-top: 30px">
+	<thead>
+		<tr>
+			<th class="product-name">Information</th>
+			<th class="product-total">Details</th> 			
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="cart_item">
+			<td class="product-name">
+				Shipname
+			</td>
+			<td class="product-total">
+				<%= @order.shipname %>
+			</td>
+		</tr>
+		<tr class="cart_item">
+			<td class="product-name">
+				Shipaddress
+			</td>
+			<td class="product-total">
+				<%= @order.shipaddress %>
+			</td>
+		</tr>
+		<tr class="cart_item">
+			<td class="product-name">
+				Phone
+			</td>
+			<td class="product-total">
+				<%= @order.phone %>
+			</td>
+		</tr>
+		<tr class="cart_item">
+			<td class="product-name">
+				City
+			</td>
+			<td class="product-total">
+				<%= @order.city %>
+			</td>
+		</tr>
+	</tbody>
+</table>
 <form method="post" action="#" style="width:700px;margin:auto auto">
-<h2>Your Order</h2>
+	<h2>Your Order</h2>
 	<table cellspacing="0" class="shop_table cart">
 		<thead>
 			<tr>
@@ -54,7 +60,7 @@
 			</tr>
 		</thead>
 		<tbody>
-		<%= render @order %>
+			<%= render @order %>
 			
 		</tbody>
 	</table>

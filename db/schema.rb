@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20180504190408) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.string "is_checked", default: "pending"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 

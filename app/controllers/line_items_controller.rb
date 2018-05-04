@@ -34,7 +34,7 @@ class LineItemsController < ApplicationController
     
     respond_to do |format|    
       if @line_item.save
-        format.html { redirect_to '/' }
+        format.html { redirect_to @cart }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
@@ -46,12 +46,13 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
+    @line_item.quantity = params[:quantity].to_i
     respond_to do |format|
       if @line_item.update(line_item_params)
         format.html { redirect_to @line_item }
         format.json { render :show, status: :ok, location: @line_item }
       else
-        format.html { render :edit }
+        format.html { redirect_to @line_item }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
@@ -76,7 +77,7 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:product_id, :cart_id, :quantity)
+      params.fetch(:line_item,{}).permit(:product_id, :cart_id, :quantity)
     end
     def find_cart(cart_id)
       Cart.find(cart_id)

@@ -1,7 +1,7 @@
 <% cart.line_items.each do |line_item| %>
 <tr class="cart_item">
     <td class="product-remove">
-        <%= link_to 'Delete', line_item, method: :delete, data: { confirm: 'Hieu deo cho xoa dau' } %>
+        <%= link_to 'Delete', line_item, method: :delete, data: { confirm: 'Are you sure?' } %>
     </td>
 
     <td class="product-thumbnail">
@@ -15,14 +15,9 @@
     <td class="product-price">
         <span class="amount">£<%= line_item.product.price%></span> 
     </td>
-    
-    <td class="product-quantity">
-        <div class="quantity buttons_added">                
-            <input type="number" size="4" class="input-text qty text" name=<%= "quantity#{line_item.id.to_s}"%> value=<%=line_item.quantity %> min="1" step="1">                
-            <button class="add-button" type="submit">f5</button>
-        </div>
+    <td class="product-quantity">        
+            <span class="amount"><%= line_item.quantity%></span> 
     </td>
-
 
         <td class="product-subtotal">
             <span class="amount">£<%= line_item.total_price%></span> 

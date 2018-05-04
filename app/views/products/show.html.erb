@@ -92,13 +92,14 @@
                   </p>
                 </div>    
 
-                <form action="/line_items/create" method="post" class="button_to", data-remote="true" >
+                <form action="/line_items/create" method="post" class="button_to" >
                   <div class="quantity">
                     <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1" />
                   </div>
                   <input name="product_id" type="hidden" value=<%=@product.id%>  />
                   <input name="card_id" type="hidden" value=<%=@cart.id%>  />
                   <input value="Add to Cart!" type="submit" data-disable-with='Adding...'/>
+                  <input name="authenticity_token" type="hidden" value="10f2163b45388899ad4d5ae948988266befcb6c3d1b2451cf657a0c293d605a6"/>
                 </form>
 
                 <div class="product-inner-category">
