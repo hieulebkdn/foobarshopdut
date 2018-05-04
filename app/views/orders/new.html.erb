@@ -2,72 +2,75 @@
    <%= render 'layouts/header_no_mainmenu' %>
 
     <div class="mainmenu-area">
-        <div class="container">
-            <div class="row">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/">Home</a></li>
-                        <li id="category">
-                            <a href="#">All category</a>
-                            <ul class="cate-sub">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+      </div> 
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Home", root_path %></li>
 
-                                <li id="category2">
-                                    <a href="#">Laptop</a>
-                                    <ul class="cate-sub-sub">
-                                        <li id="category3"><a href="#">Gaming Laptop</a></li>
-                                        <li id="category4"><a href="#">Bussiness Laptop</a></li>
-                                        <li id="category5"><a href="#">Workstation Laptop</a></li>
-                                    </ul>
-                                </li>
+          <!---------HIEU1-------->
+          <li id="category">
+            <%= link_to "All category","http://localhost:3000/shops/index" %>
+            <ul class="cate-sub">
 
-                                <li id="category6">
-                                    <a href="#">Desktop</a>
-                                    <ul class="cate-sub-sub">
-                                        <li id="category7"><a href="#">All-in-one Desktop</a></li>
-                                        <li id="category8"><a href="#">Gaming Desktop</a></li>
-                                    </ul>
-                                </li>
+                <li id="category2">
+                    <%= link_to "Laptop","http://localhost:3000/shops/classify?cateid=2&method=post",:method => 'post' %>
+                    <ul class="cate-sub-sub">
+                     <li><a href="http://localhost:3000/shops/classify?cateid=3&method=post" data-method="post">Gaming Laptop</a></li>
+                     <li><a href="http://localhost:3000/shops/classify?cateid=4&method=post" data-method="post">Bussiness Laptop</a></li>
+                     <li><a href="http://localhost:3000/shops/classify?cateid=5&method=post" data-method="post">Workstation Laptop</a></li>
+                 </ul>
+             </li>
 
-                                <li id="category9">
-                                    <a href="#">Tablet</a>
-                                    <ul class="cate-sub-sub">
-                                        <li id="category10"><a href="#">Ipad</a></li>
-                                        <li id="category11"><a href="#">Android Tablet</a></li>
-                                        <li id="category12"><a href="#">Other Tablet</a></li>
-                                    </ul>
-                                </li>
+             <li id="category6">
+                <%= link_to "Desktop","http://localhost:3000/shops/classify?cateid=6&method=post",:method => 'post' %>
+                <ul class="cate-sub-sub">
+                    <li> <a href="http://localhost:3000/shops/classify?cateid=7&method=post" data-method="post">All-in-one Desktop</a></li>
+                    <li> <a href="http://localhost:3000/shops/classify?cateid=8&method=post" data-method="post">Gaming Desktop</a></li>
+                </ul>
+            </li>
 
-                                <li id="category13">
-                                    <a href="#">Phone</a>
-                                </li>
+            <li id="category9">
+                <%= link_to "Tablet","http://localhost:3000/shops/classify?cateid=9&method=post",:method => 'post' %>
+                <ul class="cate-sub-sub">
+                 <li> <a href="http://localhost:3000/shops/classify?cateid=10&method=post" data-method="post">Ipad</a></li>
+                 <li> <a href="http://localhost:3000/shops/classify?cateid=11&method=post" data-method="post">Android Tablet</a></li>
+                 <li> <a href="http://localhost:3000/shops/classify?cateid=12&method=post" data-method="post">Other Tablet</a></li>
+             </ul>
+         </li>
+         <li id="category13">
+            <%= link_to "Phone","http://localhost:3000/shops/classify?cateid=13&method=post",:method => 'post' %>
+        </li>
+    </ul>
+</li>
 
-                            </ul>
-                        </li>
-                        <li><a href="/shops">Shop page</a></li>
-                        <li><a href="/carts/<%=current_cart.id%>">Cart</a></li>
-                        <li class="active"><a href="/orders/new">Checkout</a></li>
-                        <li><a href="/orders">Orders</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>  
-            </div>
-        </div>
-    </div> <!-- End mainmenu area -->   
+
+<li><a href="/shops">Shop page</a></li>
+<li><a href="/carts/<%=current_cart.id%>">Cart</a></li>
+<li class="active"><a href="/orders/new">Checkout</a></li>
+<li><a href="/orders">Orders</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>  
+</div>
+</div>
+</div>
+    <!-- End mainmenu area -->
 
     <div class="product-big-title-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-bit-title text-center">
-                        <h2>Shopping Cart</h2>
+                        <h2>Shopping</h2>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,7 @@
     </td>
 
     <td class="product-thumbnail">
-        <%= link_to image_tag("product-thumb-3.jpg", :border=>0, ), controller: "products", action: "show", id: line_item.product.id%> 
+        <%= link_to image_tag(line_item.product.image.url), controller: "products", action: "show", id: line_item.product.id%> 
     </td>
 
     <td class="product-name">

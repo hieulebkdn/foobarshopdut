@@ -1,4 +1,67 @@
-<%=render "layouts/header1" %>
+<%=render "layouts/header_no_mainmenu" %>
+ <div class="mainmenu-area">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+      </div> 
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Home", root_path %></li>
+
+          <!---------HIEU1-------->
+          <li id="category">
+            <%= link_to "All category","http://localhost:3000/shops/index" %>
+            <ul class="cate-sub">
+
+                <li id="category2">
+                    <%= link_to "Laptop","http://localhost:3000/shops/classify?cateid=2&method=post",:method => 'post' %>
+                    <ul class="cate-sub-sub">
+                     <li><a href="http://localhost:3000/shops/classify?cateid=3&method=post" data-method="post">Gaming Laptop</a></li>
+                     <li><a href="http://localhost:3000/shops/classify?cateid=4&method=post" data-method="post">Bussiness Laptop</a></li>
+                     <li><a href="http://localhost:3000/shops/classify?cateid=5&method=post" data-method="post">Workstation Laptop</a></li>
+                 </ul>
+             </li>
+
+             <li id="category6">
+                <%= link_to "Desktop","http://localhost:3000/shops/classify?cateid=6&method=post",:method => 'post' %>
+                <ul class="cate-sub-sub">
+                    <li> <a href="http://localhost:3000/shops/classify?cateid=7&method=post" data-method="post">All-in-one Desktop</a></li>
+                    <li> <a href="http://localhost:3000/shops/classify?cateid=8&method=post" data-method="post">Gaming Desktop</a></li>
+                </ul>
+            </li>
+
+            <li id="category9">
+                <%= link_to "Tablet","http://localhost:3000/shops/classify?cateid=9&method=post",:method => 'post' %>
+                <ul class="cate-sub-sub">
+                 <li> <a href="http://localhost:3000/shops/classify?cateid=10&method=post" data-method="post">Ipad</a></li>
+                 <li> <a href="http://localhost:3000/shops/classify?cateid=11&method=post" data-method="post">Android Tablet</a></li>
+                 <li> <a href="http://localhost:3000/shops/classify?cateid=12&method=post" data-method="post">Other Tablet</a></li>
+             </ul>
+         </li>
+         <li id="category13">
+            <%= link_to "Phone","http://localhost:3000/shops/classify?cateid=13&method=post",:method => 'post' %>
+        </li>
+    </ul>
+</li>
+
+
+<li><a href="/shops">Shop page</a></li>
+<li><a href="/carts/<%=current_cart.id%>">Cart</a></li>
+<li><a href="/orders/new">Checkout</a></li>
+<li class="active"><a href="/orders">Orders</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>  
+</div>
+</div>
+</div>
+    <!-- End mainmenu area -->
 <% if admin_logged_in? %>
 <%= form_for @order, url: { action: 'update', controller: 'orders'},:html =>{:style => "margin-left:455px;margin-top: 10px"}, method: :put do |f| %>
  <%= f.submit "Accept",name: "submit", value: "accept", class: "tiny button radius success" %>
