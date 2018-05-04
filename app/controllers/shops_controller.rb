@@ -44,6 +44,26 @@ class ShopsController < ApplicationController
     render 'index'
   end
 
+  def classify
+    @listBrand = [["All brand", 0]]
+    Brand.all.each do |b|
+      @listBrand.push([b.name,b.id])
+    end
+    @options = ["A-Z","Price: Low to High", "Price: High to Low"]
+
+    # cate_id = prams[:cateid].to_i
+    @listCate_id = [2]
+
+    Category.all.each do |c|
+      if c.childof == 2
+        @listCate_id.push(c.id)
+      end
+    end
+
+    @products = Product.belong_to_cate(@listCate_id).paginate(page: params[:page], :per_page => 8)
+    render 'result'
+  end
+
   def new
   end
 
