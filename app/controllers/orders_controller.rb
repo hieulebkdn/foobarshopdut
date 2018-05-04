@@ -1,10 +1,16 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_action :login_to_order
+  before_action :login_to_order, only: [:new, :create]
+
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = []
+    if admin_logged_in?
+       @orders = Order.all
+    elsif logged_in?
+      @orders = current_user.orders
+    end
   end
 
   # GET /orders/1
@@ -78,6 +84,8 @@ class OrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
+      user = @order.user
+      redirect_to(root_url) unless  (current_user?(user))
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -88,8 +96,9 @@ class OrdersController < ApplicationController
     def login_to_order
       unless logged_in? 
         store_location
-        flash[:danger] = "Please Log in."
+        flash[:danger] = "Only member can order"
         redirect_to login_url
       end
     end
+
 end
