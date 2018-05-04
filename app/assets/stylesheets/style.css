@@ -14,8 +14,9 @@
 }
 a:focus { outline: 0px solid }
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  width: 263px;
+  height: 197px;
 }
 .fix { overflow: hidden }
 h1,
@@ -155,7 +156,6 @@ z-index: 999;}
 
 .mainmenu-area ul.navbar-nav >li:hover >a, .mainmenu-area ul.navbar-nav >li.active >a {background: #5a88ca; color:#FFF;}
 .mainmenu-area .nav > li > a:focus {color: #FFF;}
-
 .slider-area { width:80%; position:relative; margin:0 auto; padding:5px;}
 /*-------------------------
 [9. Block slider]
@@ -1152,11 +1152,12 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 .cate-sub li{
   color:black;
   position:relative;
-  padding: 10px 10px 10px 25px;
 }
-.cate-sub>li>a{
+.cate-sub li a{
   color:black;
   font-weight:bold;
+  display: block;
+  padding: 10px 10px 10px 25px;
 }
 .cate-sub li a:hover{
   text-decoration:none;
@@ -1170,6 +1171,9 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
   position:absolute;
   top:-1px;
   z-index:2;
+}
+.cate-sub-sub li a{
+  font-weight: normal;
 }
 #category:hover .cate-sub{
   display:block;
