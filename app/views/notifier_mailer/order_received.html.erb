@@ -1,22 +1,66 @@
+
 <h3>Foo Bar Shop</h3>
 <p>
-    Dear <b><%= @order.user.name %></b>,
-</p>
- 
-<p>
-    Thank you for your order, your items:
+    User's info:
 </p>
 <table>
-<% @order.line_items.each do |item| %>
+    <tbody>
+        <tr>
+            <td>
+                ID: 
+            </td>
+            <td>
+                <%= @order.id %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Shipname: 
+            </td>
+            <td>
+                <%= @order.shipname %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Shipaddress:
+            </td>
+            <td>
+                <%= @order.shipaddress %>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                Phone:
+            </td>
+            <td>
+                <%= @order.phone %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                City:
+            </td>
+            <td>
+             <%= @order.city %>
+         </td>
+     </tr>
+ </tbody>
+</table>
+<p>
+    Order's items:
+</p>
+<table>
+    <tbody>
+        <% @order.line_items.each do |item| %>
         <tr>
             <td><%= item.quantity %> x </td>
             <td><%= item.product.name %></td>    
         </tr>
+        <% end %> 
         <tr>
-                <th>Total: </th>
-                <td>£<%= @order.total_price%></td> 
+            <th>Total: </th>
+            <td>£<%= @order.total_price%></td> 
         </tr>
-    <% end %>  
-</table>
- 
-<p>Thanks for shopping with <b>Foo Bar Shop</b> and best regards.</p>
+    </tbody>
+</table>  

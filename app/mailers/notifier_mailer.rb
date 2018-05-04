@@ -7,7 +7,8 @@ class NotifierMailer < ApplicationMailer
   #
   def order_received(order)
     @order = order
-    mail :to => "bengoctrong@gmail.com", :subject => "We've received your order"
+    # mail :to => "bengoctrong@gmail.com", :subject => "We've received your order"
     # mail :to => @order.email, :subject => "We've received your order"
+    mail :to => "bengoctrong@gmail.com", :subject => "We have new order" 
   end
 end

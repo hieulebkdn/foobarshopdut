@@ -59,11 +59,16 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
+    # @cart = current_cart
+    # @cart.destroy
+    # cookies.delete :cart_id
     @cart = current_cart
-    @cart.destroy
-    cookies.delete :cart_id
+    @cart.line_items.each do |item|
+      item.destroy
+    end
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      flash[:success] = 'Cart was successfully emptied'
+      format.html { redirect_to @cart  }
       format.json { head :no_content }
     end
   end
