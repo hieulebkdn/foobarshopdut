@@ -1,18 +1,16 @@
-<% provide(:title, "OPPO") %>
+<% provide(:title, "DELL") %>
 <%= render 'layouts/header1' %>
 <div class="product-big-title-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-bit-title text-center">
-                        <h2>OPPO</h2>
+                        <h2>DELL</h2>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 <% @products.each do |product| %>
-    <% if product.brand_id == 8 %>
       <%= render 'index_form', product: product %>
-    <%end%>
-  <% end %>
+ <% end %>

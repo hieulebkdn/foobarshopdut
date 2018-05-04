@@ -40,18 +40,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="brand-wrapper">
-                    <div class="brand-list">
-                        <%= link_to (image_tag @brand_dell.image.url(:medium),class: "image-size"), controller: "products", action: "dell" %>
-                        <%= link_to (image_tag @brand_asus.image.url(:medium),class: "image-size"), controller: "products", action: "asus" %>
-                        <%= link_to (image_tag @brand_samsung.image.url(:medium), class: "image-size"), controller: "products", action: "samsung" %>
-                        <%= link_to (image_tag @brand_blackberry.image.url(:medium), class: "image-size"), controller: "products", action: "blackberry" %>
-                        <%= link_to (image_tag @brand_apple.image.url(:medium),class: "image-size"), controller: "products", action: "apple" %>
-                        <%= link_to (image_tag @brand_hp.image.url(:medium), class: "image-size"), controller: "products", action: "hp"  %>
-                        <%= link_to (image_tag @brand_sony.image.url(:medium),class: "image-size"), controller: "products", action: "sony"  %>
-                        <%= link_to (image_tag @brand_oppo.image.url(:medium),class: "image-size"), controller: "products", action: "oppo" %>
-                        <%= link_to (image_tag @brand_acer.image.url(:medium),class: "image-size" ), controller: "products", action: "acer" %>
-                        <%= link_to (image_tag @brand_msi.image.url(:medium),class: "image-size"), controller: "products", action: "msi" %>
-                        <%= link_to (image_tag @brand_gigabyte.image.url(:medium),class: "image-size"), controller: "products", action: "gigabyte" %>
+                    <div class="brand-list">    
+                        <% @brands.each do |brand| %>
+                        <%= link_to (image_tag brand.image.url(:medium),class: "image-size"),controller: "products", action: "single_brand", :brand_id => brand.id %>
+                        <% end %>
                     </div>
                 </div>
             </div>

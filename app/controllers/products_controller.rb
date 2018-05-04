@@ -1,68 +1,18 @@
 class ProductsController < ApplicationController
-  before_action :admin, only: [:index, :edit, :destroy, :import, :dell, :asus, :samsung, :blackberry, :apple, :hp, :sony, :oppo, :acer, :msi, :gigabyte]
+  before_action :admin, only: [:index, :edit, :destroy, :import, :dell, :asus, :samsung, :blackberry, :apple, :hp, :sony, :oppo, :acer, :msi, :gigabyte, :prod]
   has_scope :price_min
   has_scope :price_max
 
-
-  def dell
-    @products = Product.all
+  def single_brand   
+  @brand = Brand.find(params[:brand_id])
+  @products = @brand.products
   end
-
-  def asus
-    @products = Product.all
-  end
-
-  def samsung
-    @products = Product.all
-  end
-
-  def blackberry
-    @products = Product.all
-  end
-
-  def apple
-    @products = Product.all
-  end
-
-  def hp
-    @products = Product.all
-  end
-
-  def sony
-    @products = Product.all
-  end
-
-  def oppo
-    @products = Product.all
-  end
-
-  def acer
-    @products = Product.all
-  end
-
-  def msi
-    @products = Product.all
-  end
-
-  def gigabyte
-    @products = Product.all
-  end
+  
   
   # GET /products
   # GET /products.json
-  def index
-    @products = Product.all
-    @brand_dell = Brand.find(1)
-    @brand_asus = Brand.find(2)
-    @brand_samsung = Brand.find(3)
-    @brand_blackberry = Brand.find(4)
-    @brand_apple = Brand.find(5)
-    @brand_hp = Brand.find(6)
-    @brand_sony = Brand.find(7)
-    @brand_oppo = Brand.find(8)
-    @brand_acer = Brand.find(9)
-    @brand_msi = Brand.find(10)
-    @brand_gigabyte = Brand.find(11)
+  def index 
+    @brands = Brand.all   
   end
 
   # GET /products/1

@@ -126,18 +126,7 @@ Rails.application.routes.draw do
   post 'shops/classify'
 
   #get products index by brands, do not delete
-  get '/dell', to: 'products#dell'
-  get '/asus', to: 'products#asus'
-  get '/samsung', to: 'products#samsung'
-  get '/blackberry', to: 'products#blackberry'
-  get '/apple', to: 'products#apple'
-  get '/hp', to: 'products#hp'
-  get '/sony', to: 'products#sony'
-  get '/oppo', to: 'products#oppo'
-  get '/acer', to: 'products#acer'
-  get '/msi', to: 'products#msi'
-  get '/gigabyte', to: 'products#gigabyte'
-
+  get "/single_brand", to: 'products#single_brand'
   
   resources :products do
     collection {post :import}
