@@ -1,7 +1,7 @@
   class UsersController < ApplicationController
   before_action :logged_in_user_admin, only: [:index ,:edit, :update, :destroy, :show]
   before_action :correct_user_admin, only: [:edit, :update]
-  before_action :admin, only: [:destroy]  
+  before_action :admin, only: [:index, :destroy]  
 
   # GET /users
   # GET /users.json

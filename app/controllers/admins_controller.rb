@@ -1,6 +1,7 @@
 class AdminsController < ApplicationController
   before_action :logged_in_admin, only: [:index, :show, :edit, :update, :destroy]
   before_action :correct_admin, only: [:edit, :update, :destroy]
+  before_action :super_admin, only: [:new, :create, :destroy]
 
   # GET /admins
   # GET /admins.json
@@ -92,5 +93,12 @@ class AdminsController < ApplicationController
       cart = Cart.create
       session[:cart_id] = cart.id
       cart
+    end
+
+    def super_admin
+    unless current_admin.super_admin?
+      flash[:warning] = "Please log in by Super Adminstrator !!!"
+      redirect_to(root_url)
+    end
     end
   end

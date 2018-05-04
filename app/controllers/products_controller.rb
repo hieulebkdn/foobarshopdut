@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def single_brand   
   @brand = Brand.find(params[:brand_id])
-  @products = @brand.products
+  @products = @brand.products.paginate(page: params[:page], :per_page => 4)
   end
   
   
@@ -92,7 +92,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price, :weight, :image, :stock, :detail, :description, :rating, :cpu, :ram, :memory, :display)
+      params.require(:product).permit(:category_id, :brand_id, :name, :price, :weight, :image, :stock, :detail, :description, :rating, :cpu, :ram, :memory, :display, :gpu)
     end
 
     # Confirms an admin user.

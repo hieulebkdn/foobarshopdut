@@ -1,81 +1,13 @@
 Rails.application.routes.draw do
-
-  get 'orders_history/index'
-
-  get 'orders_history/new'
-
-  get 'orders_history/show'
-
-  get 'orders_history/create'
-
-  get 'orders_history/edit'
-
-  get 'orders_history/destroy'
-
   get'admin/index'
 
-  get 'admin_users/index'
-
-  get 'admin_users/new'
-
-  get 'admin_users/show'
-
-  get 'admin_users/create'
-
-  get 'admin_users/edit'
-
-  get 'admin_users/destroy'
-
-  get 'admin_products/index'
-
-  get 'admin_products/new'
-
-  get 'admin_products/show'
-
-  get 'admin_products/create'
-
-  get 'admin_products/edit'
-
-  get 'admin_products/destroy'
-
-  get 'product/index'
-
-  get 'product/new'
-
-  get 'product/create'
-
-  get 'product/show'
-
-  get 'product/destroy'
-
   get 'shops/index'
-
   get 'shops/new'
-
   get 'shops/create'
-
   get 'shops/show'
-
   get 'shops/destroy'
 
-  get 'checkout/index'
-
-  get 'checkout/new'
-
-  get 'checkout/create'
-
-  get 'checkout/show'
-
-  get 'checkout/destroy'
-
   get 'home/index'
-
-  get 'home/new'
-
-  get 'home/show'
-
-  get 'home/destroy'
-
   root 'home#index'
 
   resources :line_items
@@ -91,7 +23,6 @@ Rails.application.routes.draw do
   resources :brands
   resources :admins
   resources :password_changes
-  resources :change_password
   resources :shops 
   get 'home/index'
 
@@ -100,13 +31,9 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/change_password', to: 'change_password#index'
 
   get '/shops', to: 'shops#index'
   get '/carts', to: 'carts#index' #gio hang
-  get '/checkouts', to: 'checkout#index' #dat mua sp
-  get '/orders_history', to: 'orders_history#index' #nhung sp da mua
-
   get 'sessions/new'
   
 

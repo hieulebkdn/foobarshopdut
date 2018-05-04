@@ -1,4 +1,5 @@
-<%= form_with(model: product, html: { multipart: true }, local: true) do |form| %>
+<div>
+<%= form_with(model: product, html: { multipart: true, :class=>'login100-form validate-form flex-sb flex-w' }, local: true) do |form| %>
 <% if product.errors.any? %>
 <div id="error_explanation">
   <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -10,67 +11,117 @@
 </div>
 <% end %>
 
-<div class="field">
-  <%= form.label :name %>
-  <%= form.text_field :name, id: :product_name %>
+<span class="login100-form-title p-b-20">
+  New Product
+</span>
+
+<label class="label">
+  Category
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :category_id, id: :product_category_id,class: "input100-s" %>
 </div>
 
-<div class="field">
-  <%= form.label :price %>
-  <%= form.text_field :price, id: :product_price %>
+<label class="label">
+  Brand
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :brand_id, id: :product_brand_id,class: "input100-s" %>
 </div>
 
-<div class="field">
-  <%= form.label :weight %>
-  <%= form.text_field :weight, id: :product_weight %>
+<label class="label">
+  Product Name
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :name, id: :product_name,class: "input100-s" %>
 </div>
 
-<div class="field">
-  <%= form.label :image %>
-  <%= form.file_field :image, id: :product_image %>
+<label class="label">
+  Price
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :price, id: :product_price,class: "input100-s" %>
 </div>
 
-<div class="field">
-  <%= form.label :stock %>
-  <%= form.number_field :stock, id: :product_stock %>
+<label class="label">
+  Weight
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :weight, id: :product_weight,class: "input100-s" %>
 </div>
 
-<div class="field">
-  <%= form.label :detail %>
-  <%= form.text_area :detail, id: :product_detail %>
+<label class="label">
+  Image
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.file_field :image, id: :product_image,class: "input100-s" %>
 </div>
 
-<div class="field">
-  <%= form.label :description %>
-  <%= form.text_area :description, id: :product_description %>
+<label class="label">
+  Stock
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :stock, id: :product_stock,class: "input100-s" %>
 </div>
 
-<div class="field">
-  <%= form.label :rating %>
-  <%= form.number_field :rating, id: :product_rating %>
+<label class="label">
+  Detail
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :detail, id: :product_detail,class: "input100-s" %>
 </div>
 
-<div class="field">
-  <%= form.label :cpu %>
-  <%= form.text_field :cpu, id: :product_cpu %>
+<label class="label">
+  Description
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :description, id: :product_description,class: "input100-s" %>
 </div>
 
-<div class="field">
-  <%= form.label :ram %>
-  <%= form.text_field :ram, id: :product_ram %>
+<label class="label">
+  Rating
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.number_field :rating, id: :product_rating,class: "input100-s" %>
 </div>
 
-<div class="field">
-  <%= form.label :memory %>
-  <%= form.text_field :memory, id: :product_memory %>
+<label class="label">
+  CPU
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :cpu, id: :product_cpu,class: "input100-s" %>
 </div>
 
-<div class="field">
-  <%= form.label :display %>
-  <%= form.text_field :display, id: :product_display %>
+<label class="label">
+  RAM
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :ram, id: :product_ram,class: "input100-s" %>
 </div>
 
-<div class="actions">
-  <%= form.submit %>
+<label class="label">
+  Memory
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :mem, id: :product_memory,class: "input100-s" %>
+</div>
+
+<label class="label">
+  Display
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :display, id: :product_display,class: "input100-s" %>
+</div>
+
+<label class="label">
+  GPU
+</label>
+<div class="wrap-input100 validate-input m-b-16" >
+  <%= form.text_field :gpu, id: :product_gpu,class: "input100-s" %>
+</div>
+
+<div class="container-login100-form-btn m-t-17">
+  <%= form.submit 'Signup', :class => "login100-form-btn" %>
 </div>
 <% end %>
+</div>

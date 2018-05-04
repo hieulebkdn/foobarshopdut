@@ -1,14 +1,8 @@
 <%= provide(:title, "Shop Pages") %>
 <%= render 'layouts/header1' %>           
-</div>
-</div>
-<div class="product-widget-area">
-  <!-- chua cho cho dep thoi -->
-</div> <!-- End product widget area -->
 
-
-<div style="margin-left:20px; padding-bottom:200px; margin-right:50px;">
-  <div style="width:300px;float: left">
+<div class="tool">
+  <div class="ss">
     <%= form_tag :controller => 'shops', :action => 'search', :method => 'post' do %>
     <%= text_field_tag :query, params[:query] %>
     <%= select_tag(:option, options_for_select([["A-Z",1],["Price: Low to High",2],["Price: High to Low",3]], params[:option] ), class:"select") %>
@@ -17,34 +11,25 @@
   </div>
 
   <%= form_tag :controller => 'shops', :action => 'filter', :method => 'post' do %>
-  <div style="float:right;list-style-type:none;padding-top:20px">
-    <form>
-      <div style="width:200px;float:right;padding-left:20px">
+  <div class="filter">
+      <div>
        <input type="submit" value="Filter">
      </div>
-     <div style="width:200px;float:right;padding-left:20px">
+     <div 
       <h3 style="color:#5a88ca">Price</h3>
       <%= select_tag(:price_option, options_for_select([["All price",0],["0-1000$",1],["1000-2000$",2],["2000-3000$",3]], params[:price_option] ), class:"select") %>
     </div>
-    <div style="width:200px;float:right;padding-left:20px">
+    <div>
       <h3 style="color:#5a88ca">Rating</h3>
       <%= select_tag(:rating_option, options_for_select([["All rating",0],["Above 1 stars",1],["Above 2 stars",2],["Above 3 stars",3],["Above 4 stars",4]], params[:rating_option] ), class:"select") %>
     </div>
 
-    <div style="width:200px;float:right;padding-left:20px;padding-bottom:20px;">
+    <div>
      <h3 style="color:#5a88ca">Brand</h3>
      <%= select_tag(:brand_option, options_for_select(@listBrand, params[:brand_option] ), class:"select") %>
    </div>
-
- </form>
 </div>
 <% end %>
-
-<%= form_tag :controller => 'shops', :action => 'classify', :method => 'post' do %>
-<input type="submit" value="Classify">
-<% end %>
-
-
 </div>  
 
 <div class="single-product-area">

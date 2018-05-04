@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180504185658) do
+=======
+ActiveRecord::Schema.define(version: 20180504190408) do
+>>>>>>> for_pull
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -26,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180504185658) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.string "remember_digest"
+    t.boolean "super_admin", default: false
   end
 
   create_table "brands", force: :cascade do |t|
@@ -58,20 +63,6 @@ ActiveRecord::Schema.define(version: 20180504185658) do
     t.datetime "updated_at", null: false
     t.integer "quantity", default: 1
     t.integer "order_id"
-  end
-
-  create_table "order_details", force: :cascade do |t|
-    t.decimal "price", precision: 15, null: false
-    t.integer "quantity", null: false
-    t.string "status"
-    t.text "userrequest"
-    t.date "shipday"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "order_id"
-    t.integer "product_id"
-    t.index ["order_id"], name: "index_order_details_on_order_id"
-    t.index ["product_id"], name: "index_order_details_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|

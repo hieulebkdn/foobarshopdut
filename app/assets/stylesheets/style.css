@@ -1181,3 +1181,20 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button{background
 i{
   cursor: pointer;
 }
+.tool{
+  margin: 20px 50px 60px 20px
+}
+.ss{
+  width:300px;
+  float: left;
+  margin-left: 150px
+}
+.filter{
+  float:right;
+  list-style-type:none
+}
+.filter div{
+  width:200px;
+  float:right;
+  padding-left:20px
+}
