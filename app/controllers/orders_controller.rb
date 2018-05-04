@@ -16,8 +16,8 @@ class OrdersController < ApplicationController
   def new
     @cart = current_cart
     if @cart.line_items.empty?
-      redirect_to '/', :notice => 'Your cart is empty'
-      return
+      flash[:notice] = 'Your cart is empty'
+      redirect_to '/'
     end
     @order = Order.new
   end

@@ -67,7 +67,8 @@ class CartsController < ApplicationController
       item.destroy
     end
     respond_to do |format|
-      format.html { redirect_to @cart, notice: 'Cart was successfully destroyed.' }
+      flash[:success] = 'Cart was successfully emptied'
+      format.html { redirect_to @cart  }
       format.json { head :no_content }
     end
   end
