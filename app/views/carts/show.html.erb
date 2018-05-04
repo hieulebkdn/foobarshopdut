@@ -1,4 +1,4 @@
-  <% provide(:title, "Home") %> 
+  <% provide(:title, "Cars") %> 
    <%= render 'layouts/header_no_mainmenu' %>
     
     <div class="mainmenu-area">
@@ -52,8 +52,8 @@
                             </ul>
                         </li>
                         <li><a href="/shops">Shop page</a></li>
-                        <li class="active"><a href="/carts">Cart</a></li>
-                        <li><a href="/checkouts">Checkout</a></li>
+                        <li class="active"><a href="/carts/<%=current_cart.id%>">Cart</a></li>
+                        <li><a href="/orders/new">Checkout</a></li>
                         <li><a href="#">Others</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
