@@ -15,14 +15,9 @@
     <td class="product-price">
         <span class="amount">£<%= line_item.product.price%></span> 
     </td>
-    
-    <td class="product-quantity">
-        <div class="quantity buttons_added">                
-            <input type="number" size="4" class="input-text qty text" name=<%= "quantity#{line_item.id.to_s}"%> value=<%=line_item.quantity %> min="1" step="1">                
-            <button class="add-button" type="submit">f5</button>
-        </div>
+    <td class="product-quantity">        
+            <span class="amount"><%= line_item.quantity%></span> 
     </td>
-
 
         <td class="product-subtotal">
             <span class="amount">£<%= line_item.total_price%></span> 
