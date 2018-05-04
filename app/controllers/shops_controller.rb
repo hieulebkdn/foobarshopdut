@@ -60,19 +60,8 @@ class ShopsController < ApplicationController
     end
 
     @products = Product.belong_to_cate(@listCate_id)
+    flash[:success] = @listCate_id
     render 'result'
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def show
-  end
-
-  def destroy
   end
 
 end
