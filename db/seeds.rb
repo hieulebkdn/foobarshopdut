@@ -70,7 +70,20 @@ product_list = [
 	[9,5,"Apple iPad mini 4",359,0.9,10,"Mighty. Small., Ridiculously light. Seriously thin.","Apple IPad","A9 chip","4GB","32GB","7.9\"\ ","None"],
 	[9,5,"Apple iPad with WiFi, 32GB, Gold (2017 Model)",279,0.8,10,"9.7-inch Retina display, wide color and true tone, A9 third-generation chip with 64-bit architecture","Apple IPad","A9 chip with 64-bit","3GB","32GB","9.7\"\ ","None"],
 	#### Products for SAMSUNG
-	[1,3,"Samsung Galaxy J7 Prime G610M",220,0.3,5,"5.5-inch IPS LCD Capacitive Touchscreen, 1080 x 1920 pixel resolution,Android v6.0 Marshmallow, Chipset: Exynos 7870 Octa, Processor: Octa-Core 1.6 GHz Cortex-A53","SAMSUNG Smartphone","Exynos 7870 Octa","3GB","16GB","5.5\"\ 1080 x 1920","None"]
+	[1,3,"Samsung Galaxy J7 Prime G610M",220,0.3,5,"5.5-inch IPS LCD Capacitive Touchscreen, 1080 x 1920 pixel resolution,Android v6.0 Marshmallow, Chipset: Exynos 7870 Octa, Processor: Octa-Core 1.6 GHz Cortex-A53","SAMSUNG Smartphone","Exynos 7870 Octa","3GB","16GB","5.5\"\ 1080 x 1920","None"],
+	[1,3,"Samsung Galaxy Note 8 Dual SIM Unlocked",834.9,0.2,10,"Exynos 8895 CPU, Octa-core (4 x 2.3 GHz & 4 x 1.7 GHz), Dual LED Rear Camera (12 MP+12 MP ) + 8 MP Front Camera","Samsung Smartphone","Exynos 8895","6GB","64GB","6.3\"\ 2960 x 1440","None"],
+	[1,3,"Samsung Galaxy S9 4G LTE",724.9,0.2,14,"Octa-Core Processor (2.8 GHz + 1.7 GHz), Dual Pixel PDAF Rear Camera (12 MP) + 8 MP Front-Facing Camera","Samsung Smartphone","Octa-core","4GB","64GB","5.8\"\ 2960 x 1440","None"],
+	[1,3,"Samsung Galaxy S6 G920V 64GB Unlocked",279.9,0.2,16,"5.1-inch Super AMOLED Capacitive Touchscreen with Corning Gorilla Glass 4, Android OS, Exynos 7420 Octa Chipset, Octa-Core Processor","Samsung Smartphone","Exynos 7420 Octa","3GB","64GB","5.1\"\ 2560 x 1440","None"],
+	#### Products for BLACKBERRY
+	[1,4,"BlackBerry PRIV STV100-2 32GB Unlocked",219.9,0.2,20,"5.4-inch AMOLED Capacitive Touchscreen, Android v5.1, Qualcomm Snapdragon 808, Hexa-Core (4x1.4 GHz & 2x1.8 GHz) Processor, Adreno 418 GPU, 18 MP Camera + 2 MP Front Camera","BlackBerry Smartphone","Hexa-Core (Quad-Core 1.4 GHz Cortex-A53 & Dual-Core 1.8 GHz Cortex-A57)","3GB","32GB","1440 x 2560 pixels","None"],
+	[1,4,"BlackBerry Curve 9320 3G Unlocked",65.9,0.1,30,"3.2 MP Rear Camera, 512MB RAM 512 MB ROM Up to 32GB MicroSD (TF Card), Lithium Ion Battery 1450mAh","BlackBerry Smartphone","TFT","512MB","512MB","2.44\"\ 320 x 240","None"],
+	[1,4,"BlackBerry KEYone 64GB",679,0.15,10,"4.5\"\ IPS LCD capacitive touchscreen, Corning Gorilla Glass 4, 64GB Storage, 4GB RAM, microSD slot : up to 2TB","BlackBerry Smartphone","Qualcomm MSM8953 Snapdragon 625","4GB","64GB","4.5\"\ 1620 x 1080","None"],
+	#### Products for HP
+	[1,6,"HP Laptop 250 G6 (1NW57UT#ABA)",575.9,2,15,"Intel Core i5 7th Gen 7200U (2.50 GHz), 8 GB Memory 256 GB SSD, Intel HD Graphics 620","HP Laptop","Intel HD Graphics 620","8 GB DDR4","256 GB SSD","15.6\"\ ","Intel HD Graphics 620"],
+	[1,6,"HP Grade B Laptop 840 G1",316.86,1.8,5,"Intel Core i7 4th Gen 4600U (2.10 GHz),8 GB Memory 128 GB SSD","HP Laptop","Intel Core i7-4600U 2.1 GHz","8 GB","128 GB SSD","14 inch","Intel Core i7 4th Gen"],
+	[1,6,"HP Spectre x360 15t Premium Convertible 2-in-1",1549.9,2.1,10,"8th-Gen Intel Core i7-8550U (1.8GHz, 8MB cache) + NVIDIA GeForce MX150 2GB","HP Laptop","Intel Core i7","8 GB","256GB SSD","15.6\"\ UHD","NVIDIA GeForce MX150 Graphics 2GB"],
+	[1,6,"HP Pavilion 14-q010nr Chromebook",499.9,2.1,10,"Intel 4th Gen Haswell Celeron 2955U(1.40GHz), 2GB Memory 16GB SSD","HP Laptop","Intel 4th Gen Haswell Celeron 2955U(1.40GHz)","2 GB DDR3","128GB SSD","14\"\ FullHD","Intel HD Graphics"]
+	#### Products for SONY
 ]
 
 user_list = [
