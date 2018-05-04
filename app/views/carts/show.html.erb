@@ -138,15 +138,17 @@
                                       <%= render @cart %>
                                         <tr>
                                             <td class="actions" colspan="6">
-                                                <input type="submit" value="Update Cart" name="update_cart" class="button">  
-                                            <%= button_to 'Checkout', 
+                                                <input type="submit" value="Update Cart" name="update_cart" class="add_to_cart_button">  
+                                             <%= link_to 'Checkout',
                                                 new_order_path, 
-                                                :method => :get %> 
-                                            </td>                                           
+                                                :method => :get, class: 'add_to_cart_button', :style => 'padding-top: 9px; padding-bottom: 9.5px; text-transform: uppercase; margin-left: 300px;'%> 
+                                            </td>  
+                                                                                   
                                         </tr>
                                        
                                     </tbody>
                                 </table>
+
                             </form> 
 
                             <div class="cart-collaterals">
