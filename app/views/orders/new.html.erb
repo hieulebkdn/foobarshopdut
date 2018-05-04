@@ -1,100 +1,5 @@
-<!DOCTYPE html>
-<!--
-    ustora by freshdesignweb.com
-    Twitter: https://twitter.com/freshdesignweb
-    URL: https://www.freshdesignweb.com/ustora/
--->
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Checkout Page - Ustora Demo</title>
-
-    <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-      <![endif]-->
-  </head>
-  <body>
-
-    <div class="header-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="user-menu">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="header-right">
-                        <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">INR</a></li>
-                                    <li><a href="#">GBP</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End header area -->
-
-    <div class="site-branding-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="logo">
-                        <h1><a href="./"><img src="img/logo.png"></a></h1>
-                    </div>
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$100</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End site branding area -->
+  <% provide(:title, "Checkout") %> 
+   <%= render 'layouts/header_no_mainmenu' %>
 
     <div class="mainmenu-area">
         <div class="container">
@@ -106,22 +11,56 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                </div> 
+                </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="shop.html">Shop page</a></li>
-                        <li><a href="single-product.html">Single product</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li class="active"><a href="checkout.html">Checkout</a></li>
-                        <li><a href="#">Category</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li id="category">
+                            <a href="#">All category</a>
+                            <ul class="cate-sub">
+
+                                <li id="category2">
+                                    <a href="#">Laptop</a>
+                                    <ul class="cate-sub-sub">
+                                        <li id="category3"><a href="#">Gaming Laptop</a></li>
+                                        <li id="category4"><a href="#">Bussiness Laptop</a></li>
+                                        <li id="category5"><a href="#">Workstation Laptop</a></li>
+                                    </ul>
+                                </li>
+
+                                <li id="category6">
+                                    <a href="#">Desktop</a>
+                                    <ul class="cate-sub-sub">
+                                        <li id="category7"><a href="#">All-in-one Desktop</a></li>
+                                        <li id="category8"><a href="#">Gaming Desktop</a></li>
+                                    </ul>
+                                </li>
+
+                                <li id="category9">
+                                    <a href="#">Tablet</a>
+                                    <ul class="cate-sub-sub">
+                                        <li id="category10"><a href="#">Ipad</a></li>
+                                        <li id="category11"><a href="#">Android Tablet</a></li>
+                                        <li id="category12"><a href="#">Other Tablet</a></li>
+                                    </ul>
+                                </li>
+
+                                <li id="category13">
+                                    <a href="#">Phone</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li><a href="/shops">Shop page</a></li>
+                        <li><a href="/carts/<%=current_cart.id%>">Cart</a></li>
+                        <li class="active"><a href="/orders/new">Checkout</a></li>
                         <li><a href="#">Others</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>  
             </div>
         </div>
-    </div> <!-- End mainmenu area -->
+    </div> <!-- End mainmenu area -->   
 
     <div class="product-big-title-area">
         <div class="container">
@@ -149,30 +88,30 @@
                                     <div class="col-2">
                                         <div class="woocommerce-shipping-fields">
                                             <h1 style="color:#5A88CA" id="ship-to-different-address">
-                                                <label class="checkbox" for="ship-to-different-address-checkbox">New Oder</label>
+                                                <label class="checkbox" for="ship-to-different-address-checkbox">Checkout</label>
                                             </h1>
                                             <div class="shipping_address" style="display: block;">
 
                                                 <p class="form-row form-row-first validate-required">
                                                     <label class="" for="shipname">Ship Name 
                                                     </label>
-                                                    <input type="text" name="shipname" class="input-text ">
+                                                    <input type="text" name="shipname" class="input-text " value="<%=current_user.name%>">
                                                 </p>
                                                 <p class="form-row form-row-wide address-field validate-required">
                                                     <label class="" for="city">City
                                                     </label>
-                                                    <input type="text" name="city" class="input-text ">
+                                                    <input type="text" name="city" class="input-text " value="<%=current_user.city%>">
                                                 </p>
                                                 <div class="clear"></div>
                                                 <p class="form-row form-row-wide address-field validate-required">
                                                     <label class="" for="shipaddress">Ship Address
                                                     </label>
-                                                    <input type="text" name="shipaddress" class="input-text ">
+                                                    <input type="text" name="shipaddress" class="input-text " value="<%=current_user.address%>">
                                                 </p>
                                                 <p class="form-row form-row-last address-field validate-required validate-postcode" >
                                                     <label class="" for="phone">Phone 
                                                     </label>
-                                                    <input type="text" name="phone" class="input-text ">
+                                                    <input type="text" name="phone" class="input-text " value="<%=current_user.phone%>">
                                                 </p>
                                             </div>
                                         </div>

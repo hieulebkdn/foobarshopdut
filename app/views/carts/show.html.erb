@@ -1,4 +1,4 @@
-  <% provide(:title, "Home") %> 
+  <% provide(:title, "Cars") %> 
    <%= render 'layouts/header_no_mainmenu' %>
     
     <div class="mainmenu-area">
@@ -52,8 +52,8 @@
                             </ul>
                         </li>
                         <li><a href="/shops">Shop page</a></li>
-                        <li class="active"><a href="/carts">Cart</a></li>
-                        <li><a href="/checkouts">Checkout</a></li>
+                        <li class="active"><a href="/carts/<%=current_cart.id%>">Cart</a></li>
+                        <li><a href="/orders/new">Checkout</a></li>
                         <li><a href="#">Others</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
@@ -122,7 +122,7 @@
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="woocommerce">
-                            <form>
+                            
                                 <table cellspacing="0" class="shop_table cart">
                                     <thead>
                                         <tr>
@@ -138,18 +138,19 @@
                                       <%= render @cart %>
                                         <tr>
                                             <td class="actions" colspan="6">
-                                                <input type="submit" value="Update Cart" name="update_cart" class="add_to_cart_button">  
+                                             <%= link_to 'Empty Cart',
+                                                cart_path, 
+                                                :method => :delete, class: 'add_to_cart_button', :style => 'padding-top: 9px; padding-bottom: 9.5px; text-transform: uppercase;'%> 
                                              <%= link_to 'Checkout',
                                                 new_order_path, 
                                                 :method => :get, class: 'add_to_cart_button', :style => 'padding-top: 9px; padding-bottom: 9.5px; text-transform: uppercase; margin-left: 300px;'%> 
-                                            </td>  
-                                                                                   
+                                            </td>                                        
                                         </tr>
                                        
                                     </tbody>
                                 </table>
 
-                            </form> 
+                            
 
                             <div class="cart-collaterals">
 
