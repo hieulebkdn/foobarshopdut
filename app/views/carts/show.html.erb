@@ -122,7 +122,7 @@
                 <div class="col-md-8">
                     <div class="product-content-right">
                         <div class="woocommerce">
-                            
+                            <form>
                                 <table cellspacing="0" class="shop_table cart">
                                     <thead>
                                         <tr>
@@ -139,15 +139,15 @@
                                         <tr>
                                             <td class="actions" colspan="6">
                                                 <input type="submit" value="Update Cart" name="update_cart" class="button">  
-                                            </td>
                                             <%= button_to 'Checkout', 
                                                 new_order_path, 
                                                 :method => :get %> 
+                                            </td>                                           
                                         </tr>
-                                        
+                                       
                                     </tbody>
                                 </table>
-                            
+                            </form> 
 
                             <div class="cart-collaterals">
 
