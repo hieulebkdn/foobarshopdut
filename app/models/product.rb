@@ -39,7 +39,7 @@ class Product < ApplicationRecord
 	validates :price, presence: true,  :numericality => true,
 	:format => { :with => /\A\d{1,9}(\.\d{0,2})?\z/ }
 
-	validates :name, presence: true, length: { maximum: 255 }
+	validates :name, presence: true, length: { maximum: 255 },uniqueness: { case_sensitive: false }
 
 	validates :rating, numericality: { greater_than: 0, less_than: 6 }
 	
