@@ -22,6 +22,8 @@ class Product < ApplicationRecord
 		end
 	end)
 
+	scope :belong_to_cate, -> (c_id_list) {where "category_id in (?)", c_id_list}
+
 	has_many :reviews
 	belongs_to :category
 	belongs_to :brand

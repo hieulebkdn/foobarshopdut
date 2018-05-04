@@ -9,17 +9,17 @@ class Order < ApplicationRecord
  #      :with => /[0-9]{3}-[0-9]{3}-[0-9]{4}/,
  #      :message => "- Phone numbers must be in xxx-xxx-xxxx format."
 
-	validates :shipname, :shipaddress, :city, presence: true 	
+ validates :shipname, :shipaddress, :city, presence: true 	
 
-	def add_line_items_from_cart(cart) 
-        cart.line_items.each do |item|
-            item.cart_id = nil
-            line_items << item
-        end
-    end	
-    def total_price 
-        line_items.to_a.sum { |item| item.total_price }
-    end
+ def add_line_items_from_cart(cart) 
+ 	cart.line_items.each do |item|
+ 		item.cart_id = nil
+ 		line_items << item
+ 	end
+ end	
+ def total_price 
+ 	line_items.to_a.sum { |item| item.total_price }
+ end
 end
 
 # class CreateOrders < ActiveRecord::Migration[5.1]

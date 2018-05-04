@@ -123,7 +123,7 @@ Rails.application.routes.draw do
   get 'pages/single_product'
   post 'shops/search'
   post 'shops/filter'
-
+  post 'shops/classify'
 
   
   resources :products do

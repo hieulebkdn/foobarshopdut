@@ -1,6 +1,6 @@
 class Admin < ApplicationRecord
 	attr_accessor :remember_token
-	# has_many :Product, dependent: :destroy
+	has_many :products, dependent: :destroy
 
 	validates :name, presence: true, length: { maximum: 80 }
 	VALID_PHONE_REGEX = /\A[0]{1}[19]{1}[0-9]{8,9}\z/
