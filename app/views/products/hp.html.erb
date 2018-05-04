@@ -1,5 +1,16 @@
 <% provide(:title, "HP") %>
 <%= render 'layouts/header1' %>
+<div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>HP</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <% @products.each do |product| %>
     <% if product.brand_id == 6 %>
       <%= render 'index_form', product: product %>

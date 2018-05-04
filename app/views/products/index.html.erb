@@ -1,5 +1,39 @@
 <% provide(:title, "All Products") %>
 <%= render 'layouts/header1' %>
+
+<div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>ALL BRANDS</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class=" header-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="user-menu">
+          <div class="form-group">
+            <ul>
+              <label class="control-label col-md-4">Import Data</label>
+                <%= form_tag import_products_path, multipart: true do %>
+                <%= file_field_tag :file %>
+                <%= submit_tag "Import" %>
+                <%= link_to 'New Product', new_product_path %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="brands-area">
     <div class="zigzag-bottom"></div>
     <div class="container">

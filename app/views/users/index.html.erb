@@ -1,6 +1,17 @@
 <% provide(:title, 'All Users') %>
 <%= render 'layouts/header1' %>
 
+<div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>ALL USERS</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <%= will_paginate %>
 <% @users.each do |user| %>
     <div class="container">
