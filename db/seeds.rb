@@ -86,9 +86,9 @@ user_list = [
 ]
 
 admin_list = [
-	["admin01","admin01@gmail.com", "01234567891", "admin1 company", "admin1 address", "admin01"],
-	["admin02","admin02@gmail.com", "01234567892", "admin2 company", "admin2 address", "admin02"],
-	["admin03","admin03@gmail.com", "01234567893", "admin3 company", "admin3 address", "admin03"],
+	["admin01","admin01@gmail.com", "01234567891", "admin1 company", "admin1 address", "admin01",true],
+	["admin02","admin02@gmail.com", "01234567892", "admin2 company", "admin2 address", "admin02",false],
+	["admin03","admin03@gmail.com", "01234567893", "admin3 company", "admin3 address", "admin03",false]
 ]
 
 existing_nameBrand = Brand.all.map { |b| b.name }
@@ -111,9 +111,9 @@ category_list.each do |n, co|
 	end
 end
 
-admin_list.each do |n, e, ph, c, a, pass|
+admin_list.each do |n, e, ph, c, a, pass, su|
 	unless existing_nameAdmin.include?(n)
-		Admin.create(name: n, email: e, phone: ph, company: c, address: a, password: pass)
+		Admin.create(name: n, email: e, phone: ph, company: c, address: a, password: pass,super_admin: su)
 	end
 end
 

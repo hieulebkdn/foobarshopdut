@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504154107) do
+ActiveRecord::Schema.define(version: 20180504190408) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180504154107) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.string "remember_digest"
+    t.boolean "super_admin", default: false
   end
 
   create_table "brands", force: :cascade do |t|
