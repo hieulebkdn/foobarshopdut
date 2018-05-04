@@ -1,8 +1,7 @@
 class AdminsController < ApplicationController
-  before_action :logged_in_admin, only: [:index, :show, :edit, :update, :destroy]
-  before_action :correct_admin, only: [:edit, :update, :destroy]
-  before_action :super_admin, only: [:new, :create, :destroy]
-
+  before_action :logged_in_admin, only: [:show, :edit, :update, :destroy]
+  before_action :correct_admin, only: [:show, :edit, :update]
+  before_action :super_admin, only: [:index, :new, :destroy]
   # GET /admins
   # GET /admins.json
   def index
@@ -60,11 +59,17 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.json
   def destroy
-    @admin.destroy
+    @admin = Admin.find(params[:id])
+    if @admin.super_admin?
+      flash[:danger] = "Do not delete Super Admin !!!"
+      redirect_to root_url
+    else
+    @admin = Admin.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to admins_url, notice: 'Admin was successfully deleted !!!' }
       format.json { head :no_content }
     end
+  end
   end
 
   private
@@ -84,7 +89,7 @@ class AdminsController < ApplicationController
 
     def correct_admin
       @admin = Admin.find(params[:id])
-      redirect_to(root_url) unless current_admin?(@admin)
+      redirect_to(root_url) unless (current_admin?(@admin) || super_admin?)
     end
     
     def current_cart

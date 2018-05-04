@@ -115,5 +115,9 @@ end
     cookies.delete(:remember_token)
   end
 
+  def super_admin?
+    current_admin.super_admin?
+  end
+
 
 end

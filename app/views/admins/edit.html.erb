@@ -32,8 +32,14 @@
 								<%= link_to "View Profile", @admin %>								
 							</li>
 
-							<li class="active" id="proChangePass">																	<%= link_to "Edit Profile", edit_admin_path(@admin) %>
+							<li class="active" id="proChangePass">																<%= link_to "Edit Profile", edit_admin_path(@admin) %>
 							</li>
+
+							<% if super_admin? %>
+                			<li id="proChangePass">
+                  				<%= link_to "Delete Admin", @admin, method: :delete, data: { confirm: 'Are you sure?' } %>
+                			</li>
+              				<% end %>
 						</ul>
 					</div>
 				</div>
