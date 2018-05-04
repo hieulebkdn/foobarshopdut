@@ -19,9 +19,14 @@
                 <li id="proInfo">                  
                   <%= link_to "View Profile", admin %>
                 </li>
-              <% if current_admin?(admin) %>
+              <% if current_admin?(admin) || super_admin?%>
                 <li id="proChangePass">
                   <%= link_to "Edit Profile", edit_admin_path(admin) %>
+                </li>
+              <% end %>
+              <% if super_admin? %>
+                <li id="proChangePass">
+                  <%= link_to "Delete Admin", admin, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </li>
               <% end %>
               </ul>

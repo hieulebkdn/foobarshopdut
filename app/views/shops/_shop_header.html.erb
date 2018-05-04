@@ -5,13 +5,27 @@
                     <div class="user-menu">
                         <ul>
                             <% if admin_logged_in? %>
-                            <i class="fa fa-user"></i>                                                                          <li><%= link_to "My Account", current_admin %></li>
+                                <% if super_admin? %>
+                            <i class="fa fa-user"></i>                                                                   <li><%= link_to "My Account", current_admin %></li>
+                            <i class="fa fa-pencil-square-o"></i>
+                            <li id="proChangePass"><%= link_to "Manage Users", users_url %></li>
+                            <i class="fa fa-pencil-square-o"></i>
+                            <li id="proChangePass"><%= link_to "Manage Products", products_url %></li>
+                            <i class="fa fa-pencil-square-o"></i>
+                            <li id="proChangePass"><%= link_to "Manage Admins", admins_url %></li>
+                            <i class="fa fa-user"></i>
+                            <li id="proChangePass"><%= link_to "Create new admin", new_admin_url %></li>
+                            <i class="fa fa-sign-out"></i>
+                            <li id="proChangePass"><%= link_to "Log out", logout_path, method: :delete %></li>
+                                <% else %>
+                            <i class="fa fa-user"></i>                                                                   <li><%= link_to "My Account", current_admin %></li>
                             <i class="fa fa-pencil-square-o"></i>
                             <li id="proChangePass"><%= link_to "Manage Users", users_url %></li>
                             <i class="fa fa-pencil-square-o"></i>
                             <li id="proChangePass"><%= link_to "Manage Products", products_url %></li>
                             <i class="fa fa-sign-out"></i>
-                            <li id="proChangePass"><%= link_to "Log out", logout_path, method: :delete %></li>                     
+                            <li id="proChangePass"><%= link_to "Log out", logout_path, method: :delete %></li>
+                                <% end %>           
                             <% elsif logged_in? %>
                             <i class="fa fa-user"></i>
                             <li><%= link_to "My Account", current_user %></li>
@@ -90,7 +104,8 @@
       </div> 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><%= link_to "Home", root_path %></li>
+          <li class="active"><%= link_to "Home", root_path %></li>
+
           <!---------HIEU1-------->
           <li id="category">
             <%= link_to "All category","http://localhost:3000/shops/index" %>
@@ -127,10 +142,11 @@
     </ul>
 </li>
 
-<li class="active"><a href="/shops">Shop page</a></li>
+
+<li><a href="/shops">Shop page</a></li>
 <li><a href="/carts/<%=current_cart.id%>">Cart</a></li>
-<li><a href="/checkouts">Checkout</a></li>
-<li><a href="#">Others</a></li>
+<li><a href="/orders/new">Checkout</a></li>
+<li><a href="/orders">Orders</a></li>
 <li><a href="#">Contact</a></li>
 </ul>
 </div>  
