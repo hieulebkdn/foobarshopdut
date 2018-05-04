@@ -44,8 +44,8 @@ product_list = [
 	[4,1,"DELL Laptop XPS XPS9370-7040SLV", 1999, 1, 25, "Intel Core i7 8th Gen 8550U (1.80 GHz) 16 GB Memory 1 TB PCIe SSD Intel UHD Graphics 620 13.3' Touchscreen Windows 10 Home 64-Bit", "So 1 the gioi", "Intel Core i7 8th Gen 8550U (1.80 GHz)", "16GB", "Memory 1 TB PCIe SSD", "3840 x 2160 Touchscreen", "Intel UHD Graphics 620"],
 	[4,6,"HP Laptop ProBook 450 G5", 758, 2.3, 10, "Intel Core i5 8th Gen 8250U (1.60 GHz) 8 GB Memory 256 GB SSD Intel UHD Graphics 620 15.6' Windows 10 Pro 64-Bit", "HP probook do may pa", "Intel Core i5 8th Gen 8250U (1.60 GHz)", "8GB", "Memory 256 GB SSD", "1920 x 1080", "Intel UHD Graphics 620"],
 	[5,2,"ASUS VivoBook S510", 865, 2, 15, "15.6' Full HD Thin and Portable Laptop, Intel Core i7-8550U 1.8 GHz Processor, NVIDIA GeForce MX150 2 GB, 8 GB DDR4 RAM, 256 GB M.2 SSD + 1 TB HDD, Windows 10 Signature Edition, ASUS NanoEdge Display", "Vivu vivu hihi", "Intel Core i7-8550U 1.8 GHz (Turbo up to 4.0 GHz) Processor", "8GB DDR4", "256 GB M.2 SSD + 1 TB HDD combo", "15.6' Full HD WideView color rich display with up to 178 degree viewing angle optimized for entertainment", "NVIDIA GeForce MX150 graphics" ],
-	[2,10,"MSI GT83 Titan 8RG",4999,5.5,10,"Up to 8th Gen. Intel® Core™ i9 Processor, GeForce® GTX 1080 with 8GB GDDR5X SLI","Best Gaming Laptop","Intel® Core™ i9 Processor","32GB DDR5 RAM","512GB M.2 SSD + 1 TB HDD","18.4\"\ FHD (1920x1080), IPS-Level","GeForce® GTX 1080 with 8GB GDDR5X SLI"],
-	[2,10,"MSI GS65 Stealth Thin 8RF",2399,1.9,10,"Up to 8th Gen. Intel® Core™ i7 Processor, GeForce® GTX 1070 with 8GB GDDR5","Best Gaming Laptop","Intel® HM370","DDR4-2400 DDR4-2666, 2 Slots, Max 32GB,","1x M.2 SSD slot (NVMe PCIe Gen3), 1x M.2 SSD Combo (NVMe PCIe Gen3 / SATA )","15.6\"\ FHD (1920x1080), 144Hz, 7ms, IPS-Level","GeForce® GTX 1070 with 8GB GDDR5"],
+	[3,10,"MSI GT83 Titan 8RG",4999,5.5,10,"Up to 8th Gen. Intel® Core™ i9 Processor, GeForce® GTX 1080 with 8GB GDDR5X SLI","Best Gaming Laptop","Intel® Core™ i9 Processor","32GB DDR5 RAM","512GB M.2 SSD + 1 TB HDD","18.4\"\ FHD (1920x1080), IPS-Level","GeForce® GTX 1080 with 8GB GDDR5X SLI"],
+	[3,10,"MSI GS65 Stealth Thin 8RF",2399,1.9,10,"Up to 8th Gen. Intel® Core™ i7 Processor, GeForce® GTX 1070 with 8GB GDDR5","Best Gaming Laptop","Intel® HM370","DDR4-2400 DDR4-2666, 2 Slots, Max 32GB,","1x M.2 SSD slot (NVMe PCIe Gen3), 1x M.2 SSD Combo (NVMe PCIe Gen3 / SATA )","15.6\"\ FHD (1920x1080), 144Hz, 7ms, IPS-Level","GeForce® GTX 1070 with 8GB GDDR5"],
 	[2,10,"GP73 Leopard 8RE",2199,2.7,15,"Up to 8th Gen. Intel® Core™ i7 Processor, GeForce® GTX 1060 with 6GB GDDR5", "Gaming Laptop","Intel® HM370","DDR4-2400, DDR4-2666 2 Slots Max 32GB","1x M.2 SSD slot (NVMe PCIe Gen3), 1x M.2 SSD Combo (NVMe PCIe Gen3 / SATA ), 1x 2.5\"\ SATA HDD","17.3\"\ FHD (1920x1080), 120Hz, 3ms, Wide-View","GeForce® GTX 1060 with 6GB GDDR5"],
 	[2,2,"ASUS ROG-GL553VD",2000,2.5,9,"Intel® Core™ i7 7700HQ Processor, NVIDIA GeForce GTX 1050 , with 2GB/4GB GDDR5 VRAM","ASUS Gaming Laptop","Intel® HM175 Express Chipset","up to 32 GB SDRAM, 2 x SO-DIMM socket","128GB/256GB/512GB SSD SATA3, 1TB 5400RPM SSH", "FHD (16:9) (1920x1080) 15.6\"\ Anti-Glare with 45% NTSC LED backlit Panel 60Hz","NVIDIA GeForce GTX 1050 , with 2GB/4GB GDDR5 VRAM"],
 	[2,2,"ASUS ROG-G752VM",2499,4.06,8,"Intel® Core™ i7 6700HQ Processor, NVIDIA GeForce GTX 1060 , with 6GB VRAM", "ASUS Gaming Laptop", "Intel® CM236 Express Chipset","DDR4 2400MHz SDRAM, up to 64 GB SDRAM","2TB 5400RPM SATA HDD, 128GB/256GB PCIE Gen3X4 SSD (RAID0)","17.3\"\ (16:9) LED backlit FHD (1920x1080) Anti-Glare Panel with 72% NTSC with G-Sync","NVIDIA GeForce GTX 1060 , with 6GB VRAM"],
@@ -58,9 +58,9 @@ product_list = [
 	[1,5,"Apple 13.3\"\ MacBook Air",1199,1.5,10,"13 inch MacBook Air Laptop (2017 Model) comes with 1.8 GHz Dual-Core Intel Core i5 Processor (Turbo Boost up to 2.9 GHz)","Apple MacBook Air","intel","8 GB","128 GB SSD","1440x900 12 inches","None"],
 	[1,5,"Apple MacBook Pro MD101LL/A",509,1.6,10,"Intel HD Graphics 4000, 4 GB DDR3 SDRAM","Apple MacBook Air","Intel HD Graphics 4000","4 GB DDR3 SDRAM","128 GB","1280x800 13.3 inches","None"],
 	[1,5,"Apple MacBook Air MJVM2LL/A",755,1.6,10,"1.6 GHz Intel Core i5, 128 GB flash_memory_solid_state","Apple MacBook Air","1.6 GHz Intel Core i5","8 GB DDR3 SDRAM","128 GB flash_memory_solid_state","1366 x 768 11.6 inches","None"],
-	[9,5,"Apple iPad 9.7\"\ Retina",299,0.9,10,"iOS 11, 9.7-inch Retina display has the detail and size to really bring them to life","Apple Ipad","A9 chip with 64-bit desktop-class architecture","4GB","32 GB","9.7\"\ ","None"],
-	[9,5,"Apple iPad mini 4",359,0.9,10,"Mighty. Small., Ridiculously light. Seriously thin.","Apple IPad","A9 chip","4GB","32GB","7.9\"\ ","None"],
-	[9,5,"Apple iPad with WiFi, 32GB, Gold (2017 Model)",279,0.8,10,"9.7-inch Retina display, wide color and true tone, A9 third-generation chip with 64-bit architecture","Apple IPad","A9 chip with 64-bit","3GB","32GB","9.7\"\ ","None"],
+	[10,5,"Apple iPad 9.7\"\ Retina",299,0.9,10,"iOS 11, 9.7-inch Retina display has the detail and size to really bring them to life","Apple Ipad","A9 chip with 64-bit desktop-class architecture","4GB","32 GB","9.7\"\ ","None"],
+	[10,5,"Apple iPad mini 4",359,0.9,10,"Mighty. Small., Ridiculously light. Seriously thin.","Apple IPad","A9 chip","4GB","32GB","7.9\"\ ","None"],
+	[9,5,"Apple iPad 32GB Gold",279,0.8,10,"9.7-inch Retina display, wide color and true tone, A9 third-generation chip with 64-bit architecture","Apple IPad","A9 chip with 64-bit","3GB","32GB","9.7\"\ ","None"],
 	#### Products for SAMSUNG
 	[1,3,"Samsung Galaxy J7 Prime G610M",220,0.3,5,"5.5-inch IPS LCD Capacitive Touchscreen, 1080 x 1920 pixel resolution,Android v6.0 Marshmallow, Chipset: Exynos 7870 Octa, Processor: Octa-Core 1.6 GHz Cortex-A53","SAMSUNG Smartphone","Exynos 7870 Octa","3GB","16GB","5.5\"\ 1080 x 1920","None"],
 	[1,3,"Samsung Galaxy Note 8 Dual SIM Unlocked",834.9,0.2,10,"Exynos 8895 CPU, Octa-core (4 x 2.3 GHz & 4 x 1.7 GHz), Dual LED Rear Camera (12 MP+12 MP ) + 8 MP Front Camera","Samsung Smartphone","Exynos 8895","6GB","64GB","6.3\"\ 2960 x 1440","None"],
@@ -74,8 +74,25 @@ product_list = [
 	[1,6,"HP Laptop 250 G6 (1NW57UT#ABA)",575.9,2,15,"Intel Core i5 7th Gen 7200U (2.50 GHz), 8 GB Memory 256 GB SSD, Intel HD Graphics 620","HP Laptop","Intel HD Graphics 620","8 GB DDR4","256 GB SSD","15.6\"\ ","Intel HD Graphics 620"],
 	[1,6,"HP Grade B Laptop 840 G1",316.86,1.8,5,"Intel Core i7 4th Gen 4600U (2.10 GHz),8 GB Memory 128 GB SSD","HP Laptop","Intel Core i7-4600U 2.1 GHz","8 GB","128 GB SSD","14 inch","Intel Core i7 4th Gen"],
 	[1,6,"HP Spectre x360 15t Premium Convertible 2-in-1",1549.9,2.1,10,"8th-Gen Intel Core i7-8550U (1.8GHz, 8MB cache) + NVIDIA GeForce MX150 2GB","HP Laptop","Intel Core i7","8 GB","256GB SSD","15.6\"\ UHD","NVIDIA GeForce MX150 Graphics 2GB"],
-	[1,6,"HP Pavilion 14-q010nr Chromebook",499.9,2.1,10,"Intel 4th Gen Haswell Celeron 2955U(1.40GHz), 2GB Memory 16GB SSD","HP Laptop","Intel 4th Gen Haswell Celeron 2955U(1.40GHz)","2 GB DDR3","128GB SSD","14\"\ FullHD","Intel HD Graphics"]
-	#### Products for SONY
+	[1,6,"HP Pavilion 14-q010nr Chromebook",499.9,2.1,10,"Intel 4th Gen Haswell Celeron 2955U(1.40GHz), 2GB Memory 16GB SSD","HP Laptop","Intel 4th Gen Haswell Celeron 2955U(1.40GHz)","2 GB DDR3","128GB SSD","14\"\ FullHD","Intel HD Graphics"],
+	#### Products for SAMSUNG
+	[9,3,"SAMSUNG Galaxy Tab S3 SM-T820NZKAXAR ",599,0.8,10,"9.7\"\ 2048 x 1536,Qualcomm APQ8096 (2.15 GHz)","SAMSUNG Tablet","Qualcomm APQ8096 (2.15 GHz)","4 GB","32 GB Flash Storage","9.7\"\ ","None"],
+	[9,3,"SAMSUNG Galaxy Tab S 10.5",499,0.8,10,"Samsung Exynos 5 Octa (1.9GHz Quad core + 1.3 GHz Quad core)","SAMSUNG Tablet","Samsung Exynos 5","3 GB","16 GB SSD","10.5\"\ ", "None"],
+	[11,7,"SONY Xperia SGPT121US/S",375,0.8,10,"NVIDIA Tegra 3,Android 4.0 (Ice Cream Sandwich)","SONY Tablet","NVIDIA Tegra 3","1 GB","16GB HDD","9.4 inch","NVIDIA ULP GeForce"],
+	[13,8,"OPPO R9S 4GB+64GB",399.9,0.2,10,"This phone will work with GSM networks, This phone has a large 5.5\"\ display", "OPPO Smartphone","Octa-core","3GB","128GB","5,5\"\ ","None"],
+	[13,8,"Original OPPO R9s Plus",469.9,0.2,10,"This phone has a large 6\"\ display Fascinating Selfie camera","OPPO Smartphone","Octa-Core","3GB","128GB","5.5\"\ ","None"],
+	[9,7,"SONY Xperia Tablet S 9.4\"\ ",480,1.2,10,"Sony Tablet","Sony Tablet","Sony chip","8GB","128GB","9.4inch","None"],
+	[6,1,"DELL Desktop Computer OptiPlex 3050 (6Y9TM)",599.9,3,10,"Dell Desktop", "Dell Desktop","Intel Core i7","16GB","1TB HDD","None","NVIDIA GTX1050Ti"],
+	[6,2,"ASUS Desktop Computer GR8 II",779.9,3,10,"ASUS Desktop","Asus Desktop","Intel corei7","16GB","1TB HDD + 256GB SSD","None","NVIDIA GTX1060"],
+	[6,10,"MSI Desktop Computer Infinite X 8RD",1500,4,10,"MSI Desktop","MSI desktop","Intel corei7","32GB","1TB HDD + 256GB SSD","None","NVIDIA GTX1080Ti"],
+	[5,2,"ASUS VivoPC M32CD Desktop",849.9,3,10,"ASUS Workstation","Asus Workstation","intel corei7","32GB","1TB HDD","None","GTX1050"],
+	[5,1,"Dell Inspiron 5000 Series Desktop",999.9,8,10,"Dell Workstation","DELL Workstation","Intel corei7","64GB","2TB HDD","None","GTX1080Titan"],
+	[7,9,"Acer All-in-One Computer Aspire AZ3",569,2,10,"ACER All-in-One","Acer All-in-One","Intel corei7","8GB","128GB SSD","15,6inch","GTX1050"],
+	[7,1,"DELL All-in-One Computer 3011",283.99,3,10,"DELL All-in-One","DELL All-in-One","Intel corei7","8GB","256GB SSD","15,6inch","GTX1050"],
+	[8,9,"Acer Desktop Computer Predator G3",1053,8,5,"ACER Desktop computer","Acer","Intel","64GB","1TB HDD","None","GTX1080Titan"],
+	[8,1,"DELL Desktop Computer XPS 8920",1000,4,4,"DELL desktop","Desktop","Intel corei7","16GB","1TB HDD","None","GTX1050Ti"],
+	[11,6,"HP ElitePad 900",600,1,10,"HP Tablet", "HP Tablet","Intel","16GB","128GB SSD","8inch","NVIDIA"],
+	[12,6,"HP Pro Slate 10 EE",200,0.5,10,"HP Tablet","Other Tablet","Intel","16GB","128GB SSD","7,5inch","NONE"]
 ]
 
 user_list = [
