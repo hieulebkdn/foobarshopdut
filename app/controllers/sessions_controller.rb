@@ -14,12 +14,14 @@ class SessionsController < ApplicationController
     if admin && admin.authenticate(params[:session][:password])
       admin_log_in admin
       params[:session][:remember_me] == '1' ? remember(admin) : forget(admin)
-      redirect_to admin      
+      flash[:success] = "Welcome #{admin.name} !!!"
+      redirect_back_or root_url       
     elsif user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_back_or user
+      flash[:success] = "Welcome #{user.name} !!!"
+      redirect_back_or root_url
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render :new
