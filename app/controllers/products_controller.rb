@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :admin, only: [:index, :edit, :destroy, :import]
+  before_action :admin, only: [:index, :edit, :destroy, :import, :dell, :asus, :samsung, :blackberry, :apple, :hp, :sony, :oppo, :acer, :msi, :gigabyte]
   has_scope :price_min
   has_scope :price_max
 
