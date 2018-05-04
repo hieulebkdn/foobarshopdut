@@ -90,7 +90,7 @@
       </div> 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Home", root_path %></li>
           <!---------HIEU1-------->
           <li id="category">
             <a href="#">All category</a>
@@ -129,7 +129,7 @@
             </ul>
         </li>
 
-        <li><a href="/shops">Shop page</a></li>
+        <li class="active"><a href="/shops">Shop page</a></li>
         <li><a href="/carts/<%=current_cart.id%>">Cart</a></li>
         <li><a href="/checkouts">Checkout</a></li>
         <li><a href="#">Others</a></li>
