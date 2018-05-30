@@ -15,7 +15,7 @@
       <div>
        <input type="submit" value="Filter">
      </div>
-     <div 
+     <div>
       <h3 style="color:#5a88ca">Price</h3>
       <%= select_tag(:price_option, options_for_select([["All price",0],["0-1000$",1],["1000-2000$",2],["2000-3000$",3]], params[:price_option] ), class:"select") %>
     </div>
@@ -47,9 +47,7 @@
           <div class="product-carousel-price">
             <ins> $<%= product.price %> </ins> <del>$<%= format("%.2f", product.price * 1.2 ) %></del>
           </div>  
-          <div class="product-option-shop">
-            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
-          </div>                       
+                                 
         </div>
       </div>
       <% end %>

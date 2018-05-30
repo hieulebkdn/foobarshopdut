@@ -105,7 +105,6 @@ class OrdersController < ApplicationController
     def login_to_order
       unless logged_in? 
         store_location
-        flash[:danger] = "Only member can order"
         redirect_to login_url
       end
     end

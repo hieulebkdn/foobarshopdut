@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def single_brand   
   @brand = Brand.find(params[:brand_id])
-  @products = @brand.products.paginate(page: params[:page], :per_page => 4)
+  @products = @brand.products.paginate(page: params[:page], :per_page => 4).order('created_at asc')
   end
   
   
